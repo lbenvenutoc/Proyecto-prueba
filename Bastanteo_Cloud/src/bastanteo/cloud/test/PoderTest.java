@@ -9,7 +9,7 @@ import bastanteo.cloud.service.PoderService;
 
 public class PoderTest {
 	
-	@Test
+	//@Test
 	public void registrarPoder(){
 		
 		PoderService servicioPoder= new PoderService();
@@ -20,7 +20,7 @@ public class PoderTest {
 		
 		
 	}
-	//@Test
+	@Test
 	public void obtenerPoder(){
 		
 		PoderService servicioPoder= new PoderService();
