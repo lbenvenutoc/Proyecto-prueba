@@ -14,7 +14,7 @@ import bastanteo.cloud.service.PoderService;
 public class PoderTest {
 
 	// @Test
-	public void registrarPoder() {
+	public void registrarPoderTest() {
 
 		PoderService servicioPoder = new PoderService();
 		Poder objPoder = new Poder("P001", "AAAASSSS", 'A');
@@ -39,7 +39,7 @@ public class PoderTest {
 	}
 
 	@Test
-	public void verPoderesRepresentante() {
+	public void verificarPoderesTest() {
 
 		PoderService servicioPoder = new PoderService();
 		List resultado=servicioPoder.verificarPoder("45212365789", "442365245", "P001", 2500);
