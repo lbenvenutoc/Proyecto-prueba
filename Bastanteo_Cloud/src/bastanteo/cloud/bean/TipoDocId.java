@@ -21,7 +21,7 @@ public class TipoDocId implements java.io.Serializable {
 	private int CTipoDocId;
 	private String nombre;
 	private String abreviatura;
-	private Set representantes = new HashSet(0);
+	private Set<Representante> representantes = new HashSet<Representante>(0);
 
 	public TipoDocId() {
 	}
@@ -69,11 +69,11 @@ public class TipoDocId implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoDocId")
-	public Set getRepresentantes() {
+	public Set<Representante> getRepresentantes() {
 		return this.representantes;
 	}
 
-	public void setRepresentantes(Set representantes) {
+	public void setRepresentantes(Set<Representante> representantes) {
 		this.representantes = representantes;
 	}
 

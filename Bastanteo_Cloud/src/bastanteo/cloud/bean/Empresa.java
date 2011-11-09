@@ -29,8 +29,8 @@ public class Empresa implements java.io.Serializable {
 	private String razonSocial;
 	private Date fechaInicioOper;
 	private Short cantEmpleado;
-	private Set representantes = new HashSet(0);
-	private Set grupoBastanteos = new HashSet(0);
+	private Set<Representante> representantes = new HashSet<Representante>(0);
+	private Set<GrupoBastanteo> grupoBastanteos = new HashSet<GrupoBastanteo>(0);
 
 	public Empresa() {
 	}
@@ -114,20 +114,20 @@ public class Empresa implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa")
-	public Set getRepresentantes() {
+	public Set<Representante> getRepresentantes() {
 		return this.representantes;
 	}
 
-	public void setRepresentantes(Set representantes) {
+	public void setRepresentantes(Set<Representante> representantes) {
 		this.representantes = representantes;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa")
-	public Set getGrupoBastanteos() {
+	public Set<GrupoBastanteo> getGrupoBastanteos() {
 		return this.grupoBastanteos;
 	}
 
-	public void setGrupoBastanteos(Set grupoBastanteos) {
+	public void setGrupoBastanteos(Set<GrupoBastanteo> grupoBastanteos) {
 		this.grupoBastanteos = grupoBastanteos;
 	}
 

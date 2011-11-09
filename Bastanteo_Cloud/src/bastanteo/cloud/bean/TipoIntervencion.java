@@ -20,7 +20,7 @@ public class TipoIntervencion implements java.io.Serializable {
 
 	private int CTipoIntervencion;
 	private String nombre;
-	private Set bastanteos = new HashSet(0);
+	private Set<Bastanteo> bastanteos = new HashSet<Bastanteo>(0);
 
 	public TipoIntervencion() {
 	}
@@ -29,7 +29,7 @@ public class TipoIntervencion implements java.io.Serializable {
 		this.CTipoIntervencion = CTipoIntervencion;
 		this.nombre = nombre;
 	}
-
+	
 	public TipoIntervencion(int CTipoIntervencion, String nombre, Set bastanteos) {
 		this.CTipoIntervencion = CTipoIntervencion;
 		this.nombre = nombre;
@@ -56,11 +56,11 @@ public class TipoIntervencion implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoIntervencion")
-	public Set getBastanteos() {
+	public Set<Bastanteo>  getBastanteos() {
 		return this.bastanteos;
 	}
 
-	public void setBastanteos(Set bastanteos) {
+	public void setBastanteos(Set<Bastanteo>  bastanteos) {
 		this.bastanteos = bastanteos;
 	}
 

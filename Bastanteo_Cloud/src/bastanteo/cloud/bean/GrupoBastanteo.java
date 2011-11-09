@@ -26,9 +26,9 @@ public class GrupoBastanteo implements java.io.Serializable {
 	private Empresa empresa;
 	private String descripcion;
 	private String abreviatura;
-	private Set DBastanteoGrupos = new HashSet(0);
-	private Set bastanteos = new HashSet(0);
-	private Set representantes = new HashSet(0);
+	//private Set DBastanteoGrupos = new HashSet(0);
+	private Set<Bastanteo> bastanteos = new HashSet<Bastanteo>(0);
+	private Set<Representante> representantes = new HashSet<Representante>(0);
 
 	public GrupoBastanteo() {
 	}
@@ -40,7 +40,7 @@ public class GrupoBastanteo implements java.io.Serializable {
 		this.descripcion = descripcion;
 		this.abreviatura = abreviatura;
 	}
-
+/*
 	public GrupoBastanteo(GrupoBastanteoId id, Empresa empresa,
 			String descripcion, String abreviatura, Set DBastanteoGrupos,
 			Set bastanteos, Set representantes) {
@@ -52,7 +52,7 @@ public class GrupoBastanteo implements java.io.Serializable {
 		this.bastanteos = bastanteos;
 		this.representantes = representantes;
 	}
-
+*/
 	@EmbeddedId
 	@AttributeOverrides( {
 			@AttributeOverride(name = "CEmpresa", column = @Column(name = "C_EMPRESA", nullable = false, length = 8)),
@@ -92,7 +92,7 @@ public class GrupoBastanteo implements java.io.Serializable {
 	public void setAbreviatura(String abreviatura) {
 		this.abreviatura = abreviatura;
 	}
-
+/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "grupoBastanteo")
 	public Set getDBastanteoGrupos() {
 		return this.DBastanteoGrupos;
@@ -101,22 +101,22 @@ public class GrupoBastanteo implements java.io.Serializable {
 	public void setDBastanteoGrupos(Set DBastanteoGrupos) {
 		this.DBastanteoGrupos = DBastanteoGrupos;
 	}
-
+*/
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "grupoBastanteo")
-	public Set getBastanteos() {
+	public Set<Bastanteo> getBastanteos() {
 		return this.bastanteos;
 	}
 
-	public void setBastanteos(Set bastanteos) {
+	public void setBastanteos(Set<Bastanteo> bastanteos) {
 		this.bastanteos = bastanteos;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "grupoBastanteo")
-	public Set getRepresentantes() {
+	public Set<Representante> getRepresentantes() {
 		return this.representantes;
 	}
 
-	public void setRepresentantes(Set representantes) {
+	public void setRepresentantes(Set<Representante> representantes) {
 		this.representantes = representantes;
 	}
 

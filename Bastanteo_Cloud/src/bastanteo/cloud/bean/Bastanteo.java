@@ -32,7 +32,7 @@ public class Bastanteo implements java.io.Serializable {
 	private long importeMax;
 	private Date fechaIni;
 	private Date fechaFin;
-	private DBastanteoGrupo DBastanteoGrupo;
+	//private DBastanteoGrupo DBastanteoGrupo;
 
 	public Bastanteo() {
 	}
@@ -49,7 +49,7 @@ public class Bastanteo implements java.io.Serializable {
 		this.fechaIni = fechaIni;
 		this.fechaFin = fechaFin;
 	}
-
+/*
 	public Bastanteo(BastanteoId id, Poder poder,
 			GrupoBastanteo grupoBastanteo, TipoIntervencion tipoIntervencion,
 			long importeMin, long importeMax, Date fechaIni, Date fechaFin,
@@ -64,7 +64,7 @@ public class Bastanteo implements java.io.Serializable {
 		this.fechaFin = fechaFin;
 		this.DBastanteoGrupo = DBastanteoGrupo;
 	}
-
+*/
 	@EmbeddedId
 	@AttributeOverrides( {
 			@AttributeOverride(name = "CEmpresa", column = @Column(name = "C_EMPRESA", nullable = false, length = 8)),
@@ -147,7 +147,7 @@ public class Bastanteo implements java.io.Serializable {
 	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
 	}
-
+/*
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "bastanteo")
 	public DBastanteoGrupo getDBastanteoGrupo() {
 		return this.DBastanteoGrupo;
@@ -156,5 +156,5 @@ public class Bastanteo implements java.io.Serializable {
 	public void setDBastanteoGrupo(DBastanteoGrupo DBastanteoGrupo) {
 		this.DBastanteoGrupo = DBastanteoGrupo;
 	}
-
+*/
 }

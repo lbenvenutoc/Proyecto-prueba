@@ -21,7 +21,7 @@ public class TipoEmpresa implements java.io.Serializable {
 	private int CTipoEmpresa;
 	private String nombre;
 	private String abreviatura;
-	private Set empresas = new HashSet(0);
+	private Set<Empresa> empresas = new HashSet<Empresa>(0);
 
 	public TipoEmpresa() {
 	}
@@ -69,11 +69,11 @@ public class TipoEmpresa implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmpresa")
-	public Set getEmpresas() {
+	public Set<Empresa> getEmpresas() {
 		return this.empresas;
 	}
 
-	public void setEmpresas(Set empresas) {
+	public void setEmpresas(Set<Empresa> empresas) {
 		this.empresas = empresas;
 	}
 
