@@ -43,7 +43,7 @@ public class PoderTest {
 
 		PoderService servicioPoder = new PoderService();
 		//String resultado=servicioPoder.verificarPoder("45212365789", "442365245", "P001", 2500);
-		String resultado=servicioPoder.verificarPoder("45212365789", "442365245", "P001", 4000);
+		String resultado=servicioPoder.verificarPoder("45212365789", "442365245", "P001", 2500);
 		/*
 		Map objH = (Map) resultado.get(0);
 		double importeMin=Double.parseDouble(objH.get("IMPORTE_MIN").toString());
