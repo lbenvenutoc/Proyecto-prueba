@@ -9,7 +9,7 @@ public interface PoderDao {
 	
 	public void registrarPoder(Poder objPoder);
 	public Poder obtenerPoder(String codigo);
-	public List verificarPoder(String ruc, String dni,String codigoPoder,double importe);
+	public String verificarPoder(String ruc, String dni,String codigoPoder,double importe);
 	
 
 }

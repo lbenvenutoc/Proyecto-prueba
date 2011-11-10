@@ -17,7 +17,7 @@ public class PoderService {
 	public Poder obtenerPoder(String codigo) {
 		return dao.obtenerPoder(codigo);
 	}
-	public List verificarPoder(String ruc, String dni, String codigoPoder,
+	public String verificarPoder(String ruc, String dni, String codigoPoder,
 			double importe) {
 		return dao.verificarPoder(ruc, dni, codigoPoder, importe);
 	}
