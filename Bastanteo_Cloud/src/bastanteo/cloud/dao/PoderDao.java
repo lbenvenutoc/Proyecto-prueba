@@ -1,6 +1,6 @@
 package bastanteo.cloud.dao;
 
-import java.util.List;
+
 
 import bastanteo.cloud.bean.Poder;
 

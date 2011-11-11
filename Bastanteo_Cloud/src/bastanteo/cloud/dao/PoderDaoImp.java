@@ -10,7 +10,6 @@ import org.hibernate.Transaction;
 import org.hibernate.transform.AliasToEntityMapResultTransformer;
 
 import bastanteo.cloud.bean.Poder;
-import bastanteo.cloud.bean.Representante;
 import bastanteo.cloud.util.HibernateUtil;
 import bastanteo.cloud.util.Utilitario;
 
@@ -85,10 +84,10 @@ public class PoderDaoImp implements PoderDao {
 
 			lstResultado = query.list();
 
-			Map objResultado = (Map) lstResultado.get(0);
+		
 
 			if (lstResultado.size() > 0) {
-
+				Map objResultado = (Map) lstResultado.get(0);
 				if (objUtilitario.convertirCadenaPorFecha(
 						objResultado.get("FECHA_INI").toString()).compareTo(
 						objUtilitario.convertirCadenaPorFecha(objUtilitario
@@ -146,10 +145,10 @@ public class PoderDaoImp implements PoderDao {
 
 				}
 
-			} else {
+			} /*else {
 				mensaje += "El representante no tiene asignado el poder#";
 			}
-
+			*/
 			tx.commit();
 			return mensaje;
 
