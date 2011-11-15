@@ -22,27 +22,37 @@ public class Usuario implements java.io.Serializable {
 	private String clave;
 	private String login;
 	private String nombre;
+	private String paterno;
+	private String materno;
+	private String dni;
 	private Character flagActivo;
 
 	public Usuario() {
 	}
 
 	public Usuario(int CUsuario, Perfil perfil, String clave, String login,
-			String nombre) {
+			String nombre, String paterno, String materno, String dni) {
 		this.CUsuario = CUsuario;
 		this.perfil = perfil;
 		this.clave = clave;
 		this.login = login;
 		this.nombre = nombre;
+		this.paterno=paterno;
+		this.materno=materno;
+		this.dni=dni;
+		
 	}
 
 	public Usuario(int CUsuario, Perfil perfil, String clave, String login,
-			String nombre, Character flagActivo) {
+			String nombre,String paterno, String materno, String dni, Character flagActivo) {
 		this.CUsuario = CUsuario;
 		this.perfil = perfil;
 		this.clave = clave;
 		this.login = login;
 		this.nombre = nombre;
+		this.paterno=paterno;
+		this.materno=materno;
+		this.dni=dni;
 		this.flagActivo = flagActivo;
 	}
 
@@ -84,7 +94,7 @@ public class Usuario implements java.io.Serializable {
 		this.login = login;
 	}
 
-	@Column(name = "NOMBRE", nullable = false, length = 80)
+	@Column(name = "NOMBRE", nullable = false, length = 40)
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -101,5 +111,34 @@ public class Usuario implements java.io.Serializable {
 	public void setFlagActivo(Character flagActivo) {
 		this.flagActivo = flagActivo;
 	}
+	
+	@Column(name = "PATERNO", nullable = false, length = 45)
+	public String getPaterno() {
+		return paterno;
+	}
+
+	public void setPaterno(String paterno) {
+		this.paterno = paterno;
+	}
+	
+	@Column(name = "MATERNO", nullable = false, length = 45)
+	public String getMaterno() {
+		return materno;
+	}
+
+	public void setMaterno(String materno) {
+		this.materno = materno;
+	}
+	
+	@Column(name = "DNI", nullable = false, length = 8)
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+	
+	
 
 }
