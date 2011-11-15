@@ -10,5 +10,10 @@ public class UsuarioService {
 	public void Controlarusuario(Usuario objusuario) {
 		dao.controlarUsuario(objusuario);
 	}
+
+	public int ControlarUsuario(Usuario objusuario) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
