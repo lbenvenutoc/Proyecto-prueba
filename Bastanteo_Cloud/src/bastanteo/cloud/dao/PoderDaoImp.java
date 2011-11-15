@@ -15,20 +15,22 @@ import bastanteo.cloud.util.Utilitario;
 
 public class PoderDaoImp implements PoderDao {
 
-	public void registrarPoder(Poder objPoder) {
-
+	public int registrarPoder(Poder objPoder) {
+		int indicador=0;
 		Session session = HibernateUtil.getSessionFactory();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
 			session.save(objPoder);
 			tx.commit();
+			indicador=1;
 		} catch (Exception ex) {
 			tx.rollback();
+			indicador=0;
 		} finally {
 			session.close();
 		}
-
+		return indicador;
 	}
 
 	public Poder obtenerPoder(String codigo) {

@@ -9,17 +9,40 @@ import bastanteo.cloud.service.PoderService;
 
 public class PoderTest {
 
-	// @Test
+	//@Test
 	public void registrarPoderTest() {
 
 		PoderService servicioPoder = new PoderService();
-		Poder objPoder = new Poder("CHCO", "COBRO DE CHEQUE", 'A');
-		servicioPoder.registrarPoder(objPoder);
-		Poder objPoderObtenido = servicioPoder.obtenerPoder("CHCO");
-		System.out.println("CODIGO DE PODER: " + objPoderObtenido.getCPoder());
-		System.out.println("NOMBRE DE PODER: " + objPoderObtenido.getNombre());
-		Assert.assertNotNull(objPoderObtenido);
+		int indicador = 0;
 
+		Poder objPoder = new Poder("CHCO", "COBRO DE CHEQUE", 'A');
+		Poder objPoderObtenido = servicioPoder.obtenerPoder("CHCO");
+
+		if (objPoderObtenido.equals(null)) {
+			System.out.println("YA EXISTE PODER CON CODIGO "
+					+ objPoder.getCPoder());
+		} else {
+
+			if (objPoder.getCPoder() == null || objPoder.getNombre() == null
+					|| objPoder.getTipoPoder() == ' ') {
+				System.out.println("FALTAN INGRESAR DATOS");
+			} else {
+
+				indicador = servicioPoder.registrarPoder(objPoder);
+				if (indicador == 1) {
+					System.out.println("OK");
+					
+				} else {
+					System.out.println("ERROR AL INGRESAR DATOS");
+					
+				}
+			}
+
+		
+		}
+		
+		Assert.assertEquals(1, indicador);
+		
 	}
 
 	@Test

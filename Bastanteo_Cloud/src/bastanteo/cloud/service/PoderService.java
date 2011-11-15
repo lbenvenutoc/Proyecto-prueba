@@ -11,8 +11,9 @@ public class PoderService {
 	
 	private PoderDao dao= new PoderDaoImp();
 	
-	public void registrarPoder(Poder objPoder) {
-		dao.registrarPoder(objPoder);
+	public int registrarPoder(Poder objPoder) {
+		
+		return dao.registrarPoder(objPoder);
 	}
 	public Poder obtenerPoder(String codigo) {
 		return dao.obtenerPoder(codigo);
