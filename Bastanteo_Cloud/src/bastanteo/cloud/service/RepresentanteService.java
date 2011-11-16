@@ -10,8 +10,8 @@ import bastanteo.cloud.dao.RepresentanteDaoImp;
 		
 		private RepresentanteDao dao= new RepresentanteDaoImp();
 		
-		public void inscribirRepresentante(Representante objRepresentante) {
-			dao.inscribirRepresentante(objRepresentante);
+		public int inscribirRepresentante(Representante objRepresentante) {
+			return dao.inscribirRepresentante(objRepresentante);
 		}
 		
 		public int modificarRepresentantes(Representante objRepresentante) {
@@ -22,9 +22,12 @@ import bastanteo.cloud.dao.RepresentanteDaoImp;
 			return dao.obtenerRepresentantes(objRepresentante);
 		}
 		
-		public List obtenerRepresentantesPorDni(
+		public boolean existeDniRepresentante(
 				Representante objRepresentante) {
-			return dao.obtenerRepresentantesPorDni(objRepresentante);
+			return dao.existeDniRepresentante(objRepresentante);
+		}
+		public boolean perteneceEmpresaRepresentante(Representante objRepresentante) {
+			return dao.perteneceEmpresaRepresentante(objRepresentante);
 		}
 		
 	}
