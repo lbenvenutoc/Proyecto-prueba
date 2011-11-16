@@ -17,7 +17,7 @@ import bastanteo.cloud.service.TipoDocIdService;
 
 public class RepresentanteTest {
 
-	//@Test
+	@Test
 	public void inscribirRepresentanteTest() {
 		
 		//Llamada a servivios que seran utilizados
@@ -29,7 +29,7 @@ public class RepresentanteTest {
 		//Inicializo la llave primaria compuesta de Representante
 		RepresentanteId idRepresentante = new RepresentanteId();
 		idRepresentante.setCEmpresa("1");
-		idRepresentante.setCRepresentante(2);
+		idRepresentante.setCRepresentante(3);
 		
 		//Se obtiene el grupo de bastanteo que se asignará al representante
 		GrupoBastanteo objGrupoBastanteo = new GrupoBastanteo();
@@ -48,15 +48,21 @@ public class RepresentanteTest {
 		Empresa objEmpresa = new Empresa();
 		objEmpresa.setCEmpresa("1");
 		Empresa objEmpresaObt = servicioEmpresa.obtenerEmpresa(objEmpresa);
-
+		
+		
 		Representante objRepresentante = new Representante(idRepresentante,
 				objTipDocIdObt, objEmpresaObt, objGrupoBastanteoObt,
-				"PRINCIPE", "ASCA", "JENNY", "1074337", "SUPERVISOR");
-		servicioRepresentante.inscribirRepresentante(objRepresentante);
+				"PRINCIPE", "ASCA", "JENNY", "10743370", "SUPERVISOR");
+		if(servicioRepresentante.obtenerRepresentantesPorDni(objRepresentante).size()==0){
+			servicioRepresentante.inscribirRepresentante(objRepresentante);
+		}else{
+			System.out.println("NO SE PUEDE REGISTRAR PUESTO QUE YA EXISTE DICHO DNI");
+		}
+		
 
 	}
 	
-	@Test
+	//@Test
 	public void modificarRepresentantesTest() {
 		
 		int resultado=0;
