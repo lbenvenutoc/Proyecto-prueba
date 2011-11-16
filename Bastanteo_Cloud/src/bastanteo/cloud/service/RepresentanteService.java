@@ -12,6 +12,14 @@ package bastanteo.cloud.service;
 			dao.inscribirRepresentante(objRepresentante);
 		}
 		
+		public int modificarRepresentantes(Representante objRepresentante) {
+			return dao.modificarRepresentantes(objRepresentante);
+		}
+		
+		public Representante obtenerRepresentantes(Representante objRepresentante) {
+			return dao.obtenerRepresentantes(objRepresentante);
+		}
+		
 	}
 
 	
