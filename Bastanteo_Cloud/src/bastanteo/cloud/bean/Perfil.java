@@ -21,8 +21,8 @@ public class Perfil implements java.io.Serializable {
 	private int CPerfil;
 	private String nombre;
 	private Character flagActivo;
-	private Set usuarios = new HashSet(0);
-	private Set accesos = new HashSet(0);
+	//private Set usuarios = new HashSet(0);
+	//private Set accesos = new HashSet(0);
 
 	public Perfil() {
 	}
@@ -31,7 +31,7 @@ public class Perfil implements java.io.Serializable {
 		this.CPerfil = CPerfil;
 		this.nombre = nombre;
 	}
-
+/*
 	public Perfil(int CPerfil, String nombre, Character flagActivo,
 			Set usuarios, Set accesos) {
 		this.CPerfil = CPerfil;
@@ -40,7 +40,8 @@ public class Perfil implements java.io.Serializable {
 		this.usuarios = usuarios;
 		this.accesos = accesos;
 	}
-
+*/
+	
 	@Id
 	@Column(name = "C_PERFIL", unique = true, nullable = false)
 	public int getCPerfil() {
@@ -68,7 +69,7 @@ public class Perfil implements java.io.Serializable {
 	public void setFlagActivo(Character flagActivo) {
 		this.flagActivo = flagActivo;
 	}
-
+/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "perfil")
 	public Set getUsuarios() {
 		return this.usuarios;
@@ -77,7 +78,9 @@ public class Perfil implements java.io.Serializable {
 	public void setUsuarios(Set usuarios) {
 		this.usuarios = usuarios;
 	}
-
+*/
+	
+	/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "perfil")
 	public Set getAccesos() {
 		return this.accesos;
@@ -86,5 +89,7 @@ public class Perfil implements java.io.Serializable {
 	public void setAccesos(Set accesos) {
 		this.accesos = accesos;
 	}
+	
+	*/
 
 }
