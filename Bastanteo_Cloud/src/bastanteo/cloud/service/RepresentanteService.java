@@ -1,8 +1,10 @@
 package bastanteo.cloud.service;
 
-	import bastanteo.cloud.bean.Representante;
+	import java.util.List;
+
+import bastanteo.cloud.bean.Representante;
 	import bastanteo.cloud.dao.RepresentanteDao;
-	import bastanteo.cloud.dao.RepresentanteDaoImp;
+import bastanteo.cloud.dao.RepresentanteDaoImp;
 
 	public class RepresentanteService {
 		
@@ -18,6 +20,11 @@ package bastanteo.cloud.service;
 		
 		public Representante obtenerRepresentantes(Representante objRepresentante) {
 			return dao.obtenerRepresentantes(objRepresentante);
+		}
+		
+		public List obtenerRepresentantesPorDni(
+				Representante objRepresentante) {
+			return dao.obtenerRepresentantesPorDni(objRepresentante);
 		}
 		
 	}
