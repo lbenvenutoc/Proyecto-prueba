@@ -38,7 +38,7 @@ public class UsuarioDaoImp  implements UsuarioDao{
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.save(objusuario);
+			session.update(objusuario);
 			tx.commit();
 			retorno = 1;
 		} catch (Exception ex) {
@@ -55,6 +55,14 @@ public class UsuarioDaoImp  implements UsuarioDao{
 	public Acceso obtenerAcceso(AccesoId objAccesoId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Usuario obtenerUsuario(Usuario objUsuario) {
+		Session session = HibernateUtil.getSessionFactory();
+		Usuario objUsuarioObt = null;
+		objUsuarioObt = (Usuario) session.load(Usuario.class, objUsuario.getCUsuario());
+		return objUsuarioObt;
 	}
 	
 }
