@@ -1,21 +1,81 @@
 package bastanteo.cloud.test;
-	import junit.framework.Assert;
 
-	import org.junit.Test;
+import junit.framework.Assert;
 
-	import bastanteo.cloud.bean.Representante;
-	import bastanteo.cloud.service.RepresentanteService;
+import org.junit.Test;
 
-	public class RepresentanteTest {
+import bastanteo.cloud.bean.Empresa;
+import bastanteo.cloud.bean.GrupoBastanteo;
+import bastanteo.cloud.bean.GrupoBastanteoId;
+import bastanteo.cloud.bean.Representante;
+import bastanteo.cloud.bean.RepresentanteId;
+import bastanteo.cloud.bean.TipoDocId;
+import bastanteo.cloud.service.EmpresaService;
+import bastanteo.cloud.service.GrupoBastanteoService;
+import bastanteo.cloud.service.RepresentanteService;
+import bastanteo.cloud.service.TipoDocIdService;
+
+public class RepresentanteTest {
+
+	//@Test
+	public void inscribirRepresentanteTest() {
+		
+		//Llamada a servivios que seran utilizados
+		RepresentanteService servicioRepresentante = new RepresentanteService();
+		GrupoBastanteoService servicioGrupoBastanteo = new GrupoBastanteoService();
+		TipoDocIdService servicioTipoDocId = new TipoDocIdService();
+		EmpresaService servicioEmpresa = new EmpresaService();
+		
+		//Inicializo la llave primaria compuesta de Representante
+		RepresentanteId idRepresentante = new RepresentanteId();
+		idRepresentante.setCEmpresa("1");
+		idRepresentante.setCRepresentante(2);
+		
+		//Se obtiene el grupo de bastanteo que se asignará al representante
+		GrupoBastanteo objGrupoBastanteo = new GrupoBastanteo();
+		GrupoBastanteoId idGrupoBastanteo = new GrupoBastanteoId("1", 1);
+		objGrupoBastanteo.setId(idGrupoBastanteo);
+		GrupoBastanteo objGrupoBastanteoObt = servicioGrupoBastanteo
+				.obtenerGrupoBastanteo(objGrupoBastanteo);
+		
+		//Se obtiene el tipo de documento de identidad que se asignará al representante
+		TipoDocId objTipoDocId = new TipoDocId();
+		objTipoDocId.setCTipoDocId(1);
+		TipoDocId objTipDocIdObt = servicioTipoDocId
+				.obtenerTipoDocId(objTipoDocId);
+		
+		//Se obtiene la empresa que se asignará al representante
+		Empresa objEmpresa = new Empresa();
+		objEmpresa.setCEmpresa("1");
+		Empresa objEmpresaObt = servicioEmpresa.obtenerEmpresa(objEmpresa);
+
+		Representante objRepresentante = new Representante(idRepresentante,
+				objTipDocIdObt, objEmpresaObt, objGrupoBastanteoObt,
+				"PRINCIPE", "ASCA", "JENNY", "1074337", "SUPERVISOR");
+		servicioRepresentante.inscribirRepresentante(objRepresentante);
+
+	}
 	
-		 @Test
-		public void inscribirRepresentanteTest() {
-
-			RepresentanteService servicioRepresentante = new RepresentanteService();
-			Representante objRepresentante = new Representante("100", "001", "PRINCIPE", "ASCA", "JENNY","DNI","1074337","ADMINISTRADOR","100","1");
-			servicioRepresentante.inscribirRepresentante(objRepresentante);
-			
-		 }
+	@Test
+	public void modificarRepresentantesTest() {
+		
+		int resultado=0;
+		
+		RepresentanteService servicioRepresentante = new RepresentanteService();
+		Representante objRepresentante = new Representante();
+		
+		RepresentanteId idRepresentante = new RepresentanteId();
+		idRepresentante.setCEmpresa("1");
+		idRepresentante.setCRepresentante(2);
+		objRepresentante.setId(idRepresentante);
+		
+		
+		Representante objRepresentanteObt=servicioRepresentante.obtenerRepresentantes(objRepresentante);
+		objRepresentanteObt.setApePaterno("MOLINA");
+		
+		resultado=servicioRepresentante.modificarRepresentantes(objRepresentanteObt);
+		
+		Assert.assertEquals(1, resultado);
+		
+	}
 }
-
-		 
