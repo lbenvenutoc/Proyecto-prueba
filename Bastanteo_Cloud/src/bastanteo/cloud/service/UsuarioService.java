@@ -13,7 +13,13 @@ public class UsuarioService {
 
 	public int ControlarUsuario(Usuario objusuario) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.controlarUsuario(objusuario);
+	}
+	public int modificarUsuario (Usuario objusuario){
+		return dao.modificarUsuario(objusuario);
+	}
+	public Usuario obtenerUsuario(Usuario objUsuario) {
+		return dao.obtenerUsuario(objUsuario);
 	}
 	
 }
