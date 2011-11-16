@@ -127,10 +127,11 @@ public class RepresentanteDaoImp implements RepresentanteDao{
 		try {
 
 			tx = session.beginTransaction();
-			select = "select r.* from representante r where r.c_empresa=:codigoEmpresa";
+			select = "select e.* from representante r inner join empresa e on e.c_empresa=r.c_empresa_fk where r.c_tipo_doc_id=:tipDocId and r.num_doc_id=:dni";
 
 			query = session.createSQLQuery(select);
-			query.setString("codigoEmpresa", objRepresentante.getEmpresa().getCEmpresa());
+			query.setInteger("tipDocId", objRepresentante.getTipoDocId().getCTipoDocId());
+			query.setString("dni", objRepresentante.getNumDocId());
 
 			lstResultado = query.list();
 
