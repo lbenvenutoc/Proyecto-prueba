@@ -6,11 +6,11 @@ import bastanteo.cloud.bean.Representante;
 
  	public interface RepresentanteDao {
 		
-		public void inscribirRepresentante(Representante objRepresentante);
+		public int inscribirRepresentante(Representante objRepresentante);
 		public int modificarRepresentantes(Representante objRepresentante);
 		public Representante obtenerRepresentantes(Representante objRepresentante);
-		public List obtenerRepresentantesPorDni(Representante objRepresentante);
-		
+		public boolean existeDniRepresentante(Representante objRepresentante);
+		public boolean perteneceEmpresaRepresentante(Representante objRepresentante);
 }
 
  	
