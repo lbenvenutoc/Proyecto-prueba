@@ -19,69 +19,91 @@ public class RepresentanteTest {
 
 	@Test
 	public void inscribirRepresentanteTest() {
-		
-		//Llamada a servivios que seran utilizados
+		int resultado=0;
+		// Llamada a servivios que seran utilizados
 		RepresentanteService servicioRepresentante = new RepresentanteService();
 		GrupoBastanteoService servicioGrupoBastanteo = new GrupoBastanteoService();
 		TipoDocIdService servicioTipoDocId = new TipoDocIdService();
 		EmpresaService servicioEmpresa = new EmpresaService();
-		
-		//Inicializo la llave primaria compuesta de Representante
+
+		// Inicializo la llave primaria compuesta de Representante
 		RepresentanteId idRepresentante = new RepresentanteId();
 		idRepresentante.setCEmpresa("1");
 		idRepresentante.setCRepresentante(3);
-		
-		//Se obtiene el grupo de bastanteo que se asignará al representante
+
+		// Se obtiene el grupo de bastanteo que se asignará al representante
 		GrupoBastanteo objGrupoBastanteo = new GrupoBastanteo();
 		GrupoBastanteoId idGrupoBastanteo = new GrupoBastanteoId("1", 1);
 		objGrupoBastanteo.setId(idGrupoBastanteo);
 		GrupoBastanteo objGrupoBastanteoObt = servicioGrupoBastanteo
 				.obtenerGrupoBastanteo(objGrupoBastanteo);
-		
-		//Se obtiene el tipo de documento de identidad que se asignará al representante
+
+		// Se obtiene el tipo de documento de identidad que se asignará al
+		// representante
 		TipoDocId objTipoDocId = new TipoDocId();
 		objTipoDocId.setCTipoDocId(1);
 		TipoDocId objTipDocIdObt = servicioTipoDocId
 				.obtenerTipoDocId(objTipoDocId);
-		
-		//Se obtiene la empresa que se asignará al representante
+
+		// Se obtiene la empresa que se asignará al representante
 		Empresa objEmpresa = new Empresa();
 		objEmpresa.setCEmpresa("1");
 		Empresa objEmpresaObt = servicioEmpresa.obtenerEmpresa(objEmpresa);
-		
-		
+
 		Representante objRepresentante = new Representante(idRepresentante,
 				objTipDocIdObt, objEmpresaObt, objGrupoBastanteoObt,
 				"PRINCIPE", "ASCA", "JENNY", "10743370", "SUPERVISOR");
-		if(servicioRepresentante.obtenerRepresentantesPorDni(objRepresentante).size()==0){
-			servicioRepresentante.inscribirRepresentante(objRepresentante);
-		}else{
-			System.out.println("NO SE PUEDE REGISTRAR PUESTO QUE YA EXISTE DICHO DNI");
+
+		if (objRepresentante.getTipoDocId() == null
+				|| objRepresentante.getEmpresa() == null
+				|| objRepresentante.getGrupoBastanteo() == null
+				|| objRepresentante.getApePaterno() == null
+				|| objRepresentante.getApeMaterno() == null
+				|| objRepresentante.getNombre() == null
+				|| objRepresentante.getNumDocId() == null
+				|| objRepresentante.getCargoEmpresa() == null) {
+
+			System.out.println("FALTAN INGRESAR DATOS");
+		} else if (servicioRepresentante.perteneceEmpresaRepresentante(objRepresentante) == true) {
+
+			System.out
+					.println("ESTE REPRESENTANTE YA PERTENECE A DICHA EMPRESA");
+
+		} else {
+			resultado=servicioRepresentante.inscribirRepresentante(objRepresentante);
+			Assert.assertEquals(1, resultado);
+			System.out.println("DATOS INGRESADOS CORRECTAMETE");
 		}
-		
 
 	}
-	
-	//@Test
+
+	// @Test
 	public void modificarRepresentantesTest() {
-		
-		int resultado=0;
-		
+
+		int resultado = 0;
+
 		RepresentanteService servicioRepresentante = new RepresentanteService();
 		Representante objRepresentante = new Representante();
-		
+
 		RepresentanteId idRepresentante = new RepresentanteId();
 		idRepresentante.setCEmpresa("1");
 		idRepresentante.setCRepresentante(2);
 		objRepresentante.setId(idRepresentante);
-		
-		
-		Representante objRepresentanteObt=servicioRepresentante.obtenerRepresentantes(objRepresentante);
+
+		Representante objRepresentanteObt = servicioRepresentante
+				.obtenerRepresentantes(objRepresentante);
 		objRepresentanteObt.setApePaterno("MOLINA");
-		
-		resultado=servicioRepresentante.modificarRepresentantes(objRepresentanteObt);
-		
-		Assert.assertEquals(1, resultado);
-		
+
+		if (servicioRepresentante.existeDniRepresentante(
+				objRepresentanteObt)==false) {
+			resultado = servicioRepresentante
+					.modificarRepresentantes(objRepresentanteObt);
+			Assert.assertEquals(1, resultado);
+			System.out.println("MODIFICACION CORRECTA");
+		} else {
+			System.out
+					.println("NO SE PUEDE MODIFICAR DICHO DNI PUESTO QUE YA EXISTE EN LA BASE DE DATOS");
+		}
+
 	}
 }
