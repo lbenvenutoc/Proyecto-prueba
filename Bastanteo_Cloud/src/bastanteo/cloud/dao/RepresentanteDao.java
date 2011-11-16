@@ -7,3 +7,5 @@ import bastanteo.cloud.bean.Representante;
 		public void inscribirRepresentante(Representante objRepresentante);
 	
 }
+
+ 	
