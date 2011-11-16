@@ -12,6 +12,7 @@ public class RepresentanteDaoImp implements RepresentanteDao{
 
 		Session session = HibernateUtil.getSessionFactory();
 		Transaction tx = null;
+		
 		try {
 			tx = session.beginTransaction();
 			session.save(objRepresentante);
