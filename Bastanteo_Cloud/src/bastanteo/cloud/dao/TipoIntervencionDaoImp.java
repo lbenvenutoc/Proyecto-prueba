@@ -62,7 +62,7 @@ public class TipoIntervencionDaoImp implements TipoIntervencionDao {
 		
 		Session session = HibernateUtil.getSessionFactory();
 		TipoIntervencion objTipoIntervencion = null;
-		objTipoIntervencion = (TipoIntervencion) session.load(TipoIntervencion.class, codigo);
+		objTipoIntervencion = (TipoIntervencion) session.get(TipoIntervencion.class, codigo);
 
 		return objTipoIntervencion;
 	}

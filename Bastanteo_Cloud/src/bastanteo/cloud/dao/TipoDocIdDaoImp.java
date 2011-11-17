@@ -11,7 +11,8 @@ public class TipoDocIdDaoImp implements TipoDocIdDao {
 	public TipoDocId obtenerTipoDocId(TipoDocId objTipoDocId) {
 		
 		Session session = HibernateUtil.getSessionFactory();
-		TipoDocId objTipoDocIdObt=(TipoDocId)session.load(TipoDocId.class, objTipoDocId.getCTipoDocId());
+		TipoDocId objTipoDocIdObt=null;
+		objTipoDocIdObt=(TipoDocId)session.get(TipoDocId.class, objTipoDocId.getCTipoDocId());
 		
 		return objTipoDocIdObt;
 	}

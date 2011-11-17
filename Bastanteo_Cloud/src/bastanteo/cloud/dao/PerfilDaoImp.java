@@ -12,7 +12,7 @@ public class PerfilDaoImp implements PerfilDao {
 	public Perfil obtenerPerfil(Perfil objPerfil) {
 		Session session = HibernateUtil.getSessionFactory();
 		Perfil objPerfilObt = null;
-		objPerfilObt = (Perfil) session.load(Perfil.class, objPerfil.getCPerfil());
+		objPerfilObt = (Perfil) session.get(Perfil.class, objPerfil.getCPerfil());
 		return objPerfilObt;
 	}
 

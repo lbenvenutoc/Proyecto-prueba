@@ -11,7 +11,7 @@ public class EmpresaDaoImp implements EmpresaDao {
 	public Empresa obtenerEmpresa(Empresa objEmpresa) {
 		Session sesion=HibernateUtil.getSessionFactory();
 		Empresa objEmpresaObt=null;
-		objEmpresaObt=(Empresa)sesion.load(Empresa.class, objEmpresa.getCEmpresa());
+		objEmpresaObt=(Empresa)sesion.get(Empresa.class, objEmpresa.getCEmpresa());
 		return objEmpresaObt;
 	}
 
