@@ -40,6 +40,7 @@ public class PoderDaoImp implements PoderDao {
 		objPoderObt = (Poder) session.get(Poder.class, objPoder.getCPoder());
 
 		return objPoderObt;
+		
 
 	}
 
