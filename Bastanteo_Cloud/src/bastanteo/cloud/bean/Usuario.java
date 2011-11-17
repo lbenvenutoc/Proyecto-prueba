@@ -26,12 +26,13 @@ public class Usuario implements java.io.Serializable {
 	private String materno;
 	private String dni;
 	private char flagActivo;
+	private String claveconfirm;
 
 	public Usuario() {
 	}
 
 	public Usuario(int CUsuario, Perfil perfil, String clave, String login,
-			String nombre, String paterno, String materno, String dni) {
+			String nombre, String paterno, String materno, String dni, String claveconfirm) {
 		this.CUsuario = CUsuario;
 		this.perfil = perfil;
 		this.clave = clave;
@@ -40,11 +41,12 @@ public class Usuario implements java.io.Serializable {
 		this.paterno=paterno;
 		this.materno=materno;
 		this.dni=dni;
+		this.claveconfirm=claveconfirm;
 		
 	}
 
 	public Usuario(int CUsuario, Perfil perfil, String clave, String login,
-			String nombre,String paterno, String materno, String dni, char flagActivo) {
+			String nombre,String paterno, String materno, String dni, char flagActivo, String claveconfirm) {
 		this.CUsuario = CUsuario;
 		this.perfil = perfil;
 		this.clave = clave;
@@ -54,6 +56,7 @@ public class Usuario implements java.io.Serializable {
 		this.materno=materno;
 		this.dni=dni;
 		this.flagActivo = flagActivo;
+		this.claveconfirm=claveconfirm;
 	}
 
 	@Id
@@ -83,6 +86,15 @@ public class Usuario implements java.io.Serializable {
 
 	public void setClave(String clave) {
 		this.clave = clave;
+	}
+	
+	@Column(name = "CLAVECONFIRM", nullable = false, length = 15)
+	public String getClaveconfirm() {
+		return claveconfirm;
+	}
+
+	public void setClaveconfirm(String claveconfirm) {
+		this.claveconfirm = claveconfirm;
 	}
 
 	@Column(name = "LOGIN", nullable = false, length = 15)

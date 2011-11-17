@@ -21,5 +21,8 @@ public class UsuarioService {
 	public Usuario obtenerUsuario(Usuario objUsuario) {
 		return dao.obtenerUsuario(objUsuario);
 	}
+	public Usuario obtenerUsuarioxDni(Usuario objUsuario) {
+		return dao.obtenerUsuarioxDni(objUsuario);
+	}
 	
 }

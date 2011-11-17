@@ -10,4 +10,5 @@ public interface UsuarioDao {
 	public int modificarUsuario(Usuario objusuario);
 	public Acceso obtenerAcceso(AccesoId objAccesoId);
 	public Usuario obtenerUsuario(Usuario objUsuario);
+	public Usuario obtenerUsuarioxDni(Usuario objUsuario);
 }

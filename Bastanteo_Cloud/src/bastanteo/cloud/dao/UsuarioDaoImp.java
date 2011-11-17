@@ -1,5 +1,6 @@
 package bastanteo.cloud.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -59,9 +60,23 @@ public class UsuarioDaoImp  implements UsuarioDao{
 
 	@Override
 	public Usuario obtenerUsuario(Usuario objUsuario) {
+		
 		Session session = HibernateUtil.getSessionFactory();
 		Usuario objUsuarioObt = null;
-		objUsuarioObt = (Usuario) session.load(Usuario.class, objUsuario.getCUsuario());
+		objUsuarioObt = (Usuario) session.get(Usuario.class, objUsuario.getCUsuario());
+		return objUsuarioObt;
+		
+	
+	}
+
+	@Override
+	public Usuario obtenerUsuarioxDni(Usuario objUsuario) {
+		Session session = HibernateUtil.getSessionFactory();
+		Query q=null;
+		Usuario objUsuarioObt=null;
+		q=session.createQuery("from Usuario where dni=:dni");
+		q.setParameter("dni", objUsuario.getDni());
+		objUsuarioObt=(Usuario)q.uniqueResult();
 		return objUsuarioObt;
 	}
 	

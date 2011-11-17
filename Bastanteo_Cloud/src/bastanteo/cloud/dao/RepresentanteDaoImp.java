@@ -61,7 +61,7 @@ public class RepresentanteDaoImp implements RepresentanteDao{
 	public Representante obtenerRepresentantes(Representante objRepresentante) {
 		Session session = HibernateUtil.getSessionFactory();
 		Representante objRepresentanteObt=null;
-		objRepresentanteObt=(Representante)session.load(Representante.class, objRepresentante.getId());
+		objRepresentanteObt=(Representante)session.get(Representante.class, objRepresentante.getId());
 		return objRepresentanteObt;
 	}
 

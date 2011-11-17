@@ -1,5 +1,7 @@
 package bastanteo.cloud.test;
 
+
+
 import org.junit.Test;
 
 import junit.framework.Assert;
@@ -10,7 +12,7 @@ import bastanteo.cloud.service.UsuarioService;
 
 public class UsuarioTest {
 	
-	//@Test
+	@Test
 	public void controlarUsuarioTest() {
 
 		int retorno = 0;
@@ -22,13 +24,36 @@ public class UsuarioTest {
 		//Inicializo un perfil con el codigo 1 q ya existe
 		p.setCPerfil(1);
 		Perfil objPerfil=servicioPerfil.obtenerPerfil(p);
-		Usuario objusuario = new Usuario(1, objPerfil,"1234","Gery","Geraldine", "Onofre", "Gonzales","44579887",'A');
+		Usuario objusuario = new Usuario(1, objPerfil,"1234","Gery","Geraldine", "Onofre", "Gonzales","44579887",'A',"1234");
+	
 		
-		retorno = servicioUsuario.ControlarUsuario(objusuario);
-		Assert.assertEquals(1, retorno);
+		Usuario objUsuarioObt=servicioUsuario.obtenerUsuario(objusuario);
+					
+			if(objUsuarioObt!=null){
+				
+					System.out.println("YA EXISTE UN USUARIO CON DICHO CODIGO");
+				
+				
+			}
+			else if(objusuario.getClave()!=objusuario.getClaveconfirm()){
+					System.out.println("CLAVE Y SU CONFIRMACION NO COINCIDEN");
+			}else if(servicioUsuario.obtenerUsuarioxDni(objusuario)!=null){
+				System.out.println("YA EXISTE UN USUARIO CON ESE DOCUMENTO DE IDENTIDAD");
+			}
+			else{
+				System.out.println("DATOS DE USUARIO REGISTRADOS CORRECTAMENTE");
+				retorno = servicioUsuario.ControlarUsuario(objusuario);
+				
+				
+				Assert.assertEquals(1, retorno);
+			}
+		
+			
+		
+		
 	}
 	
-	@Test
+	//@Test
 	public void modificarUsuarioTest() {
 
 		int retorno = 0;
@@ -41,7 +66,11 @@ public class UsuarioTest {
 		objUsuarioObt.setNombre("Lisseth");
 		
 		retorno = servicioUsuario.modificarUsuario(objUsuarioObt);
-		Assert.assertEquals(1, retorno);
+		if(retorno!=0){
+			System.out.println("EL USUARIO SE MODIFICO CORRECTAMENTE");
+			Assert.assertEquals(1, retorno);
+		}
+		
 	}
 	
 }

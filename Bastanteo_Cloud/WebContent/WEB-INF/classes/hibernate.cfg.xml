@@ -28,6 +28,8 @@
       <mapping class="bastanteo.cloud.bean.Empresa"/>
        <mapping class="bastanteo.cloud.bean.TipoEmpresa"/>
      <mapping class="bastanteo.cloud.bean.TipoDocId"/>
+     <mapping class="bastanteo.cloud.bean.Perfil"/>
+     <mapping class="bastanteo.cloud.bean.Usuario"/>
     </session-factory>
     
 </hibernate-configuration>
