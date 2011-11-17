@@ -15,8 +15,8 @@ public class PoderService {
 		
 		return dao.registrarPoder(objPoder);
 	}
-	public Poder obtenerPoder(String codigo) {
-		return dao.obtenerPoder(codigo);
+	public Poder obtenerPoder(Poder objPoder) {
+		return dao.obtenerPoder(objPoder);
 	}
 	public String verificarPoder(String ruc, String dni, String codigoPoder,
 			double importe) {

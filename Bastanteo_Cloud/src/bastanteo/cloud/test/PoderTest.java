@@ -15,8 +15,9 @@ public class PoderTest {
 		PoderService servicioPoder = new PoderService();
 		int indicador = 0;
 
-		Poder objPoder = new Poder("P001", "COBRO DE CHEQUE", 'A');
-		Poder objPoderObtenido = servicioPoder.obtenerPoder(objPoder.getCPoder());
+		Poder objPoder = new Poder("CHCO", "COBRO DE CHEQUE", 'A');
+		
+		Poder objPoderObtenido = servicioPoder.obtenerPoder(objPoder);
 
 		if (objPoderObtenido!=null) {
 			System.out.println("YA EXISTE PODER CON CODIGO "
@@ -30,7 +31,7 @@ public class PoderTest {
 
 				indicador = servicioPoder.registrarPoder(objPoder);
 				if (indicador == 1) {
-					System.out.println("OK");
+					System.out.println("PODER INSERTADO CORRECTAMENTE");
 					Assert.assertEquals(1, indicador);
 					
 				} else {
