@@ -1,6 +1,7 @@
 package bastanteo.cloud.bean;
 
 // Generated 08/11/2011 11:03:59 PM by Hibernate Tools 3.3.0.GA
+// Author: Kid Rivera Valera
 
 import java.util.HashSet;
 import java.util.Set;
