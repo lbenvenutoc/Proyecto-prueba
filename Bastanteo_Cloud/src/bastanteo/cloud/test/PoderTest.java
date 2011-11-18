@@ -15,7 +15,7 @@ public class PoderTest {
 		PoderService servicioPoder = new PoderService();
 		int indicador = 0;
 
-		Poder objPoder = new Poder("CHCO", "COBRO DE CHEQUE", 'A');
+		Poder objPoder = new Poder("CHC0", "COBRO DE CHEQUE", 'A');
 		
 		Poder objPoderObtenido = servicioPoder.obtenerPoder(objPoder);
 
