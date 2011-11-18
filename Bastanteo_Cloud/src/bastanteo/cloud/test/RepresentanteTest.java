@@ -29,7 +29,7 @@ public class RepresentanteTest {
 		// Inicializo la llave primaria compuesta de Representante
 		RepresentanteId idRepresentante = new RepresentanteId();
 		idRepresentante.setCEmpresa("1");
-		idRepresentante.setCRepresentante(3);
+		idRepresentante.setCRepresentante(1);
 
 		// Se obtiene el grupo de bastanteo que se asignará al representante
 		GrupoBastanteo objGrupoBastanteo = new GrupoBastanteo();
@@ -87,7 +87,7 @@ public class RepresentanteTest {
 
 		RepresentanteId idRepresentante = new RepresentanteId();
 		idRepresentante.setCEmpresa("1");
-		idRepresentante.setCRepresentante(2);
+		idRepresentante.setCRepresentante(1);
 		objRepresentante.setId(idRepresentante);
 
 		Representante objRepresentanteObt = servicioRepresentante
