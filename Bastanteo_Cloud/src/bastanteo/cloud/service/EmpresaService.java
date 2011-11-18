@@ -12,6 +12,13 @@ public class EmpresaService {
 	public Empresa obtenerEmpresa(Empresa objEmpresa) {
 		return  dao.obtenerEmpresa(objEmpresa);
 	}
-	
-
+	public int registrarEmpresa(Empresa objEmpresa) {
+		return dao.registrarEmpresa(objEmpresa);
+	}
+	public int modificarEmpresa(Empresa objEmpresa) {
+		return dao.modificarEmpresa(objEmpresa);
+	}
+	public Empresa obtenerEmpresaxRuc(Empresa objEmpresa) {
+		return dao.obtenerEmpresaxRuc(objEmpresa);
+	}
 }
