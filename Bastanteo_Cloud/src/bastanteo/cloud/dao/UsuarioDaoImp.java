@@ -63,7 +63,14 @@ public class UsuarioDaoImp  implements UsuarioDao{
 		
 		Session session = HibernateUtil.getSessionFactory();
 		Usuario objUsuarioObt = null;
-		objUsuarioObt = (Usuario) session.get(Usuario.class, objUsuario.getCUsuario());
+		try{
+			objUsuarioObt = (Usuario) session.get(Usuario.class, objUsuario.getCUsuario());
+		}catch (Exception ex) {
+			System.out.println(ex);
+		}finally{
+			session.close();
+		}
+	
 		return objUsuarioObt;
 		
 	
@@ -74,9 +81,16 @@ public class UsuarioDaoImp  implements UsuarioDao{
 		Session session = HibernateUtil.getSessionFactory();
 		Query q=null;
 		Usuario objUsuarioObt=null;
-		q=session.createQuery("from Usuario where dni=:dni");
-		q.setParameter("dni", objUsuario.getDni());
-		objUsuarioObt=(Usuario)q.uniqueResult();
+		try{
+			q=session.createQuery("from Usuario where dni=:dni");
+			q.setParameter("dni", objUsuario.getDni());
+			objUsuarioObt=(Usuario)q.uniqueResult();
+		}catch (Exception ex) {
+			System.out.println(ex);
+		}finally{
+			session.close();
+		}
+		
 		return objUsuarioObt;
 	}
 	

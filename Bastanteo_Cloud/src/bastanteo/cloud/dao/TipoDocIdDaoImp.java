@@ -12,7 +12,14 @@ public class TipoDocIdDaoImp implements TipoDocIdDao {
 		
 		Session session = HibernateUtil.getSessionFactory();
 		TipoDocId objTipoDocIdObt=null;
-		objTipoDocIdObt=(TipoDocId)session.get(TipoDocId.class, objTipoDocId.getCTipoDocId());
+		try{
+			objTipoDocIdObt=(TipoDocId)session.get(TipoDocId.class, objTipoDocId.getCTipoDocId());
+		}catch (Exception ex) {
+			System.out.println(ex);
+		}finally{
+			session.close();
+		}
+		
 		
 		return objTipoDocIdObt;
 	}

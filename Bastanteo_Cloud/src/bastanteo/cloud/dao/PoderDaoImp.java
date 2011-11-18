@@ -37,7 +37,14 @@ public class PoderDaoImp implements PoderDao {
 
 		Session session = HibernateUtil.getSessionFactory();
 		Poder objPoderObt = null;
-		objPoderObt = (Poder) session.get(Poder.class, objPoder.getCPoder());
+		try{
+			objPoderObt = (Poder) session.get(Poder.class, objPoder.getCPoder());
+		}catch (Exception ex) {
+			System.out.println(ex);
+		}finally{
+			session.close();
+		}
+		
 
 		return objPoderObt;
 		

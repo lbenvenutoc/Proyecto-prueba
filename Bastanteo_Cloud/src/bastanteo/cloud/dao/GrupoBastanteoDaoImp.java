@@ -12,7 +12,14 @@ public class GrupoBastanteoDaoImp implements GrupoBastanteoDao {
 	public GrupoBastanteo obtenerGrupoBastanteo(GrupoBastanteo objGrupoBastanteo) {
 		Session session = HibernateUtil.getSessionFactory();
 		GrupoBastanteo objGrupo=null;
-		objGrupo=(GrupoBastanteo)session.get(GrupoBastanteo.class, objGrupoBastanteo.getId());
+		try{
+			objGrupo=(GrupoBastanteo)session.get(GrupoBastanteo.class, objGrupoBastanteo.getId());
+		}catch (Exception ex) {
+			System.out.println(ex);
+		}finally {
+			session.close();
+		}
+		
 		return objGrupo;
 	}
 
