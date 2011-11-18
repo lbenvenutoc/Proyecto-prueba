@@ -28,7 +28,7 @@ public class Empresa implements java.io.Serializable {
 	private String ruc;
 	private String razonSocial;
 	private Date fechaInicioOper;
-	private Short cantEmpleado;
+	private int cantEmpleado;
 	private Set<Representante> representantes = new HashSet<Representante>(0);
 	private Set<GrupoBastanteo> grupoBastanteos = new HashSet<GrupoBastanteo>(0);
 
@@ -41,6 +41,16 @@ public class Empresa implements java.io.Serializable {
 		this.tipoEmpresa = tipoEmpresa;
 		this.ruc = ruc;
 		this.razonSocial = razonSocial;
+	}
+	
+	public Empresa(String CEmpresa, TipoEmpresa tipoEmpresa, String ruc,
+			String razonSocial,Date fechaInicioOper,int cantEmpleado) {
+		this.CEmpresa = CEmpresa;
+		this.tipoEmpresa = tipoEmpresa;
+		this.ruc = ruc;
+		this.razonSocial = razonSocial;
+		this.fechaInicioOper=fechaInicioOper;
+		this.cantEmpleado=cantEmpleado;
 	}
 
 	public Empresa(String CEmpresa, TipoEmpresa tipoEmpresa, String ruc,
@@ -105,11 +115,11 @@ public class Empresa implements java.io.Serializable {
 	}
 
 	@Column(name = "CANT_EMPLEADO")
-	public Short getCantEmpleado() {
+	public int getCantEmpleado() {
 		return this.cantEmpleado;
 	}
 
-	public void setCantEmpleado(Short cantEmpleado) {
+	public void setCantEmpleado(int cantEmpleado) {
 		this.cantEmpleado = cantEmpleado;
 	}
 
