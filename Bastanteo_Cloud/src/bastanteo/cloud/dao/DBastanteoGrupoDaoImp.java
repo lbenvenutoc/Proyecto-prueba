@@ -9,14 +9,12 @@ import org.hibernate.Transaction;
 import org.hibernate.transform.AliasToEntityMapResultTransformer;
 
 import bastanteo.cloud.bean.Bastanteo;
-import bastanteo.cloud.bean.BastanteoId;
+import bastanteo.cloud.bean.DBastanteoGrupo;
 import bastanteo.cloud.util.HibernateUtil;
 
+public class DBastanteoGrupoDaoImp implements DBastanteoGrupoDao {
 
-
-public class BastanteoDaoImp implements BastanteoDao {
-
-	private int verificarBastanteo(Bastanteo objBastanteo) {
+	private int verificarDBastanteoGruppo(DBastanteoGrupo objDBastanteoGrupo) {
 		int retorno = 0;
 		
 		Session session = HibernateUtil.getSessionFactory();
@@ -28,17 +26,16 @@ public class BastanteoDaoImp implements BastanteoDao {
 		try {
 			tx = session.beginTransaction();
 			
-			select = "select c_empresa from bastanteo where c_empresa = :c_empresa and c_grupo_bastanteo = :c_grupo_bastanteo and c_poder = :c_poder and c_tipo_intervencion = :c_tipo_intervencion;";
+			select = "select c_empresa from d_bastanteo_grupo where c_empresa = :c_empresa and c_grupo_bastanteo = :c_grupo_bastanteo and c_poder = :c_poder;";
 			
 			query = session.createSQLQuery(select).addScalar("C_EMPRESA")
 					.setResultTransformer(
 							AliasToEntityMapResultTransformer.INSTANCE);
 			
-			query.setString("c_empresa", objBastanteo.getId().getCEmpresa());
-			query.setInteger("c_grupo_bastanteo", objBastanteo.getId().getCGrupoBastanteo());
-			query.setString("c_poder", objBastanteo.getId().getCPoder());
-			query.setInteger("c_tipo_intervencion", objBastanteo.getTipoIntervencion().getCTipoIntervencion());
-			
+			query.setString("c_empresa", objDBastanteoGrupo.getId().getCEmpresa());
+			query.setInteger("c_grupo_bastanteo", objDBastanteoGrupo.getId().getCGrupoBastanteo());
+			query.setString("c_poder", objDBastanteoGrupo.getId().getCPoder());
+	
 			lstResultado = query.list();
 			
 			if(lstResultado.size() > 0) {
@@ -65,13 +62,12 @@ public class BastanteoDaoImp implements BastanteoDao {
 		
 		return retorno;
 	}
-	
-	
-	public int insertarBastanteo(Bastanteo objBastanteo) {
 		
+	public int insertarDBastanteoGrupo(DBastanteoGrupo objDBastanteoGrupo) {
 		int retorno;
 		
-		retorno = verificarBastanteo(objBastanteo);
+		retorno = verificarDBastanteoGruppo(objDBastanteoGrupo);
+		
 		if(retorno != 0){
 			return retorno;
 		}
@@ -81,7 +77,7 @@ public class BastanteoDaoImp implements BastanteoDao {
 		
 		try {
 			tx = session.beginTransaction();
-			session.save(objBastanteo);
+			session.save(objDBastanteoGrupo);
 			tx.commit();
 			retorno = 1;
 		} catch (Exception ex) {
@@ -95,13 +91,6 @@ public class BastanteoDaoImp implements BastanteoDao {
 		return retorno;
 	}
 
-
-	public Bastanteo obtenerBastanteo(BastanteoId objBastanteoId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
 	
-
 }
