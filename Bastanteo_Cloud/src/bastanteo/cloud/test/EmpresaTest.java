@@ -10,7 +10,7 @@ import bastanteo.cloud.service.TipoEmpresaService;
 import bastanteo.cloud.util.Utilitario;
 
 public class EmpresaTest {
-	//@Test
+	@Test
 	public void registrarEmpresa(){
 		
 		int resultado=0;
@@ -22,7 +22,7 @@ public class EmpresaTest {
 		Utilitario objUtil=Utilitario.crearUtilitario();
 		
 		Empresa objEmpresa= 
-			new Empresa("2", tipoEmpresa, "21526423628", "ASOCIADOS SAC", objUtil.convertirCadenaPorFecha("08/09/2011"), 178);
+			new Empresa("1", tipoEmpresa, "21526423628", "INVERSIONES UNIDAS SAC", objUtil.convertirCadenaPorFecha("08/09/2011"), 178);
 			
 		
 		Empresa objEmpresaObt=servicioEmpresa.obtenerEmpresa(objEmpresa);
@@ -43,18 +43,23 @@ public class EmpresaTest {
 		
 	}
 	
-	@Test
+	//@Test
 	public void actualizarEmpresa(){
 		
 		int resultado=0;
 		EmpresaService servicioEmpresa= new EmpresaService();
 		Empresa objEmpresa= new Empresa();
-		objEmpresa.setCEmpresa("2");
+		objEmpresa.setCEmpresa("1");
 		Empresa objEmpresaObt=servicioEmpresa.obtenerEmpresa(objEmpresa);
-		System.out.println("ACTUAL RAZON SOCIAL "+objEmpresaObt.getRazonSocial());
-		objEmpresaObt.setRazonSocial("ASOCIADOS SAC");
 		resultado=servicioEmpresa.modificarEmpresa(objEmpresaObt);
-		Assert.assertEquals(resultado,1);
+		
+		if(resultado!=0){
+			System.out.println("EMPRESA MODIFICADA CORRECTAMENTE");
+			Assert.assertEquals(resultado,1);
+		}else{
+			System.out.println("ERROR AL MODIFICAR LA EMPRESA");
+		}
+	
 		
 	}
 	
