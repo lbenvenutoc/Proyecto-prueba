@@ -24,7 +24,7 @@ import bastanteo.cloud.service.BastanteoService;
 
 public class BastanteoTest {
 
-	// @Test
+	@Test
 	public void insertarBastanteo() throws ParseException {
 
 		int retorno = 0;
@@ -51,12 +51,12 @@ public class BastanteoTest {
 		bastanteo.setFechaIni(fechaIni);
 		bastanteo.setFechaFin(fechaFin);
 
-		// retorno = bastanteoService.insertarBastanteo(bastanteo);
+		
 		assertEquals(1, bastanteoService.insertarBastanteo(bastanteo));
 
 	}
 
-	@Test
+	//@Test
 	public void listarBastanteosxCriterios() {
 		BastanteoService bastanteoService = new BastanteoService();
 
