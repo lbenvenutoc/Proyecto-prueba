@@ -12,7 +12,7 @@ import bastanteo.cloud.service.UsuarioService;
 
 public class UsuarioTest {
 	
-	@Test
+	//@Test
 	public void controlarUsuarioTest() {
 
 		int retorno = 0;
@@ -53,7 +53,7 @@ public class UsuarioTest {
 		
 	}
 	
-	//@Test
+	@Test
 	public void modificarUsuarioTest() {
 
 		int retorno = 0;

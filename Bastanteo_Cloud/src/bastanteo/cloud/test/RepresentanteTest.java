@@ -17,7 +17,7 @@ import bastanteo.cloud.service.TipoDocIdService;
 
 public class RepresentanteTest {
 
-	@Test
+	//@Test
 	public void inscribirRepresentanteTest() {
 		int resultado=0;
 		// Llamada a servivios que seran utilizados
@@ -77,7 +77,7 @@ public class RepresentanteTest {
 
 	}
 
-	// @Test
+	 @Test
 	public void modificarRepresentantesTest() {
 
 		int resultado = 0;
@@ -92,8 +92,18 @@ public class RepresentanteTest {
 
 		Representante objRepresentanteObt = servicioRepresentante
 				.obtenerRepresentantes(objRepresentante);
-		objRepresentanteObt.setApePaterno("MOLINA");
-
+		objRepresentanteObt.setApePaterno("GOMEZ");
+		
+		resultado = servicioRepresentante
+		.modificarRepresentantes(objRepresentanteObt);
+		
+		if(resultado!=0){
+			System.out.println("MODIFICACION REALIZADA");
+		}else{
+			System.out.println("ERROR AL MODIFICAR DATOS");
+		}
+		
+		/*
 		if (servicioRepresentante.existeDniRepresentante(
 				objRepresentanteObt)==false) {
 			resultado = servicioRepresentante
@@ -104,6 +114,8 @@ public class RepresentanteTest {
 			System.out
 					.println("NO SE PUEDE MODIFICAR DICHO DNI PUESTO QUE YA EXISTE EN LA BASE DE DATOS");
 		}
+		
+		*/
 
 	}
 }

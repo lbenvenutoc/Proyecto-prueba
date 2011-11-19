@@ -24,7 +24,7 @@ import bastanteo.cloud.service.BastanteoService;
 
 public class BastanteoTest {
 
-	@Test
+	//@Test
 	public void insertarBastanteo() throws ParseException {
 
 		int retorno = 0;
