@@ -9,7 +9,7 @@ import bastanteo.cloud.service.PoderService;
 
 public class PoderTest {
 
-	@Test
+	//@Test
 	public void registrarPoderTest() {
 
 		PoderService servicioPoder = new PoderService();
@@ -47,13 +47,13 @@ public class PoderTest {
 		
 	}
 
-	//@Test
+	@Test
 	public void verificarPoderesTest() {
 
 		PoderService servicioPoder = new PoderService();
 
-		String resultado = servicioPoder.verificarPoder("45236584781",
-				"45213697", "CHCO", 2500);
+		String resultado = servicioPoder.verificarPoder("21526423628",
+				"10743370", "CHC0", 2500);
 
 		if (resultado != null) {
 			String[] resMensaje = resultado.split("#");
