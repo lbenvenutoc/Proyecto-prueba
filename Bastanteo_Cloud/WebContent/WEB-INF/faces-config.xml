@@ -9,6 +9,13 @@
         </navigation-case>
     </navigation-rule>
     
+     <navigation-rule>
+        <navigation-case>
+            <from-outcome>muestraPoder</from-outcome>
+            <to-view-id>/regPoder.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
      <managed-bean>
         <managed-bean-name>objPoder</managed-bean-name>
         <managed-bean-class>bastanteo.cloud.bean.Poder</managed-bean-class>

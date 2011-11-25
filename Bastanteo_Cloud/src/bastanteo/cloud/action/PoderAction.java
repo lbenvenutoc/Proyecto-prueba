@@ -52,10 +52,9 @@ public class PoderAction implements  Serializable{
 		System.out.println("DESCRIPCION DE PRODUCTO ENVIADO ");
 		servicioPoder.registrarPoder(objPoder);
 		
-		//lstProducto=servicioProducto.listar();
-		//return "ingresaLista";
-		//return muestraListado();
-		return "muestraPoder";
+		lstPoder=servicioPoder.listar();
+		
+		return "listaPoder";
 	}
 	
 	/*

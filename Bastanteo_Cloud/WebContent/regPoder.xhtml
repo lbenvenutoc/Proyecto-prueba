@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<ui:composition template="/template/common/commonLayout.xhtml">
+
+	<ui:define name="content">
+
+		<f:view>
+
+			<h:form id="ajaxValidatorForm">
+
+				<rich:panel id="panelIngreso">
+					<f:facet name="header">
+						<h:outputText value="Poder" />
+					</f:facet>
+					<table>
+						<tr>
+							<td>Codigo:</td>
+							<td><h:inputText value="#{poderAction.objPoder.CPoder}"
+									required="true" id="CPoder" />
+							</td>
+
+								<td><rich:message for="CPoder"></rich:message>
+							</td>
+
+
+
+
+
+
+						</tr>
+						<tr>
+							<td>Nombre:</td>
+							<td><h:inputText value="#{poderAction.objPoder.nombre}"
+									required="true" id="nombre"/></td>
+								<td><rich:message for="nombre"></rich:message>
+							</td>
+						</tr>
+
+						<tr>
+							<td>Tipo:</td>
+							<td><h:inputText value="#{poderAction.objPoder.tipoPoder}"
+									required="true" id="tipoPoder" /></td>
+									
+								<td><rich:message for="tipoPoder"></rich:message>
+							</td>
+
+						</tr>
+						<tr>
+							<td colspan="3"><a4j:commandButton value="Registra Poder"
+									action="#{poderAction.registraPoder}" /></td>
+						</tr>
+					</table>
+
+				</rich:panel>
+			</h:form>
+
+
+		</f:view>
+
+	</ui:define>
+
+</ui:composition>
+
+
+
+</html>
+
