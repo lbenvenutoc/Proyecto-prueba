@@ -13,15 +13,34 @@
 
 		<f:view>
 
-			<h:form id="lstPoderes">
-				<a4j:commandButton value="Lista Poderes"
-					action="#{poderAction.muestraListado}" />
-			</h:form>
+			<center>
 
-			<h:form id="validaPoder">
-				<a4j:commandButton value="Valida Poder"
-					action="#{poderAction.validaPoder}" />
-			</h:form>
+				<table>
+					<tr>
+
+						<td><h:form id="lstPoderes">
+								<a4j:commandButton value="Lista Poderes"
+									action="#{poderAction.muestraListado}" />
+							</h:form></td>
+
+						<td><h:form id="validaPoder">
+								<a4j:commandButton value="Valida Poder"
+									action="#{poderAction.validaPoder}" />
+							</h:form></td>
+
+					</tr>
+
+
+
+
+
+				</table>
+
+
+			</center>
+
+
+
 		</f:view>
 	</ui:define>
 
