@@ -10,6 +10,8 @@
 <ui:composition template="/template/common/commonLayout.xhtml">
 
 	<ui:define name="content">
+	
+	
 
 		<f:view>
 
@@ -23,11 +25,10 @@
 						<tr>
 							<td>Codigo:</td>
 							<td><h:inputText value="#{poderAction.objPoder.CPoder}"
-									required="true" id="CPoder" />
+									required="true" id="CPoder" requiredMessage=" Debe ingresar el codigo" maxlength="4"/>
 							</td>
 
-								<td><rich:message for="CPoder"></rich:message>
-							</td>
+								
 
 
 
@@ -38,18 +39,16 @@
 						<tr>
 							<td>Nombre:</td>
 							<td><h:inputText value="#{poderAction.objPoder.nombre}"
-									required="true" id="nombre"/></td>
-								<td><rich:message for="nombre"></rich:message>
-							</td>
+									required="true" id="nombre" requiredMessage=" Debe ingresar el nombre"/></td>
+								
 						</tr>
 
 						<tr>
 							<td>Tipo:</td>
 							<td><h:inputText value="#{poderAction.objPoder.tipoPoder}"
-									required="true" id="tipoPoder" /></td>
+									required="true" id="tipoPoder"  requiredMessage=" Debe ingresar el tipo"/></td>
 									
-								<td><rich:message for="tipoPoder"></rich:message>
-							</td>
+							
 
 						</tr>
 						<tr>
@@ -60,6 +59,26 @@
 
 				</rich:panel>
 			</h:form>
+			
+			<!-- 
+				  <table align="center">
+                            <tr>
+                                <td align="left">
+                                    <rich:messages layout="list">
+                                        <f:facet name="errorMarker">
+                                            <h:graphicImage  value="/images/error.gif" />
+                                        </f:facet>
+                                
+                                        <f:facet name="infoMarker">
+                                            <h:graphicImage  value="/images/info.jpeg" />
+                                        </f:facet>
+                                    </rich:messages>
+                                </td>   
+                            </tr>
+                </table>
+			 -->
+			    
+                
 
 
 		</f:view>

@@ -7,6 +7,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	
 	>
+	
 
 
 <ui:composition template="/template/common/commonLayout.xhtml">
@@ -14,10 +15,16 @@
 	<ui:define name="content">
 
 		<f:view>
+		
+		
+		<a4j:keepAlive beanName="poderAction" />
 
 	<h:form id="frmListaPoderes">
 
-		<a4j:keepAlive beanName="poderAction" />
+
+
+ 
+		
 
 		<rich:dataTable var="objPoder"
 			value="#{poderAction.lstPoder}" rows="4" id="testpList">
