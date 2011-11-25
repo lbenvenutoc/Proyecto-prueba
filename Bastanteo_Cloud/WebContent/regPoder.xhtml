@@ -25,7 +25,12 @@
 						<tr>
 							<td>Codigo:</td>
 							<td><h:inputText value="#{poderAction.objPoder.CPoder}"
-									required="true" id="CPoder" requiredMessage=" Debe ingresar el codigo" maxlength="4"/>
+									required="true" id="CPoder" requiredMessage=" Debe ingresar el codigo" maxlength="4">
+									
+									 <f:validateLength minimum="4" 
+						  maximum="4" />
+									
+									</h:inputText>
 							</td>
 
 								
@@ -56,12 +61,9 @@
 									action="#{poderAction.registraPoder}" /></td>
 						</tr>
 					</table>
-
-				</rich:panel>
-			</h:form>
-			
-			<!-- 
-				  <table align="center">
+					
+					
+				 <table align="center">
                             <tr>
                                 <td align="left">
                                     <rich:messages layout="list">
@@ -76,8 +78,17 @@
                                 </td>   
                             </tr>
                 </table>
-			 -->
-			    
+
+				</rich:panel>
+				
+				
+				
+				
+			</h:form>
+			
+
+				 
+		
                 
 
 
