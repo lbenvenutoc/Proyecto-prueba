@@ -16,6 +16,13 @@
         </navigation-case>
     </navigation-rule>
     
+     <navigation-rule>
+        <navigation-case>
+            <from-outcome>muestraValidacionPoder</from-outcome>
+            <to-view-id>/valPoder.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
      <managed-bean>
         <managed-bean-name>objPoder</managed-bean-name>
         <managed-bean-class>bastanteo.cloud.bean.Poder</managed-bean-class>

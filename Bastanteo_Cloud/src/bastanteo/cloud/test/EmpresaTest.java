@@ -10,7 +10,7 @@ import bastanteo.cloud.service.TipoEmpresaService;
 import bastanteo.cloud.util.Utilitario;
 
 public class EmpresaTest {
-	//@Test
+	@Test
 	public void registrarEmpresa(){
 		
 		int resultado=0;
@@ -43,7 +43,7 @@ public class EmpresaTest {
 		
 	}
 	
-	@Test
+	//@Test
 	public void actualizarEmpresa(){
 		
 		int resultado=0;

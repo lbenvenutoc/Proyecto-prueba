@@ -2,12 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	 xmlns:rich="http://richfaces.org/rich"
-     xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:f="http://java.sun.com/jsf/core"
-	
-	>
-	
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
+
 
 
 <ui:composition template="/template/common/commonLayout.xhtml">
@@ -15,60 +13,60 @@
 	<ui:define name="content">
 
 		<f:view>
-		
-		
-		<a4j:keepAlive beanName="poderAction" />
-<center>
-	<h:form id="frmListaPoderes">
+
+
+			<a4j:keepAlive beanName="poderAction" />
+			<center>
+				<h:form id="frmListaPoderes">
 
 
 
- 
-		
-
-		<rich:dataTable var="objPoder"
-			value="#{poderAction.lstPoder}" rows="4" id="testpList">
-			<rich:column>
-				<f:facet name="header">
-					<h:outputText value="CODIGO"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{objPoder.CPoder}" id="CPoder"></h:outputText>
-			</rich:column>
-			<rich:column>
-				<f:facet name="header">
-					<h:outputText value="NOMBRE"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{objPoder.nombre}" id="nombre"></h:outputText>
-			</rich:column>
-			<rich:column>
-				<f:facet name="header">
-					<h:outputText value="TIPO"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{objPoder.tipoPoder}" id="tipoPoder"></h:outputText>
-			</rich:column>
-			
-			<f:facet name="footer">
-				<rich:datascroller for="testpList" limitToList="true" reRender="frmListaPoderes">
-
-				</rich:datascroller>
-			</f:facet>
-
-		</rich:dataTable>
-
-	</h:form>
-	<h:form>
-
-	<a4j:commandButton value="Registrar Poderes"
-								action="#{poderAction.muestraPoder}"
-								/>
-	</h:form>
 
 
 
-	
-</center>
+					<rich:dataTable var="objPoder" value="#{poderAction.lstPoder}"
+						rows="4" id="testpList">
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="CODIGO"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{objPoder.CPoder}" id="CPoder"></h:outputText>
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="NOMBRE"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{objPoder.nombre}" id="nombre"></h:outputText>
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="TIPO"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{objPoder.tipoPoder}" id="tipoPoder"></h:outputText>
+						</rich:column>
 
-</f:view>
+						<f:facet name="footer">
+							<rich:datascroller for="testpList" limitToList="true"
+								reRender="frmListaPoderes">
+
+							</rich:datascroller>
+						</f:facet>
+
+					</rich:dataTable>
+
+				</h:form>
+				<h:form>
+
+					<a4j:commandButton value="Registrar Poderes"
+						action="#{poderAction.muestraPoder}" />
+				</h:form>
+
+
+
+
+			</center>
+
+		</f:view>
 	</ui:define>
 
 </ui:composition>

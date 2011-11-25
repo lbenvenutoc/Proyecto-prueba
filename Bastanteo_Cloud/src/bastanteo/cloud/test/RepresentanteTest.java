@@ -17,7 +17,7 @@ import bastanteo.cloud.service.TipoDocIdService;
 
 public class RepresentanteTest {
 
-	//@Test
+	@Test
 	public void inscribirRepresentanteTest() {
 		int resultado=0;
 		// Llamada a servivios que seran utilizados
@@ -77,7 +77,7 @@ public class RepresentanteTest {
 
 	}
 
-	 @Test
+	 //@Test
 	public void modificarRepresentantesTest() {
 
 		int resultado = 0;

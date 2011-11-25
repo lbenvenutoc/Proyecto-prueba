@@ -3,6 +3,8 @@ package bastanteo.cloud.action;
 import java.io.Serializable;
 import java.util.List;
 
+import junit.framework.Assert;
+
 import bastanteo.cloud.bean.Poder;
 import bastanteo.cloud.service.PoderService;
 
@@ -14,10 +16,6 @@ public class PoderAction implements  Serializable{
 	private Poder objPoder;
 	private List<Poder> lstPoder;
 	PoderService servicioPoder= new PoderService();
-	
-	
-	
-	
 	
 	public Poder getObjPoder() {
 		return objPoder;
@@ -55,6 +53,75 @@ public class PoderAction implements  Serializable{
 		lstPoder=servicioPoder.listar();
 		
 		return "listaPoder";
+	}
+	
+	private String ruc;
+	private String dni;
+	private String codigoPoder;
+	private double importe;
+	private String mensajeValidacion="";
+	
+	
+	
+	
+	public String getMensajeValidacion() {
+		return mensajeValidacion;
+	}
+
+	public void setMensajeValidacion(String mensajeValidacion) {
+		this.mensajeValidacion = mensajeValidacion;
+	}
+
+	public String getRuc() {
+		return ruc;
+	}
+
+	public void setRuc(String ruc) {
+		this.ruc = ruc;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public String getCodigoPoder() {
+		return codigoPoder;
+	}
+
+	public void setCodigoPoder(String codigoPoder) {
+		this.codigoPoder = codigoPoder;
+	}
+
+	public double getImporte() {
+		return importe;
+	}
+
+	public void setImporte(double importe) {
+		this.importe = importe;
+	}
+
+	public String validaPoder(){
+		
+		
+		
+		String resultado = servicioPoder.verificarPoder(ruc, dni, codigoPoder, importe);
+		String cadenaArmada="";		
+
+		if (resultado != null) {
+			String[] resMensaje = resultado.split("#");
+			for (int i = 0; i < resMensaje.length; i++) {
+				cadenaArmada+=" "+resMensaje[i];
+			}
+		
+		}
+				
+		mensajeValidacion=cadenaArmada;
+		return "muestraValidacionPoder";
+		
 	}
 	
 	/*

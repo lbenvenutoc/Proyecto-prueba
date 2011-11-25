@@ -2,11 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	 xmlns:rich="http://richfaces.org/rich"
-     xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:f="http://java.sun.com/jsf/core"
-	
-	>
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 <ui:composition template="/template/common/commonLayout.xhtml">
@@ -15,12 +13,16 @@
 
 		<f:view>
 
-	<h:form id="ajaxValidatorForm">
-	<a4j:commandButton value="Lista Poderes"
-								action="#{poderAction.muestraListado}"
-								/>
-								</h:form>
-</f:view>
+			<h:form id="lstPoderes">
+				<a4j:commandButton value="Lista Poderes"
+					action="#{poderAction.muestraListado}" />
+			</h:form>
+
+			<h:form id="validaPoder">
+				<a4j:commandButton value="Valida Poder"
+					action="#{poderAction.validaPoder}" />
+			</h:form>
+		</f:view>
 	</ui:define>
 
 </ui:composition>
