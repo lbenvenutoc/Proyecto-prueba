@@ -179,4 +179,22 @@ public class PoderDaoImp implements PoderDao {
 		return null;
 
 	}
+
+	@Override
+	public List listar() {
+		List listaPoder=null;
+		Session session=HibernateUtil.getSessionFactory();
+		
+		try{
+			session.beginTransaction();
+			
+			
+			listaPoder=session.createQuery("select p from Poder p").list();
+				return listaPoder;
+		
+			
+		}finally{
+			session.close();
+		}
+	}
 }

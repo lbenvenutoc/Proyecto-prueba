@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+  <navigation-rule>
+        <navigation-case>
+            <from-outcome>listaPoder</from-outcome>
+            <to-view-id>/listaPoderes.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+     <managed-bean>
+        <managed-bean-name>objPoder</managed-bean-name>
+        <managed-bean-class>bastanteo.cloud.bean.Poder</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        
+    </managed-bean>
+    
+       <managed-bean>
+        <managed-bean-name>poderAction</managed-bean-name>
+        <managed-bean-class>bastanteo.cloud.action.PoderAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+          <managed-property>
+            <property-name>objPoder</property-name>
+            <value>#{objPoder}</value>
+        </managed-property>
+        </managed-bean>
+     
+	
+	<application>
+		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+	</application>
+</faces-config>

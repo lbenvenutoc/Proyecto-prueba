@@ -2,6 +2,8 @@ package bastanteo.cloud.service;
 
 
 
+import java.util.List;
+
 import bastanteo.cloud.bean.Poder;
 
 import bastanteo.cloud.dao.PoderDao;
@@ -21,5 +23,8 @@ public class PoderService {
 	public String verificarPoder(String ruc, String dni, String codigoPoder,
 			double importe) {
 		return dao.verificarPoder(ruc, dni, codigoPoder, importe);
+	}
+	public List listar() {
+		return dao.listar();
 	}
 }
