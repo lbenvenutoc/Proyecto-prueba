@@ -86,10 +86,13 @@
 
 								<tr>
 									<td colspan="3"><a4j:commandButton value="Valida Poder"
-											id="botonValidaPoder" actionListener="#{poderAction.validaPoder}"
+											id="botonValidaPoder"
+											actionListener="#{poderAction.validaPoder}"
 											reRender="botonValidaPoder,mensajeValidacion" />
 									</td>
 								</tr>
+
+
 							</table>
 
 
@@ -106,15 +109,22 @@
 										</rich:messages></td>
 								</tr>
 							</table>
-							
-				
-						<h:outputText value="#{poderAction.mensajeValidacion}" id="mensajeValidacion"/>
-										
+
+
+							<h:outputText value="#{poderAction.mensajeValidacion}"
+								id="mensajeValidacion" />
 
 
 
-		
+
+
 						</a4j:region>
+					</h:form>
+
+
+					<h:form>
+						<a4j:commandButton value="Volver"
+							action="#{poderAction.muestraListado}" />
 					</h:form>
 				</rich:panel>
 

@@ -10,87 +10,95 @@
 <ui:composition template="/template/common/commonLayout.xhtml">
 
 	<ui:define name="content">
-	
-	
+
+
 
 		<f:view>
-		<center>
+			<center>
 
-			<h:form id="ajaxValidatorForm">
+				<h:form id="ajaxValidatorForm">
 
-				<rich:panel id="panelIngreso">
-					<f:facet name="header">
-						<h:outputText value="Poder" />
-					</f:facet>
-					<table>
-						<tr>
-							<td>Codigo:</td>
-							<td><h:inputText value="#{poderAction.objPoder.CPoder}"
-									required="true" id="CPoder" requiredMessage=" Debe ingresar el codigo" maxlength="4">
-									
-									 <f:validateLength minimum="4" 
-						  maximum="4" />
-									
+					<rich:panel id="panelIngreso">
+						<f:facet name="header">
+							<h:outputText value="Poder" />
+						</f:facet>
+						<table>
+							<tr>
+								<td>Codigo:</td>
+								<td><h:inputText value="#{poderAction.objPoder.CPoder}"
+										required="true" id="CPoder"
+										requiredMessage=" Debe ingresar el codigo" maxlength="4">
+
+										<f:validateLength minimum="4" maximum="4" />
+
 									</h:inputText>
-							</td>
-
-								
+								</td>
 
 
 
 
 
 
-						</tr>
-						<tr>
-							<td>Nombre:</td>
-							<td><h:inputText value="#{poderAction.objPoder.nombre}"
-									required="true" id="nombre" requiredMessage=" Debe ingresar el nombre"/></td>
-								
-						</tr>
 
-						<tr>
-							<td>Tipo:</td>
-							<td><h:inputText value="#{poderAction.objPoder.tipoPoder}"
-									required="true" id="tipoPoder"  requiredMessage=" Debe ingresar el tipo"/></td>
-									
-							
 
-						</tr>
-						<tr>
-							<td colspan="3"><a4j:commandButton value="Registra Poder"
-									action="#{poderAction.registraPoder}" /></td>
-						</tr>
-					</table>
-					
-					
-				 <table align="center">
-                            <tr>
-                                <td align="left">
-                                    <rich:messages layout="list">
-                                        <f:facet name="errorMarker">
-                                            <h:graphicImage  value="/images/error.gif" />
-                                        </f:facet>
-                                
-                                        <f:facet name="infoMarker">
-                                            <h:graphicImage  value="/images/info.jpeg" />
-                                        </f:facet>
-                                    </rich:messages>
-                                </td>   
-                            </tr>
-                </table>
+							</tr>
+							<tr>
+								<td>Nombre:</td>
+								<td><h:inputText value="#{poderAction.objPoder.nombre}"
+										required="true" id="nombre"
+										requiredMessage=" Debe ingresar el nombre" /></td>
 
-				</rich:panel>
-				
-				
-				
-				
-			</h:form>
-			
-</center>
-				 
-		
-                
+							</tr>
+
+							<tr>
+								<td>Tipo:</td>
+								<td><h:inputText value="#{poderAction.objPoder.tipoPoder}"
+										required="true" id="tipoPoder"
+										requiredMessage=" Debe ingresar el tipo" /></td>
+
+
+
+							</tr>
+							<tr>
+								<td colspan="3"><a4j:commandButton value="Registra Poder"
+										action="#{poderAction.registraPoder}" /></td>
+
+
+							</tr>
+
+
+						</table>
+
+						<table align="center">
+							<tr>
+								<td align="left"><rich:messages layout="list">
+										<f:facet name="errorMarker">
+											<h:graphicImage value="/images/error.gif" />
+										</f:facet>
+
+										<f:facet name="infoMarker">
+											<h:graphicImage value="/images/info.jpeg" />
+										</f:facet>
+									</rich:messages>
+								</td>
+							</tr>
+						</table>
+
+
+					</rich:panel>
+
+
+
+
+				</h:form>
+				<h:form>
+					<a4j:commandButton value="Volver"
+						action="#{poderAction.muestraListado}" />
+				</h:form>
+			</center>
+
+
+
 
 
 		</f:view>

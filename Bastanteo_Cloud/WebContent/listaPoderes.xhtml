@@ -57,71 +57,8 @@
 					<a4j:commandButton value="Registrar Poderes"
 						action="#{poderAction.muestraPoder}" />
 				</h:form>
-
-				<h:form>
-
-					<a4j:commandLink ajaxSingle="true" id="ingresoLink"
-						oncomplete="#{rich:component('panelIngreso')}.show()">
-REGISTRA PODER POR PANEL
-		<f:setPropertyActionListener value="#{objPoder}"
-							target="#{poderAction.objPoder}" />
-					</a4j:commandLink>
-				</h:form>
-
-				<rich:modalPanel id="panelIngreso" autosized="true" width="450">
-					<f:facet name="header">
-						<h:outputText value="Ingresa Poder" />
-					</f:facet>
-					<f:facet name="controls">
-						<h:panelGroup>
-							<h:graphicImage value="/images/close.png" style="border:0"
-								id="hidelink2" />
-							<rich:componentControl for="panelIngreso" attachTo="hidelink2"
-								operation="hide" event="onclick" />
-						</h:panelGroup>
-					</f:facet>
-					<h:form>
-
-						<h:panelGrid columns="1">
-							<a4j:outputPanel ajaxRendered="true">
-								<h:panelGrid columns="3">
-									<h:outputText value="CODIGO" />
-									<h:inputText value="#{objPoder.CPoder}"
-										requiredMessage=" Debe ingresar el codigo"
-										
-										required="true" id="CPoder"  maxlength="4">
-										<rich:ajaxValidator event="onblur" />
-										 <f:validateLength minimum="4" 
-						  					maximum="4" />
-									</h:inputText>
-									<rich:message for="CPoder" style="color:red;"></rich:message>
-									<h:outputText value="NOMBRE" />
-									<h:inputText value="#{objPoder.nombre}"
-										required="true" 
-										requiredMessage=" Debe ingresar el nombre"
-										id="nombre">
-										<rich:ajaxValidator event="onblur" />
-									</h:inputText>
-									<rich:message for="nombre" style="color:red;"></rich:message>
-									<h:outputText value="TIPO" />
-									<h:inputText value="#{objPoder.tipoPoder}" id="tipoPoder"
-										requiredMessage=" Debe ingresar el tipo"
-										required="true">
-										<rich:ajaxValidator event="onblur" />
-									</h:inputText>
-									<rich:message for="tipoPoder" style="color:red;"></rich:message>
-								</h:panelGrid>
-
-							</a4j:outputPanel>
-							<a4j:commandButton value="Ingresa Poder"
-								action="#{poderAction.registraPoder}"
-								oncomplete="if (#{facesContext.maximumSeverity==null}) #{rich:component('panelIngreso')}.hide();" />
-						</h:panelGrid>
-					</h:form>
-				</rich:modalPanel>
-
-
-
+				
+			
 
 			</center>
 
