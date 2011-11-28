@@ -120,8 +120,9 @@ public class PoderAction implements  Serializable{
 		}
 				
 		mensajeValidacion=cadenaArmada;
-		return "muestraValidacionPoder";
 		
+		return "muestraValidacionPoder";
+	
 	}
 	
 	/*
