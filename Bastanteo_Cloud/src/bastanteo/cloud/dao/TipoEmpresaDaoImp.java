@@ -1,5 +1,7 @@
 package bastanteo.cloud.dao;
 
+import javax.faces.model.SelectItem;
+
 import org.hibernate.Session;
 
 import bastanteo.cloud.bean.TipoEmpresa;
@@ -21,5 +23,8 @@ public class TipoEmpresaDaoImp implements TipoEmpresaDao{
 		
 		return objTipoEmpresaObt;
 	}
+
+	
+
 
 }

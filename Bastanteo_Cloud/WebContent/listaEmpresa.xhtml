@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+<ui:composition template="/template/common/commonLayout.xhtml">
+
+	<ui:define name="content">
+
+		<f:view>
+
+			<a4j:keepAlive beanName="empresaAction" />
+
+			<center>
+				<h:form id="frmListaEmpresas">
+
+
+
+					<rich:dataTable var="objEmpresa"
+						value="#{empresaAction.lstEmpresa}" rows="4" id="testpList">
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="RUC"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{objEmpresa.ruc}" id="ruc"></h:outputText>
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="RAZON SOCIAL"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{objEmpresa.razonSocial}" id="razonSocial"></h:outputText>
+						</rich:column>
+
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="EDICION"></h:outputText>
+							</f:facet>
+							<a4j:commandLink ajaxSingle="true" id="editlink"
+								oncomplete="#{rich:component('editPanel')}.show()">
+		Edicion
+		<f:setPropertyActionListener value="#{objEmpresa}"
+									target="#{empresaAction.objEmpresa}" />
+							</a4j:commandLink>
+						</rich:column>
+
+
+						<f:facet name="footer">
+							<rich:datascroller for="testpList" limitToList="true"
+								reRender="frmListaEmpresas">
+
+							</rich:datascroller>
+						</f:facet>
+
+					</rich:dataTable>
+
+				</h:form>
+
+				<h:form>
+
+					<a4j:commandLink ajaxSingle="true" id="ingresoLink"
+						oncomplete="#{rich:component('panelIngreso')}.show()">
+Ingresar Empresa
+		<f:setPropertyActionListener value="#{objEmpresa}"
+							target="#{empresaAction.objEmpresa}" />
+					</a4j:commandLink>
+				</h:form>
+
+
+				<rich:modalPanel id="editPanel" autosized="true" width="450">
+					<f:facet name="header">
+						<h:outputText value="Edita Empresa" />
+					</f:facet>
+					<f:facet name="controls">
+						<h:panelGroup>
+							<h:graphicImage value="/images/close.png" style="border:0"
+								id="hidelink" />
+							<rich:componentControl for="editPanel" attachTo="hidelink"
+								operation="hide" event="onclick" />
+						</h:panelGroup>
+					</f:facet>
+					<h:form>
+
+						<h:panelGrid columns="1">
+							<a4j:outputPanel ajaxRendered="true">
+								<h:panelGrid columns="2">
+
+									<h:outputText value="RUC" />
+									<h:inputText value="#{empresaAction.objEmpresa.ruc}" />
+									<h:outputText value="Razon Social" />
+									<h:inputText value="#{empresaAction.objEmpresa.razonSocial}" />
+									<h:outputText value="Tipo" />
+
+
+
+									<h:selectOneMenu
+										value="#{empresaAction.objEmpresa.tipoEmpresa.CTipoEmpresa}">
+										<f:selectItems value="#{empresaAction.objEmpresa.tipoEmpresa}" />
+									</h:selectOneMenu>
+
+
+
+									<h:outputText value="Fecha" />
+									<h:inputText
+										value="#{empresaAction.objEmpresa.fechaInicioOper}" />
+									<h:outputText value="Cantidad" />
+									<h:inputText value="#{empresaAction.objEmpresa.cantEmpleado}" />
+
+								</h:panelGrid>
+
+							</a4j:outputPanel>
+							<a4j:commandButton value="Actualiza"
+								action="#{empresaAction.actualizaEmpresa}"
+								oncomplete="if (#{facesContext.maximumSeverity==null}) #{rich:component('editPanel')}.hide();" />
+						</h:panelGrid>
+					</h:form>
+				</rich:modalPanel>
+
+				<rich:modalPanel id="panelIngreso" autosized="true" width="450">
+					<f:facet name="header">
+						<h:outputText value="Ingresa Empresa" />
+					</f:facet>
+					<f:facet name="controls">
+						<h:panelGroup>
+							<h:graphicImage value="/images/close.png" style="border:0"
+								id="hidelink2" />
+							<rich:componentControl for="panelIngreso" attachTo="hidelink2"
+								operation="hide" event="onclick" />
+						</h:panelGroup>
+					</f:facet>
+					<h:form>
+
+						<h:panelGrid columns="1">
+							<a4j:outputPanel ajaxRendered="true">
+								<h:panelGrid columns="2">
+									<h:outputText value="Codigo" />
+									<h:inputText value="#{empresaAction.objEmpresa.CEmpresa}" />
+									<h:outputText value="RUC" />
+									<h:inputText value="#{empresaAction.objEmpresa.ruc}" />
+									<h:outputText value="Razon Social" />
+									<h:inputText value="#{empresaAction.objEmpresa.razonSocial}" />
+									<h:outputText value="Tipo" />
+									<h:inputText value="#{empresaAction.objEmpresa.tipoEmpresa}" />
+									<h:outputText value="Fecha" />
+									<h:inputText
+										value="#{empresaAction.objEmpresa.fechaInicioOper}" />
+									<h:outputText value="Cantidad" />
+									<h:inputText value="#{empresaAction.objEmpresa.cantEmpleado}" />
+
+								</h:panelGrid>
+
+							</a4j:outputPanel>
+							<a4j:commandButton value="Ingresa Empresa"
+								action="#{empresaAction.registraEmpresa}"
+								oncomplete="if (#{facesContext.maximumSeverity==null}) #{rich:component('panelIngreso')}.hide();"
+								reRender="testpList" />
+						</h:panelGrid>
+					</h:form>
+				</rich:modalPanel>
+
+
+			</center>
+
+		</f:view>
+	</ui:define>
+
+</ui:composition>
+
+
+
+</html>
+

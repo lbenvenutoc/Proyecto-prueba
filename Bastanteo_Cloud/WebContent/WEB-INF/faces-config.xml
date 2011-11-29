@@ -15,6 +15,13 @@
 			<to-view-id>/regPoder.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+		<navigation-rule>
+		<navigation-case>
+			<from-outcome>listaEmpresa</from-outcome>
+			<to-view-id>/listaEmpresa.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 	<navigation-rule>
 		<navigation-case>
@@ -37,6 +44,23 @@
 		<managed-property>
 			<property-name>objPoder</property-name>
 			<value>#{objPoder}</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>objEmpresa</managed-bean-name>
+		<managed-bean-class>bastanteo.cloud.bean.Empresa</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>empresaAction</managed-bean-name>
+		<managed-bean-class>bastanteo.cloud.action.EmpresaAction</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>objEmpresa</property-name>
+			<value>#{objEmpresa}</value>
 		</managed-property>
 	</managed-bean>
 

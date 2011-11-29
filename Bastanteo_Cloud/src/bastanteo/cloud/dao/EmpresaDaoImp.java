@@ -4,6 +4,8 @@
 package bastanteo.cloud.dao;
 
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Transaction;
 
@@ -85,6 +87,23 @@ public class EmpresaDaoImp implements EmpresaDao {
 		}
 	
 		return objEmpresaObt;
+	}
+	
+	public List listar() {
+		List listaEmpresa=null;
+		Session session=HibernateUtil.getSessionFactory();
+		
+		try{
+			session.beginTransaction();
+			
+			
+			listaEmpresa=session.createQuery("select e from Empresa e join fetch e.tipoEmpresa").list();
+				return listaEmpresa;
+		
+			
+		}finally{
+			session.close();
+		}
 	}
 
 }

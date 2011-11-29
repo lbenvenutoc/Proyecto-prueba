@@ -20,11 +20,20 @@
   SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules::2" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listaEmpresa::#listaEmpresa.xhtml"
+    NAME="output" PATH="/listaEmpresa.xhtml"
+    TARGET="rules:#listaEmpresa.xhtml" TITLE="listaEmpresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#valPoder.xhtml" PATH="/valPoder.xhtml"
+  SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::3" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="muestraValidacionPoder::#valPoder.xhtml"
     NAME="output" PATH="/valPoder.xhtml" TARGET="rules:#valPoder.xhtml"
     TITLE="muestraValidacionPoder" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#valPoder.xhtml" PATH="/valPoder.xhtml"
-  SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#listaEmpresa.xhtml"
+  PATH="/listaEmpresa.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

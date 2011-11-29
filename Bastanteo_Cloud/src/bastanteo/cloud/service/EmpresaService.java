@@ -1,5 +1,7 @@
 package bastanteo.cloud.service;
 
+import java.util.List;
+
 import bastanteo.cloud.bean.Empresa;
 import bastanteo.cloud.dao.EmpresaDao;
 import bastanteo.cloud.dao.EmpresaDaoImp;
@@ -20,5 +22,8 @@ public class EmpresaService {
 	}
 	public Empresa obtenerEmpresaxRuc(Empresa objEmpresa) {
 		return dao.obtenerEmpresaxRuc(objEmpresa);
+	}
+	public List listar(){
+		return dao.listar();
 	}
 }
