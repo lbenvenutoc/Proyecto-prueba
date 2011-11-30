@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<ui:composition template="/template/common/commonLayout.xhtml">
+
+	<ui:define name="content">
+
+
+
+		<f:view>
+			<center>
+
+				<h:form id="ajaxValidatorForm">
+
+					<rich:panel id="panelIngreso">
+						<f:facet name="header">
+							<h:outputText value="Poder" />
+						</f:facet>
+						<table>
+							<tr>
+								<td>Codigo:</td>
+								<td><h:inputText value="#{empresaAction.objEmpresa.CEmpresa}" />
+								</td>
+
+
+
+
+
+
+
+
+							</tr>
+							<tr>
+								<td>RUC:</td>
+								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}" /></td>
+
+							</tr>
+
+							<tr>
+								<td>Razon Social:</td>
+								<td><h:inputText value="#{empresaAction.objEmpresa.razonSocial}" /></td>
+
+
+
+							</tr>
+							
+							<tr>
+								<td>Fecha:</td>
+								<td><h:inputText
+										value="#{empresaAction.objEmpresa.fechaInicioOper}" >
+										
+										  <f:convertDateTime pattern="yyyy-MM-dd"/>
+										</h:inputText></td>
+
+
+
+							</tr>
+							
+							<tr>
+								<td>Cantidad Empleados:</td>
+								<td><h:inputText
+										value="#{empresaAction.objEmpresa.cantEmpleado}"/></td>
+
+
+
+							</tr>
+							
+							
+							<tr>
+								<td colspan="3"><a4j:commandButton value="Registra Empresa"
+										action="#{empresaAction.registraEmpresa}" /></td>
+
+
+							</tr>
+
+
+						</table>
+
+						<table align="center">
+							<tr>
+								<td align="left"><rich:messages layout="list">
+										<f:facet name="errorMarker">
+											<h:graphicImage value="/images/error.gif" />
+										</f:facet>
+
+										<f:facet name="infoMarker">
+											<h:graphicImage value="/images/info.jpeg" />
+										</f:facet>
+									</rich:messages>
+								</td>
+							</tr>
+						</table>
+
+
+					</rich:panel>
+
+
+
+
+				</h:form>
+			
+			</center>
+
+
+
+
+
+		</f:view>
+
+	</ui:define>
+
+</ui:composition>
+
+
+
+</html>
+

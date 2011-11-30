@@ -52,6 +52,13 @@ public class EmpresaAction implements  Serializable{
 	public void setLstEmpresa(List<Empresa> lstEmpresa) {
 		this.lstEmpresa = lstEmpresa;
 	}
+	
+
+	public String muestraEmpresa(){
+		
+	
+		return "muestraEmpresa";
+	}
 
 
 	public String listaEmpresa(){
@@ -72,6 +79,7 @@ public class EmpresaAction implements  Serializable{
 		objEmpresa.setTipoEmpresa(tipoEmpresa);
 		servicioEmpresa.registrarEmpresa(objEmpresa);
 		System.out.println(""+objEmpresa.getCantEmpleado());
+		lstEmpresa=servicioEmpresa.listar();
 		return "listaEmpresa";
 	}
 	
