@@ -43,6 +43,7 @@ public class EmpresaDaoImp implements EmpresaDao {
 			tx.commit();
 			indicador=1;
 		} catch (Exception ex) {
+			System.out.println(ex);
 			tx.rollback();
 			indicador=0;
 		} finally {
