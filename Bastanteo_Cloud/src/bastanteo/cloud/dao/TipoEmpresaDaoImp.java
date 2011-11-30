@@ -1,5 +1,7 @@
 package bastanteo.cloud.dao;
 
+import java.util.List;
+
 import javax.faces.model.SelectItem;
 
 import org.hibernate.Session;
@@ -22,6 +24,23 @@ public class TipoEmpresaDaoImp implements TipoEmpresaDao{
 		}
 		
 		return objTipoEmpresaObt;
+	}
+	
+	public List listar() {
+		List listaEmpresa=null;
+		Session session=HibernateUtil.getSessionFactory();
+		
+		try{
+			session.beginTransaction();
+			
+			
+			listaEmpresa=session.createQuery("select te from TipoEmpresa te").list();
+				return listaEmpresa;
+		
+			
+		}finally{
+			session.close();
+		}
 	}
 
 	

@@ -3,7 +3,6 @@ package bastanteo.cloud.action;
 import java.io.Serializable;
 import java.util.List;
 
-import junit.framework.Assert;
 
 import bastanteo.cloud.bean.Poder;
 import bastanteo.cloud.service.PoderService;

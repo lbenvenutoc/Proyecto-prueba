@@ -2,33 +2,7 @@
 <!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
                               "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 <faces-config>
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>listaPoder</from-outcome>
-			<to-view-id>/listaPoderes.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
 
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>muestraPoder</from-outcome>
-			<to-view-id>/regPoder.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-		<navigation-rule>
-		<navigation-case>
-			<from-outcome>listaEmpresa</from-outcome>
-			<to-view-id>/listaEmpresa.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>muestraValidacionPoder</from-outcome>
-			<to-view-id>/valPoder.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
 
 	<managed-bean>
 		<managed-bean-name>objPoder</managed-bean-name>
@@ -62,7 +36,45 @@
 			<property-name>objEmpresa</property-name>
 			<value>#{objEmpresa}</value>
 		</managed-property>
+		<managed-property>
+			<property-name>lstEmpresa</property-name>
+			<value>#{lstEmpresa}</value>
+		</managed-property>
+		
 	</managed-bean>
+
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>listaPoder</from-outcome>
+			<to-view-id>/listaPoderes.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>muestraPoder</from-outcome>
+			<to-view-id>/regPoder.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+		<navigation-rule>
+		<navigation-case>
+			<from-outcome>listaEmpresa</from-outcome>
+			<to-view-id>/listaEmpresa.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>muestraValidacionPoder</from-outcome>
+			<to-view-id>/valPoder.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+
+	
 
 
 	<application>

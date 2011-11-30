@@ -26,7 +26,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#valPoder.xhtml" PATH="/valPoder.xhtml"
-  SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="312,264,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules::3" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="muestraValidacionPoder::#valPoder.xhtml"
@@ -35,5 +35,5 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#listaEmpresa.xhtml"
-  PATH="/listaEmpresa.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/listaEmpresa.xhtml" SHAPE="288,368,50,25" model-entity="JSFProcessGroup"/>
 </PROCESS>
