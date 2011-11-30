@@ -23,9 +23,26 @@ public class EmpresaAction implements  Serializable{
 	TipoEmpresaService servicioTipoEmpresa= new TipoEmpresaService();
 	//private List<TipoEmpresa> lstTipoEmpresa = new ArrayList();
 	private Empresa objEmpresa;
+	private String codEmpresa;
 	private List<Empresa> lstEmpresa;
 	
 	
+
+	
+
+
+
+	public String getCodEmpresa() {
+		return codEmpresa;
+	}
+
+
+
+	public void setCodEmpresa(String codEmpresa) {
+		this.codEmpresa = codEmpresa;
+	}
+
+
 
 	public Empresa getObjEmpresa() {
 		return objEmpresa;
@@ -58,6 +75,15 @@ public class EmpresaAction implements  Serializable{
 		
 	
 		return "muestraEmpresa";
+	}
+	
+	public String muestraEdicionEmpresa(){
+		Empresa objEmpresaEnviado= new Empresa();
+		System.out.println("CODIGO ENVIADO EMPRESA "+codEmpresa);
+		objEmpresaEnviado.setCEmpresa(codEmpresa);
+		objEmpresa=servicioEmpresa.obtenerEmpresa(objEmpresaEnviado);
+		
+		return "muestraEdicionEmpresa";
 	}
 
 

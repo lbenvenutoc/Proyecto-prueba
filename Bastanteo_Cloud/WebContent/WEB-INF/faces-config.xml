@@ -36,6 +36,10 @@
 			<property-name>objEmpresa</property-name>
 			<value>#{objEmpresa}</value>
 		</managed-property>
+		 <managed-property>
+            <property-name>codEmpresa</property-name>
+            <value>#{objEmpresa.CEmpresa}</value>
+        </managed-property>
 		<managed-property>
 			<property-name>lstEmpresa</property-name>
 			<value>#{lstEmpresa}</value>
@@ -62,6 +66,15 @@
 		<navigation-case>
 			<from-outcome>muestraEmpresa</from-outcome>
 			<to-view-id>/regEmpresa.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>muestraEdicionEmpresa</from-outcome>
+			<to-view-id>/actEmpresa.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	

@@ -29,20 +29,29 @@
   SHAPE="312,264,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules::3" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="listaEmpresa::#listaEmpresa.xhtml"
-    NAME="output" PATH="/listaEmpresa.xhtml"
-    TARGET="rules:#listaEmpresa.xhtml" TITLE="listaEmpresa" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="muestraEdicionEmpresa::#actEmpresa.xhtml"
+    NAME="output" PATH="/actEmpresa.xhtml"
+    TARGET="rules:#actEmpresa.xhtml" TITLE="muestraEdicionEmpresa" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#listaEmpresa.xhtml"
   PATH="/listaEmpresa.xhtml" SHAPE="288,368,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules::4" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules::4" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listaEmpresa::#listaEmpresa.xhtml"
+    NAME="output" PATH="/listaEmpresa.xhtml"
+    TARGET="rules:#listaEmpresa.xhtml" TITLE="listaEmpresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#regEmpresa.xhtml" PATH="/regEmpresa.xhtml"
+  SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::5" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::5" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="muestraValidacionPoder::#valPoder.xhtml"
     NAME="output" PATH="/valPoder.xhtml" TARGET="rules:#valPoder.xhtml"
     TITLE="muestraValidacionPoder" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#regEmpresa.xhtml" PATH="/regEmpresa.xhtml"
-  SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#actEmpresa.xhtml" PATH="/actEmpresa.xhtml"
+  SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

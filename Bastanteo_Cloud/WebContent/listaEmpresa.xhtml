@@ -11,14 +11,14 @@
 <ui:composition template="/template/common/commonLayout.xhtml">
 
 	<ui:define name="content">
-<a4j:keepAlive beanName="empresaAction" />
+		<a4j:keepAlive beanName="empresaAction" />
 		<f:view>
-			
+
 
 			<center>
 				<h:form id="frmListaEmpresas">
 
-					
+
 
 
 					<rich:dataTable var="objEmpresa"
@@ -35,24 +35,26 @@
 							</f:facet>
 							<h:outputText value="#{objEmpresa.razonSocial}" id="razonSocial"></h:outputText>
 						</rich:column>
-						
+
 						<rich:column>
 							<f:facet name="header">
 								<h:outputText value="TIPO EMPRESA"></h:outputText>
 							</f:facet>
-							<h:outputText value="#{objEmpresa.tipoEmpresa.nombre}" id="nombre"></h:outputText>
+							<h:outputText value="#{objEmpresa.tipoEmpresa.nombre}"
+								id="nombre"></h:outputText>
 						</rich:column>
 
 						<rich:column>
 							<f:facet name="header">
 								<h:outputText value="EDICION"></h:outputText>
 							</f:facet>
-							<a4j:commandLink ajaxSingle="true" id="editlink"
-								oncomplete="#{rich:component('editPanel')}.show()">
-		Edicion
-		<f:setPropertyActionListener value="#{objEmpresa}"
-									target="#{empresaAction.objEmpresa}" />
-							</a4j:commandLink>
+
+							
+							<h:commandLink action="#{empresaAction.muestraEdicionEmpresa}"
+								value="Editar">
+								<f:param name="codEmpresa" value="#{objEmpresa.CEmpresa}" />
+							</h:commandLink>
+
 						</rich:column>
 
 
@@ -66,24 +68,16 @@
 					</rich:dataTable>
 
 				</h:form>
-				
-			   <h:form>
+
+				<h:form>
 
 					<a4j:commandButton value="Registrar Empresa"
 						action="#{empresaAction.muestraEmpresa}" />
 				</h:form>
 
-				<h:form>
 
-					<a4j:commandLink ajaxSingle="true" id="ingresoLink"
-						oncomplete="#{rich:component('panelIngreso')}.show()">
-Ingresar Empresa
-		<f:setPropertyActionListener value="#{objEmpresa}"
-							target="#{empresaAction.objEmpresa}" />
-					</a4j:commandLink>
-				</h:form>
 
-				
+
 
 
 
