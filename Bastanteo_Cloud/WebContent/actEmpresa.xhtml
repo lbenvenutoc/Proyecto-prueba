@@ -23,20 +23,7 @@
 							<h:outputText value="Editar Empresa" />
 						</f:facet>
 						<table>
-							<tr>
-								<td>Codigo:</td>
-								<td><h:inputText
-										value="#{empresaAction.objEmpresa.CEmpresa}" />
-								</td>
-
-
-
-
-
-
-
-
-							</tr>
+							<h:inputHidden value="#{empresaAction.objEmpresa.CEmpresa}" />
 							<tr>
 								<td>RUC:</td>
 								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}" />
@@ -47,7 +34,8 @@
 							<tr>
 								<td>Razon Social:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.razonSocial}" /></td>
+										value="#{empresaAction.objEmpresa.razonSocial}" />
+								</td>
 
 
 
@@ -60,7 +48,8 @@
 										<f:selectItems value="#{empresaAction.lstTipoEmpresa}" />
 
 
-									</h:selectOneMenu></td>
+									</h:selectOneMenu>
+								</td>
 							</tr>
 
 
@@ -70,7 +59,8 @@
 								<td><rich:calendar
 										value="#{empresaAction.objEmpresa.fechaInicioOper}"
 										locale="en/US" datePattern="yyyy-M-dd" cellWidth="24px"
-										cellHeight="22px" style="width:200px" /></td>
+										cellHeight="22px" style="width:200px"></rich:calendar>
+								</td>
 
 
 
@@ -80,7 +70,8 @@
 							<tr>
 								<td>Cantidad Empleados:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.cantEmpleado}" /></td>
+										value="#{empresaAction.objEmpresa.cantEmpleado}" />
+								</td>
 
 
 
@@ -90,7 +81,8 @@
 							<tr>
 								<td colspan="3"><a4j:commandButton
 										value="Actualiza Empresa"
-										action="#{empresaAction.actualizaEmpresa}" /></td>
+										action="#{empresaAction.actualizaEmpresa}" />
+								</td>
 
 
 							</tr>
@@ -108,8 +100,7 @@
 										<f:facet name="infoMarker">
 											<h:graphicImage value="/images/info.jpeg" />
 										</f:facet>
-									</rich:messages>
-								</td>
+									</rich:messages></td>
 							</tr>
 						</table>
 
