@@ -25,8 +25,8 @@
 						<table>
 							<tr>
 								<td>Codigo:</td>
-								<td><h:inputText value="#{empresaAction.objEmpresa.CEmpresa}" />
-								</td>
+								<td><h:inputText
+										value="#{empresaAction.objEmpresa.CEmpresa}" /></td>
 
 
 
@@ -38,43 +38,63 @@
 							</tr>
 							<tr>
 								<td>RUC:</td>
-								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}" /></td>
+								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}" />
+								</td>
 
 							</tr>
 
 							<tr>
 								<td>Razon Social:</td>
-								<td><h:inputText value="#{empresaAction.objEmpresa.razonSocial}" /></td>
+								<td><h:inputText
+										value="#{empresaAction.objEmpresa.razonSocial}" />
+								</td>
 
 
 
 							</tr>
-							
+
+							<tr>
+								<td>Tipo Empresa:</td>
+								<td><h:selectOneMenu
+										value="#{empresaAction.objEmpresa.tipoEmpresa}">
+										<f:selectItems value="#{empresaAction.listaTipoEmpresa}" />
+										<f:convertNumber />
+									</h:selectOneMenu>
+								</td>
+							</tr>
+
+
+
 							<tr>
 								<td>Fecha:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.fechaInicioOper}" >
-										
-										  <f:convertDateTime pattern="yyyy-MM-dd"/>
-										</h:inputText></td>
+										value="#{empresaAction.objEmpresa.fechaInicioOper}">
+
+										<f:convertDateTime pattern="yyyy-MM-dd" />
+									</h:inputText>
+								</td>
 
 
 
 							</tr>
-							
+
+
 							<tr>
 								<td>Cantidad Empleados:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.cantEmpleado}"/></td>
+										value="#{empresaAction.objEmpresa.cantEmpleado}" />
+								</td>
 
 
 
 							</tr>
-							
-							
+
+
 							<tr>
-								<td colspan="3"><a4j:commandButton value="Actualiza Empresa"
-										action="#{empresaAction.actualizaEmpresa}" /></td>
+								<td colspan="3"><a4j:commandButton
+										value="Actualiza Empresa"
+										action="#{empresaAction.actualizaEmpresa}" />
+								</td>
 
 
 							</tr>
@@ -92,8 +112,7 @@
 										<f:facet name="infoMarker">
 											<h:graphicImage value="/images/info.jpeg" />
 										</f:facet>
-									</rich:messages>
-								</td>
+									</rich:messages></td>
 							</tr>
 						</table>
 
@@ -104,7 +123,7 @@
 
 
 				</h:form>
-			
+
 			</center>
 
 
