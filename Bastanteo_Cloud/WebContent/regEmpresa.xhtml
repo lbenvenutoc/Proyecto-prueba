@@ -26,7 +26,8 @@
 							<tr>
 								<td>Codigo:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.CEmpresa}" /></td>
+										value="#{empresaAction.objEmpresa.CEmpresa}" />
+								</td>
 
 
 
@@ -46,19 +47,22 @@
 							<tr>
 								<td>Razon Social:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.razonSocial}" />
-								</td>
+										value="#{empresaAction.objEmpresa.razonSocial}" /></td>
 
 
 
 							</tr>
 
 							<tr>
-							<td>Tipo Empresa:</td>
-							<td><h:selectOneMenu
-									value="#{empresaAction.objEmpresa.tipoEmpresa}">
-									<f:selectItems value="#{empresaAction.listaTipoEmpresa}" />
-								</h:selectOneMenu></td>
+								<td>Tipo Empresa:</td>
+
+
+								<td><h:selectOneMenu
+										value="#{empresaAction.objEmpresa.tipoEmpresa}">
+										<f:selectItems value="#{empresaAction.lstTipoEmpresa}" />
+									</h:selectOneMenu></td>
+
+
 							</tr>
 
 							<tr>
@@ -67,8 +71,7 @@
 										value="#{empresaAction.objEmpresa.fechaInicioOper}">
 
 										<f:convertDateTime pattern="yyyy-MM-dd" />
-									</h:inputText>
-								</td>
+									</h:inputText></td>
 
 
 
@@ -77,8 +80,7 @@
 							<tr>
 								<td>Cantidad Empleados:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.cantEmpleado}" />
-								</td>
+										value="#{empresaAction.objEmpresa.cantEmpleado}" /></td>
 
 
 
@@ -87,8 +89,7 @@
 
 							<tr>
 								<td colspan="3"><a4j:commandButton value="Registra Empresa"
-										action="#{empresaAction.registraEmpresa}" />
-								</td>
+										action="#{empresaAction.registraEmpresa}" /></td>
 
 
 							</tr>
@@ -109,6 +110,7 @@
 									</rich:messages></td>
 							</tr>
 						</table>
+						
 
 
 					</rich:panel>

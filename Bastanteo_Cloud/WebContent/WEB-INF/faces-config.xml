@@ -44,6 +44,10 @@
 			<property-name>lstEmpresa</property-name>
 			<value>#{lstEmpresa}</value>
 		</managed-property>
+		<managed-property>
+			<property-name>lstTipoEmpresa</property-name>
+			<value>#{lstTipoEmpresa}</value>
+		</managed-property>
 		
 	</managed-bean>
 

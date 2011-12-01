@@ -73,7 +73,8 @@ public class EmpresaAction implements  Serializable{
 
 	public String muestraEmpresa(){
 		
-	
+	    lstTipoEmpresa=servicioTipoEmpresa.listar();
+	    
 		return "muestraEmpresa";
 	}
 	
@@ -98,11 +99,19 @@ public class EmpresaAction implements  Serializable{
 		System.out.println("ENTRA  A REGISTRA EMPRESA");
 		
 		//lstTipoEmpresa=servicioTipoEmpresa.listar();
+		/*
 		objEmpresa.setCEmpresa("2");
 		TipoEmpresa objEmObt= new TipoEmpresa();
 		objEmObt.setCTipoEmpresa(2);
 		TipoEmpresa tipoEmpresa=servicioTipoEmpresa.obtenerTipoEmpresa(objEmObt);
 		objEmpresa.setTipoEmpresa(tipoEmpresa);
+		*/
+		/*
+		TipoEmpresa tipoEmpresa=servicioTipoEmpresa.obtenerTipoEmpresa(objEmpresa.getTipoEmpresa());
+		objEmpresa.setTipoEmpresa(tipoEmpresa);
+		*/
+		
+		
 		servicioEmpresa.registrarEmpresa(objEmpresa);
 		System.out.println(""+objEmpresa.getCantEmpleado());
 		lstEmpresa=servicioEmpresa.listar();
@@ -120,7 +129,7 @@ public class EmpresaAction implements  Serializable{
 		return "listaEmpresa";
 	}
 
-	public List<SelectItem> getListaTipoEmpresa() {
+	public List<SelectItem> getLstTipoEmpresa() {
         List<SelectItem> listaTipoEmpresa = new ArrayList();
         lstTipoEmpresa=servicioTipoEmpresa.listar();
         for (TipoEmpresa objTipoEmpresa : lstTipoEmpresa) {
@@ -129,6 +138,20 @@ public class EmpresaAction implements  Serializable{
         
         return listaTipoEmpresa;
     }
+	
+
+
+/*
+	public List<TipoEmpresa> getLstTipoEmpresa() {
+		return lstTipoEmpresa;
+	}
+*/
+
+
+	public void setLstTipoEmpresa(List<TipoEmpresa> lstTipoEmpresa) {
+		this.lstTipoEmpresa = lstTipoEmpresa;
+	}
+	
 	
 
 }
