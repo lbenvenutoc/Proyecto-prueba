@@ -21,7 +21,7 @@ public class EmpresaAction implements  Serializable{
 	
 	EmpresaService servicioEmpresa= new EmpresaService();
 	TipoEmpresaService servicioTipoEmpresa= new TipoEmpresaService();
-	//private List<TipoEmpresa> lstTipoEmpresa = new ArrayList();
+	private List<TipoEmpresa> lstTipoEmpresa = new ArrayList();
 	private Empresa objEmpresa;
 	private String codEmpresa;
 	private List<Empresa> lstEmpresa;
@@ -110,24 +110,25 @@ public class EmpresaAction implements  Serializable{
 	}
 	
 	public String actualizaEmpresa(){
-		
-		TipoEmpresa obj= servicioTipoEmpresa.obtenerTipoEmpresa(objEmpresa.getTipoEmpresa());
+		TipoEmpresa objEmpOb=new TipoEmpresa();
+		objEmpOb.setCTipoEmpresa(objEmpresa.getTipoEmpresa().getCTipoEmpresa());
+		TipoEmpresa obj= servicioTipoEmpresa.obtenerTipoEmpresa(objEmpOb);
 		objEmpresa.setTipoEmpresa(obj);
 		servicioEmpresa.modificarEmpresa(objEmpresa);
 		lstEmpresa=servicioEmpresa.listar();
 		
 		return "listaEmpresa";
 	}
-	/*
+
 	public List<SelectItem> getListaTipoEmpresa() {
         List<SelectItem> listaTipoEmpresa = new ArrayList();
-        
+        lstTipoEmpresa=servicioTipoEmpresa.listar();
         for (TipoEmpresa objTipoEmpresa : lstTipoEmpresa) {
         	listaTipoEmpresa.add(new SelectItem(objTipoEmpresa.getCTipoEmpresa(), objTipoEmpresa.getNombre()));
         }
         
         return listaTipoEmpresa;
     }
-	*/
+	
 
 }
