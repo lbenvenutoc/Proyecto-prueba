@@ -26,8 +26,7 @@
 							<tr>
 								<td>Codigo:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.CEmpresa}" />
-								</td>
+										value="#{empresaAction.objEmpresa.CEmpresa}" /></td>
 
 
 
@@ -47,7 +46,8 @@
 							<tr>
 								<td>Razon Social:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.razonSocial}" /></td>
+										value="#{empresaAction.objEmpresa.razonSocial}" />
+								</td>
 
 
 
@@ -58,8 +58,10 @@
 
 
 								<td><h:selectOneMenu
-										value="#{empresaAction.objEmpresa.tipoEmpresa}">
+										value="#{empresaAction.codTipoEmpresa}">
 										<f:selectItems value="#{empresaAction.lstTipoEmpresa}" />
+
+
 									</h:selectOneMenu></td>
 
 
@@ -71,7 +73,8 @@
 										value="#{empresaAction.objEmpresa.fechaInicioOper}">
 
 										<f:convertDateTime pattern="yyyy-MM-dd" />
-									</h:inputText></td>
+									</h:inputText>
+								</td>
 
 
 
@@ -80,7 +83,8 @@
 							<tr>
 								<td>Cantidad Empleados:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.cantEmpleado}" /></td>
+										value="#{empresaAction.objEmpresa.cantEmpleado}" />
+								</td>
 
 
 
@@ -89,7 +93,8 @@
 
 							<tr>
 								<td colspan="3"><a4j:commandButton value="Registra Empresa"
-										action="#{empresaAction.registraEmpresa}" /></td>
+										action="#{empresaAction.registraEmpresa}" />
+								</td>
 
 
 							</tr>
@@ -107,10 +112,11 @@
 										<f:facet name="infoMarker">
 											<h:graphicImage value="/images/info.jpeg" />
 										</f:facet>
-									</rich:messages></td>
+									</rich:messages>
+								</td>
 							</tr>
 						</table>
-						
+
 
 
 					</rich:panel>
