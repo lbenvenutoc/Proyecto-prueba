@@ -82,7 +82,7 @@ public class EmpresaAction implements  Serializable{
 		System.out.println("CODIGO ENVIADO EMPRESA "+codEmpresa);
 		objEmpresaEnviado.setCEmpresa(codEmpresa);
 		objEmpresa=servicioEmpresa.obtenerEmpresa(objEmpresaEnviado);
-		
+		//System.out.println("AAAAA "+objEmpresa.getTipoEmpresa().getNombre());
 		return "muestraEdicionEmpresa";
 	}
 
@@ -111,13 +111,10 @@ public class EmpresaAction implements  Serializable{
 	
 	public String actualizaEmpresa(){
 		
-		System.out.println("ENTRA  A MODIFICAR EMPRESA");
-		//lstTipoEmpresa=servicioTipoEmpresa.listar();
-		System.out.println(""+objEmpresa.getCEmpresa());
-		//objEmpresa.setCantEmpleado(77);
-		int i=servicioEmpresa.modificarEmpresa(objEmpresa);
-		System.out.println(""+objEmpresa.getCantEmpleado());
-		System.out.println(i);
+		TipoEmpresa obj= servicioTipoEmpresa.obtenerTipoEmpresa(objEmpresa.getTipoEmpresa());
+		objEmpresa.setTipoEmpresa(obj);
+		servicioEmpresa.modificarEmpresa(objEmpresa);
+		lstEmpresa=servicioEmpresa.listar();
 		
 		return "listaEmpresa";
 	}
