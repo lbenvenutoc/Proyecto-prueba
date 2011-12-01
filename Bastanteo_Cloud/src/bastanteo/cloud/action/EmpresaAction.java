@@ -114,9 +114,9 @@ public class EmpresaAction implements  Serializable{
 	
 	public String registraEmpresa(){
 		System.out.println("ENTRA  A REGISTRA EMPRESA");
-		
-		
-		
+				
+		TipoEmpresa objTipEmpObt= servicioTipoEmpresa.obtenerTipoEmpresa(codTipoEmpresa);
+		objEmpresa.setTipoEmpresa(objTipEmpObt);
 		servicioEmpresa.registrarEmpresa(objEmpresa);
 		System.out.println(""+objEmpresa.getCantEmpleado());
 		lstEmpresa=servicioEmpresa.listar();
