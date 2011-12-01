@@ -18,14 +18,17 @@ public class EmpresaDaoImp implements EmpresaDao {
 
 	@Override
 	public Empresa obtenerEmpresa(Empresa objEmpresa) {
+		
 		Session sesion=HibernateUtil.getSessionFactory();
 		Empresa objEmpresaObt=null;
 		try{
-			
-			objEmpresaObt=(Empresa)sesion.get(Empresa.class, objEmpresa.getCEmpresa());
-		} catch (Exception ex) {
+			Query q= null;
+			q= sesion.createQuery("from Empresa e join fetch e.tipoEmpresa where e.CEmpresa=:cod");
+			q.setParameter("cod", objEmpresa.getCEmpresa());
+			objEmpresaObt=(Empresa)q.uniqueResult();
+		}catch (Exception ex) {
 			System.out.println(ex);
-		} finally {
+		}finally {
 			sesion.close();
 		}
 	
