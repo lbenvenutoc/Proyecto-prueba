@@ -9,5 +9,6 @@ import bastanteo.cloud.bean.TipoEmpresa;
 public interface TipoEmpresaDao {
 	
 	public TipoEmpresa obtenerTipoEmpresa(TipoEmpresa objTipoEmpresa);
+	public TipoEmpresa obtenerTipoEmpresa(int codigo);
 	public List listar();
 }

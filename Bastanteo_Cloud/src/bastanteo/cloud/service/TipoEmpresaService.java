@@ -16,6 +16,8 @@ public class TipoEmpresaService {
 	public List listar() {
 		return dao.listar();
 	}
-	
+	public TipoEmpresa obtenerTipoEmpresa(int codigo){
+		return dao.obtenerTipoEmpresa(codigo);
+	}
 
 }

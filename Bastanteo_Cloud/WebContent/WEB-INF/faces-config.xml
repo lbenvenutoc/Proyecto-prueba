@@ -3,7 +3,10 @@
                               "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 <faces-config>
 
-
+	<converter>
+    <converter-id>tipoEmpresaConverter</converter-id>
+    <converter-class>bastanteo.cloud.dao.TipoEmpresaConverter</converter-class>
+</converter>
 	<managed-bean>
 		<managed-bean-name>objPoder</managed-bean-name>
 		<managed-bean-class>bastanteo.cloud.bean.Poder</managed-bean-class>

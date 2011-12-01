@@ -25,10 +25,27 @@ public class EmpresaAction implements  Serializable{
 	private Empresa objEmpresa;
 	private String codEmpresa;
 	private List<Empresa> lstEmpresa;
+	private int codTipoEmpresa;
+	
 	
 	
 
 	
+
+
+
+
+
+
+	public int getCodTipoEmpresa() {
+		return codTipoEmpresa;
+	}
+
+
+
+	public void setCodTipoEmpresa(int codTipoEmpresa) {
+		this.codTipoEmpresa = codTipoEmpresa;
+	}
 
 
 
@@ -83,7 +100,7 @@ public class EmpresaAction implements  Serializable{
 		System.out.println("CODIGO ENVIADO EMPRESA "+codEmpresa);
 		objEmpresaEnviado.setCEmpresa(codEmpresa);
 		objEmpresa=servicioEmpresa.obtenerEmpresa(objEmpresaEnviado);
-		//System.out.println("AAAAA "+objEmpresa.getTipoEmpresa().getNombre());
+		System.out.println("AAAAA "+objEmpresa.getTipoEmpresa().getNombre());
 		return "muestraEdicionEmpresa";
 	}
 
@@ -98,18 +115,6 @@ public class EmpresaAction implements  Serializable{
 	public String registraEmpresa(){
 		System.out.println("ENTRA  A REGISTRA EMPRESA");
 		
-		//lstTipoEmpresa=servicioTipoEmpresa.listar();
-		/*
-		objEmpresa.setCEmpresa("2");
-		TipoEmpresa objEmObt= new TipoEmpresa();
-		objEmObt.setCTipoEmpresa(2);
-		TipoEmpresa tipoEmpresa=servicioTipoEmpresa.obtenerTipoEmpresa(objEmObt);
-		objEmpresa.setTipoEmpresa(tipoEmpresa);
-		*/
-		/*
-		TipoEmpresa tipoEmpresa=servicioTipoEmpresa.obtenerTipoEmpresa(objEmpresa.getTipoEmpresa());
-		objEmpresa.setTipoEmpresa(tipoEmpresa);
-		*/
 		
 		
 		servicioEmpresa.registrarEmpresa(objEmpresa);
@@ -119,10 +124,9 @@ public class EmpresaAction implements  Serializable{
 	}
 	
 	public String actualizaEmpresa(){
-		TipoEmpresa objEmpOb=new TipoEmpresa();
-		objEmpOb.setCTipoEmpresa(objEmpresa.getTipoEmpresa().getCTipoEmpresa());
-		TipoEmpresa obj= servicioTipoEmpresa.obtenerTipoEmpresa(objEmpOb);
-		objEmpresa.setTipoEmpresa(obj);
+		
+		TipoEmpresa objTipEmpObt= servicioTipoEmpresa.obtenerTipoEmpresa(codTipoEmpresa);
+		objEmpresa.setTipoEmpresa(objTipEmpObt);
 		servicioEmpresa.modificarEmpresa(objEmpresa);
 		lstEmpresa=servicioEmpresa.listar();
 		
@@ -133,9 +137,9 @@ public class EmpresaAction implements  Serializable{
         List<SelectItem> listaTipoEmpresa = new ArrayList();
         lstTipoEmpresa=servicioTipoEmpresa.listar();
         for (TipoEmpresa objTipoEmpresa : lstTipoEmpresa) {
-        	listaTipoEmpresa.add(new SelectItem(objTipoEmpresa.getCTipoEmpresa(), objTipoEmpresa.getNombre()));
+        	listaTipoEmpresa.add(new SelectItem(objTipoEmpresa.getCTipoEmpresa(),objTipoEmpresa.getNombre()));
         }
-        
+       
         return listaTipoEmpresa;
     }
 	
