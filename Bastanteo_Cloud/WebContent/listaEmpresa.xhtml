@@ -50,10 +50,13 @@
 							</f:facet>
 
 							
-							<h:commandLink action="#{empresaAction.muestraEdicionEmpresa}"
-								value="Editar">
-								<f:param name="codEmpresa" value="#{objEmpresa.CEmpresa}" />
-							</h:commandLink>
+						
+							
+							 <h:commandButton id="openlink" value="Editar"
+                                             action="#{empresaAction.muestraEdicionEmpresa}">
+                                <f:setPropertyActionListener value="#{objEmpresa.CEmpresa}" target="#{empresaAction.codEmpresa}"/>
+                                
+                            </h:commandButton>
 
 						</rich:column>
 
