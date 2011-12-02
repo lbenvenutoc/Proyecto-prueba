@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<ui:composition template="/template/common/commonLayout.xhtml">
+
+	<ui:define name="content">
+
+
+
+		<f:view>
+			<center>
+
+				<h:form id="ajaxValidatorForm">
+
+					<rich:panel id="panelIngreso">
+						<f:facet name="header">
+							<h:outputText value="Registrar Representante" />
+						</f:facet>
+						<table>
+							<tr>
+								<td>Empresa:</td>
+								<td>
+										
+										<h:selectOneMenu
+										value="#{representanteAction.codEmpresa}">
+										<f:selectItems value="#{representanteAction.lstEmpresa}" />
+
+
+									</h:selectOneMenu>
+								
+								</td>
+
+
+
+
+
+
+
+
+							</tr>
+							<tr>
+								<td>Codigo:</td>
+								<td><h:inputText value="#{representanteAction.codRepresentante}" required="true" requiredMessage="Debe ingresar RUC">
+								
+								</h:inputText>
+								</td>
+
+							</tr>
+
+							<tr>
+								<td>Apellido Paterno:</td>
+								<td><h:inputText
+										value="#{representanteAction.objRepresentante.apePaterno}" required="true" requiredMessage="Debe ingresar el apellido paterno">
+										
+										</h:inputText>
+										
+										</td>
+
+
+
+							</tr>
+							
+							<tr>
+								<td>Apellido Materno:</td>
+								<td><h:inputText
+										value="#{representanteAction.objRepresentante.apeMaterno}" required="true" requiredMessage="Debe ingresar el apellido materno">
+										
+										</h:inputText>
+										
+										</td>
+
+
+
+							</tr>
+							
+							<tr>
+								<td>Nombres:</td>
+								<td><h:inputText
+										value="#{representanteAction.objRepresentante.nombre}" required="true" requiredMessage="Debe ingresar el nombre">
+										
+										</h:inputText>
+										
+										</td>
+
+
+
+							</tr>
+							
+												
+
+							<tr>
+								<td>Tipo Documento Identidad:</td>
+
+
+								<td><h:selectOneMenu
+										value="#{representanteAction.codTipDocIdentidad}">
+										<f:selectItems value="#{representanteAction.lstTipDocIdentidad}" />
+
+
+									</h:selectOneMenu>
+								</td>
+
+
+							</tr>
+							
+								<tr>
+								<td>Nro docuento identidad:</td>
+								<td><h:inputText
+										value="#{representanteAction.objRepresentante.numDocId}" required="true" requiredMessage="Debe ingresar el número de documento">
+										
+										</h:inputText>
+										
+										</td>
+
+
+
+							</tr>
+							
+							<tr>
+								<td>Cargo:</td>
+								<td><h:inputText
+										value="#{representanteAction.objRepresentante.cargoEmpresa}" required="true" requiredMessage="Debe ingresar el cargo">
+										
+										</h:inputText>
+										
+										</td>
+
+
+
+							</tr>
+							
+							
+							
+
+
+							<tr>
+								<td colspan="3"><a4j:commandButton value="Registra Representante"
+										action="#{representanteAction.registraRepresentante}" /></td>
+
+
+							</tr>
+
+
+						</table>
+
+						<table align="center">
+							<tr>
+								<td align="left"><rich:messages layout="list">
+										<f:facet name="errorMarker">
+											<h:graphicImage value="/images/error.gif" />
+										</f:facet>
+
+										<f:facet name="infoMarker">
+											<h:graphicImage value="/images/info.jpeg" />
+										</f:facet>
+									</rich:messages></td>
+							</tr>
+						</table>
+
+
+
+					</rich:panel>
+
+
+
+
+				</h:form>
+
+			</center>
+
+
+
+
+
+		</f:view>
+
+	</ui:define>
+
+</ui:composition>
+
+
+
+</html>
+

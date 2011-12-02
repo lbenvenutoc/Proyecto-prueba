@@ -29,6 +29,9 @@ import bastanteo.cloud.dao.RepresentanteDaoImp;
 		public boolean perteneceEmpresaRepresentante(Representante objRepresentante) {
 			return dao.perteneceEmpresaRepresentante(objRepresentante);
 		}
+		public List listar() {
+			return dao.listar();
+		}
 		
 	}
 

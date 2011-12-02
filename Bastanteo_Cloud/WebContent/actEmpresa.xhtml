@@ -24,9 +24,11 @@
 						</f:facet>
 						<table>
 							<h:inputHidden value="#{empresaAction.objEmpresa.CEmpresa}" />
-							<tr>
+								<tr>
 								<td>RUC:</td>
-								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}" />
+								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}" required="true" requiredMessage="Debe ingresar RUC" validatorMessage="El RUC debe tener 11 numeros">
+								<f:validateLength minimum="11" maximum="11" />
+								</h:inputText>
 								</td>
 
 							</tr>
@@ -34,8 +36,11 @@
 							<tr>
 								<td>Razon Social:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.razonSocial}" />
-								</td>
+										value="#{empresaAction.objEmpresa.razonSocial}" required="true" requiredMessage="Debe ingresar razon social">
+										
+										</h:inputText>
+										
+										</td>
 
 
 
@@ -43,6 +48,8 @@
 
 							<tr>
 								<td>Tipo Empresa:</td>
+
+
 								<td><h:selectOneMenu
 										value="#{empresaAction.codTipoEmpresa}">
 										<f:selectItems value="#{empresaAction.lstTipoEmpresa}" />
@@ -50,33 +57,36 @@
 
 									</h:selectOneMenu>
 								</td>
+
+
 							</tr>
-
-
 
 							<tr>
 								<td>Fecha:</td>
-								<td><rich:calendar
-										value="#{empresaAction.objEmpresa.fechaInicioOper}"
-										locale="en/US" datePattern="yyyy-M-dd" cellWidth="24px"
-										cellHeight="22px" style="width:200px"></rich:calendar>
+								<td>
+									<rich:calendar value="#{empresaAction.objEmpresa.fechaInicioOper}"
+									locale="en/US"
+									datePattern="yyyy-M-dd"
+									cellWidth="24px"
+									cellHeight="22px" style="width:200px">
+									
+									</rich:calendar>
 								</td>
 
-
+								
 
 							</tr>
-
 
 							<tr>
 								<td>Cantidad Empleados:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.cantEmpleado}" />
-								</td>
+										value="#{empresaAction.objEmpresa.cantEmpleado}" converter="#{Integer}" converterMessage="Debe ingresar un valor entero">
+										
+										</h:inputText></td>
 
 
 
 							</tr>
-
 
 							<tr>
 								<td colspan="3"><a4j:commandButton

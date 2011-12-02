@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+<ui:composition template="/template/common/commonLayout.xhtml">
+
+	<ui:define name="content">
+		<a4j:keepAlive beanName="representanteAction" />
+		<f:view>
+
+
+			<center>
+			
+			<rich:panel>
+			
+				<h:form id="frmListaRepresentantes">
+
+
+
+
+					<rich:dataTable var="objRepresentante"
+						value="#{representanteAction.lstRepresentante}" rows="5" id="testpList2">
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="EMPRESA"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{objRepresentante.empresa.razonSocial}" id="razonSocial"></h:outputText>
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="APELLIDO PATERNO"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{objRepresentante.apePaterno}" id="apePaterno"></h:outputText>
+						</rich:column>
+
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="APELLIDO MATERNO"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{objRepresentante.apeMaterno}"
+								id="apeMaterno"></h:outputText>
+						</rich:column>
+						
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="NOMBRES"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{objRepresentante.nombre}"
+								id="nombre"></h:outputText>
+						</rich:column>
+
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="EDICION"></h:outputText>
+							</f:facet>
+
+							
+						
+							
+							 <h:commandButton id="openlink" value="Editar"
+                                             action="#{representanteAction.muestraEdicionRepresentante}">
+                                <f:setPropertyActionListener value="#{objRepresentante.id.CEmpresa}" target="#{representanteAction.codEmpresa}"/>
+                                <f:setPropertyActionListener value="#{objRepresentante.id.CRepresentante}" target="#{representanteAction.codRepresentante}"/>
+                                
+                            </h:commandButton>
+
+						</rich:column>
+
+
+						<f:facet name="footer">
+							<rich:datascroller for="testpList2" limitToList="true"
+								reRender="frmListaRepresentantes">
+
+							</rich:datascroller>
+						</f:facet>
+
+					</rich:dataTable>
+
+				</h:form>
+
+				<h:form>
+
+					<a4j:commandButton value="Registrar Representantes"
+						action="#{representanteAction.muestraRepresentante}" />
+				</h:form>
+
+
+
+		</rich:panel>
+
+
+
+
+			</center>
+
+		</f:view>
+	</ui:define>
+
+</ui:composition>
+
+
+
+</html>
+

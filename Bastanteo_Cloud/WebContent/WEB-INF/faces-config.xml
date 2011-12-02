@@ -2,110 +2,111 @@
 <!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
                               "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 <faces-config>
-
-	<converter>
-    <converter-id>tipoEmpresaConverter</converter-id>
-    <converter-class>bastanteo.cloud.dao.TipoEmpresaConverter</converter-class>
-</converter>
-	<managed-bean>
-		<managed-bean-name>objPoder</managed-bean-name>
-		<managed-bean-class>bastanteo.cloud.bean.Poder</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
-
-	</managed-bean>
-
-	<managed-bean>
-		<managed-bean-name>poderAction</managed-bean-name>
-		<managed-bean-class>bastanteo.cloud.action.PoderAction</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
-		<managed-property>
-			<property-name>objPoder</property-name>
-			<value>#{objPoder}</value>
-		</managed-property>
-	</managed-bean>
-	
-	<managed-bean>
-		<managed-bean-name>objEmpresa</managed-bean-name>
-		<managed-bean-class>bastanteo.cloud.bean.Empresa</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
-
-	</managed-bean>
-
-	<managed-bean>
-		<managed-bean-name>empresaAction</managed-bean-name>
-		<managed-bean-class>bastanteo.cloud.action.EmpresaAction</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
-		<managed-property>
-			<property-name>objEmpresa</property-name>
-			<value>#{objEmpresa}</value>
-		</managed-property>
-		 <managed-property>
-            <property-name>codEmpresa</property-name>
-            <value>#{objEmpresa.CEmpresa}</value>
-        </managed-property>
-		<managed-property>
-			<property-name>lstEmpresa</property-name>
-			<value>#{lstEmpresa}</value>
-		</managed-property>
-		<managed-property>
-			<property-name>lstTipoEmpresa</property-name>
-			<value>#{lstTipoEmpresa}</value>
-		</managed-property>
-		
-	</managed-bean>
-
-
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>listaPoder</from-outcome>
-			<to-view-id>/listaPoderes.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>muestraPoder</from-outcome>
-			<to-view-id>/regPoder.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>muestraEmpresa</from-outcome>
-			<to-view-id>/regEmpresa.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	
-	
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>muestraEdicionEmpresa</from-outcome>
-			<to-view-id>/actEmpresa.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-		<navigation-rule>
-		<navigation-case>
-			<from-outcome>listaEmpresa</from-outcome>
-			<to-view-id>/listaEmpresa.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>muestraValidacionPoder</from-outcome>
-			<to-view-id>/valPoder.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	
-
-	
-
-
-	<application>
-		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
-		
-	</application>
+ <managed-bean>
+  <managed-bean-name>objPoder</managed-bean-name>
+  <managed-bean-class>bastanteo.cloud.bean.Poder</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>poderAction</managed-bean-name>
+  <managed-bean-class>bastanteo.cloud.action.PoderAction</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>objPoder</property-name>
+   <value>#{objPoder}</value>
+  </managed-property>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>objEmpresa</managed-bean-name>
+  <managed-bean-class>bastanteo.cloud.bean.Empresa</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>empresaAction</managed-bean-name>
+  <managed-bean-class>bastanteo.cloud.action.EmpresaAction</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>objEmpresa</property-name>
+   <value>#{objEmpresa}</value>
+  </managed-property>
+  <managed-property>
+   <property-name>codEmpresa</property-name>
+   <value>#{objEmpresa.CEmpresa}</value>
+  </managed-property>
+  <managed-property>
+   <property-name>lstEmpresa</property-name>
+   <value>#{lstEmpresa}</value>
+  </managed-property>
+  <managed-property>
+   <property-name>lstTipoEmpresa</property-name>
+   <value>#{lstTipoEmpresa}</value>
+  </managed-property>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>objRepresentante</managed-bean-name>
+  <managed-bean-class>bastanteo.cloud.bean.Representante</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>representanteAction</managed-bean-name>
+  <managed-bean-class>bastanteo.cloud.action.RepresentanteAction</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>objRepresentante</property-name>
+   <value>#{objRepresentante}</value>
+  </managed-property>
+ 
+ 
+ </managed-bean>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>listaPoder</from-outcome>
+   <to-view-id>/listaPoderes.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>muestraPoder</from-outcome>
+   <to-view-id>/regPoder.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>muestraEmpresa</from-outcome>
+   <to-view-id>/regEmpresa.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>muestraEdicionEmpresa</from-outcome>
+   <to-view-id>/actEmpresa.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>listaEmpresa</from-outcome>
+   <to-view-id>/listaEmpresa.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>listaRepresentante</from-outcome>
+   <to-view-id>/listaRepresentante.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>muestraRepresentante</from-outcome>
+   <to-view-id>/regRepresentante.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>muestraValidacionPoder</from-outcome>
+   <to-view-id>/valPoder.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <application>
+  <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+ </application>
 </faces-config>

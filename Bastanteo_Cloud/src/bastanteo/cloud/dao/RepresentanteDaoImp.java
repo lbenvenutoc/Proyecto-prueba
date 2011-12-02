@@ -134,8 +134,9 @@ public class RepresentanteDaoImp implements RepresentanteDao{
 		try {
 
 			tx = session.beginTransaction();
-			select = "select e.* from representante r inner join empresa e on e.c_empresa=r.c_empresa_fk where r.c_tipo_doc_id=:tipDocId and r.num_doc_id=:dni";
-
+			//select = "select e.* from representante r inner join empresa e on e.c_empresa=r.c_empresa_fk where r.c_tipo_doc_id=:tipDocId and r.num_doc_id=:dni";
+			select = "select e.* from representante r inner join empresa e on e.c_empresa=r.c_empresa where r.c_tipo_doc_id=:tipDocId and r.num_doc_id=:dni";
+			
 			query = session.createSQLQuery(select);
 			query.setInteger("tipDocId", objRepresentante.getTipoDocId().getCTipoDocId());
 			query.setString("dni", objRepresentante.getNumDocId());
@@ -164,6 +165,24 @@ public class RepresentanteDaoImp implements RepresentanteDao{
 
 		}
 		return resultado;
+	}
+
+	
+	public List listar() {
+		List listaRepresentante=null;
+		Session session=HibernateUtil.getSessionFactory();
+		
+		try{
+			session.beginTransaction();
+			
+			
+			listaRepresentante=session.createQuery("select r from Representante r join fetch r.empresa join fetch r.grupoBastanteo").list();
+				return listaRepresentante;
+		
+			
+		}finally{
+			session.close();
+		}
 	}
 
 }

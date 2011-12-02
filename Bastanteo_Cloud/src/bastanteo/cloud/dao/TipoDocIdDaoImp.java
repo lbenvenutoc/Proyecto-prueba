@@ -1,5 +1,7 @@
 package bastanteo.cloud.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import bastanteo.cloud.bean.TipoDocId;
@@ -22,6 +24,24 @@ public class TipoDocIdDaoImp implements TipoDocIdDao {
 		
 		
 		return objTipoDocIdObt;
+	}
+
+	@Override
+	public List listar() {
+		List listaTipDocId=null;
+		Session session=HibernateUtil.getSessionFactory();
+		
+		try{
+			session.beginTransaction();
+			
+			
+			listaTipDocId=session.createQuery("select t from TipoDocId t").list();
+				return listaTipDocId;
+		
+			
+		}finally{
+			session.close();
+		}
 	}
 
 }

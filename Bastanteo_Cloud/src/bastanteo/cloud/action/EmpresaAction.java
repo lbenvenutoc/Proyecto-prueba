@@ -22,6 +22,17 @@ public class EmpresaAction implements Serializable {
 	private String codEmpresa;
 	private List<Empresa> lstEmpresa;
 	private int codTipoEmpresa;
+	private int codTipDocIdentidad;
+	
+	
+
+	public int getCodTipDocIdentidad() {
+		return codTipDocIdentidad;
+	}
+
+	public void setCodTipDocIdentidad(int codTipDocIdentidad) {
+		this.codTipDocIdentidad = codTipDocIdentidad;
+	}
 
 	public int getCodTipoEmpresa() {
 		return codTipoEmpresa;
@@ -57,7 +68,7 @@ public class EmpresaAction implements Serializable {
 
 	public String muestraEmpresa() {
 		objEmpresa = new Empresa();
-		lstTipoEmpresa = servicioTipoEmpresa.listar();
+		//lstTipoEmpresa = servicioTipoEmpresa.listar();
 
 		return "muestraEmpresa";
 	}
@@ -80,36 +91,44 @@ public class EmpresaAction implements Serializable {
 	}
 
 	public String registraEmpresa() {
-		String retorno="";
+		String retorno = "";
 		System.out.println("ENTRA  A REGISTRA EMPRESA");
 
-		if (servicioEmpresa.obtenerEmpresa(objEmpresa) == null) {
+		if (servicioEmpresa.obtenerEmpresa(objEmpresa) != null) {
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Error al ingresar empresa, ya que el código ya existe",
+					null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			retorno = "muestraEmpresa";
+		} else if (servicioEmpresa.obtenerEmpresaxRuc(objEmpresa) != null) {
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Error al ingresar empresa, ya que el RUC ya existe", null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			retorno = "muestraEmpresa";
+		} else {
+
 			TipoEmpresa objTipEmpObt = servicioTipoEmpresa
 					.obtenerTipoEmpresa(codTipoEmpresa);
 			objEmpresa.setTipoEmpresa(objTipEmpObt);
 			servicioEmpresa.registrarEmpresa(objEmpresa);
 
 			lstEmpresa = servicioEmpresa.listar();
-			retorno="listaEmpresa";
-		} else {
-			FacesMessage msg = new FacesMessage(
-					FacesMessage.SEVERITY_ERROR,
-					"Error al ingresar empresa, ya que el código ya existe",
-					null);
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-			retorno="muestraEmpresa";
+			retorno = "listaEmpresa";
+
 		}
 
 		return retorno;
 	}
 
 	public String actualizaEmpresa() {
+		
 
 		TipoEmpresa objTipEmpObt = servicioTipoEmpresa
 				.obtenerTipoEmpresa(codTipoEmpresa);
 		objEmpresa.setTipoEmpresa(objTipEmpObt);
 		servicioEmpresa.modificarEmpresa(objEmpresa);
 		lstEmpresa = servicioEmpresa.listar();
+		
 
 		return "listaEmpresa";
 	}

@@ -11,6 +11,7 @@ import bastanteo.cloud.bean.Representante;
 		public Representante obtenerRepresentantes(Representante objRepresentante);
 		public boolean existeDniRepresentante(Representante objRepresentante);
 		public boolean perteneceEmpresaRepresentante(Representante objRepresentante);
+		public List listar();
 }
 
  	
