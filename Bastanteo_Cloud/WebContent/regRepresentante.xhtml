@@ -26,73 +26,76 @@
 							<tr>
 								<td>Empresa:</td>
 								<td>
-										
-										<h:selectOneMenu
-										value="#{representanteAction.codEmpresa}">
-										<f:selectItems value="#{representanteAction.lstEmpresa}" />
+										<h:selectOneMenu value="#{representanteAction.codEmpresa}"
+											onchange="submit()"
+											valueChangeListener="#{representanteAction.cargaGrupoBastanteo}">
+											<f:selectItems value="#{representanteAction.lstEmpresa}" />
 
 
-									</h:selectOneMenu>
-								
-								</td>
-
-
-
-
-
-
-
-
+										</h:selectOneMenu>
+									</td>
 							</tr>
+
+							<tr>
+								<td>Grupo Bastanteo:</td>
+								<td><h:selectOneMenu
+										value="#{representanteAction.codGrupoBastanteo}"
+										rendered="#{representanteAction.codEmpresa!=null}">
+										<f:selectItems
+											value="#{representanteAction.lstGrupoBastanteo}" />
+
+
+									</h:selectOneMenu></td>
+							</tr>
+
 							<tr>
 								<td>Codigo:</td>
-								<td><h:inputText value="#{representanteAction.codRepresentante}" required="true" requiredMessage="Debe ingresar RUC">
-								
-								</h:inputText>
-								</td>
+								<td><h:inputText
+										value="#{representanteAction.codRepresentante}"
+										required="true" requiredMessage="Debe ingresar RUC">
+
+									</h:inputText></td>
 
 							</tr>
 
 							<tr>
 								<td>Apellido Paterno:</td>
 								<td><h:inputText
-										value="#{representanteAction.objRepresentante.apePaterno}" required="true" requiredMessage="Debe ingresar el apellido paterno">
-										
-										</h:inputText>
-										
-										</td>
+										value="#{representanteAction.objRepresentante.apePaterno}"
+										required="true"
+										requiredMessage="Debe ingresar el apellido paterno">
+
+									</h:inputText></td>
 
 
 
 							</tr>
-							
+
 							<tr>
 								<td>Apellido Materno:</td>
 								<td><h:inputText
-										value="#{representanteAction.objRepresentante.apeMaterno}" required="true" requiredMessage="Debe ingresar el apellido materno">
-										
-										</h:inputText>
-										
-										</td>
+										value="#{representanteAction.objRepresentante.apeMaterno}"
+										required="true"
+										requiredMessage="Debe ingresar el apellido materno">
+
+									</h:inputText></td>
 
 
 
 							</tr>
-							
+
 							<tr>
 								<td>Nombres:</td>
 								<td><h:inputText
-										value="#{representanteAction.objRepresentante.nombre}" required="true" requiredMessage="Debe ingresar el nombre">
-										
-										</h:inputText>
-										
-										</td>
+										value="#{representanteAction.objRepresentante.nombre}"
+										required="true" requiredMessage="Debe ingresar el nombre">
+
+									</h:inputText></td>
 
 
 
 							</tr>
-							
-												
+
 
 							<tr>
 								<td>Tipo Documento Identidad:</td>
@@ -100,48 +103,52 @@
 
 								<td><h:selectOneMenu
 										value="#{representanteAction.codTipDocIdentidad}">
-										<f:selectItems value="#{representanteAction.lstTipDocIdentidad}" />
+										<f:selectItems
+											value="#{representanteAction.lstTipDocIdentidad}" />
 
 
-									</h:selectOneMenu>
-								</td>
+									</h:selectOneMenu></td>
 
 
 							</tr>
-							
-								<tr>
+
+
+
+
+							<tr>
 								<td>Nro docuento identidad:</td>
 								<td><h:inputText
-										value="#{representanteAction.objRepresentante.numDocId}" required="true" requiredMessage="Debe ingresar el número de documento">
-										
-										</h:inputText>
-										
-										</td>
+										value="#{representanteAction.objRepresentante.numDocId}"
+										required="true"
+										requiredMessage="Debe ingresar el número de documento">
+
+									</h:inputText></td>
 
 
 
 							</tr>
-							
+
 							<tr>
 								<td>Cargo:</td>
 								<td><h:inputText
-										value="#{representanteAction.objRepresentante.cargoEmpresa}" required="true" requiredMessage="Debe ingresar el cargo">
-										
-										</h:inputText>
-										
-										</td>
+										value="#{representanteAction.objRepresentante.cargoEmpresa}"
+										required="true" requiredMessage="Debe ingresar el cargo">
+
+									</h:inputText></td>
 
 
 
 							</tr>
-							
-							
-							
+
+
+
 
 
 							<tr>
-								<td colspan="3"><a4j:commandButton value="Registra Representante"
-										action="#{representanteAction.registraRepresentante}" /></td>
+								<td colspan="3"><a4j:commandButton
+										value="Registra Representante"
+										action="#{representanteAction.registraRepresentante}" />
+								</td>
 
 
 							</tr>
@@ -159,7 +166,8 @@
 										<f:facet name="infoMarker">
 											<h:graphicImage value="/images/info.jpeg" />
 										</f:facet>
-									</rich:messages></td>
+									</rich:messages>
+								</td>
 							</tr>
 						</table>
 
