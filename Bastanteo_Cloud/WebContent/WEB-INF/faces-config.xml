@@ -45,19 +45,35 @@
  <managed-bean>
   <managed-bean-name>objRepresentante</managed-bean-name>
   <managed-bean-class>bastanteo.cloud.bean.Representante</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
+  <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>representanteAction</managed-bean-name>
   <managed-bean-class>bastanteo.cloud.action.RepresentanteAction</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
+  <managed-bean-scope>session</managed-bean-scope>
   <managed-property>
    <property-name>objRepresentante</property-name>
    <value>#{objRepresentante}</value>
   </managed-property>
- 
- 
+  
+   </managed-bean>
+   
+   <managed-bean>
+  <managed-bean-name>objUsuario</managed-bean-name>
+  <managed-bean-class>bastanteo.cloud.bean.Usuario</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
+ <managed-bean>
+  <managed-bean-name>usuarioAction</managed-bean-name>
+  <managed-bean-class>bastanteo.cloud.action.UsuarioAction</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+  <managed-property>
+   <property-name>objUsuario</property-name>
+   <value>#{objUsuario}</value>
+  </managed-property>
+ </managed-bean>
+  
+
  <navigation-rule>
   <navigation-case>
    <from-outcome>listaPoder</from-outcome>
@@ -102,10 +118,31 @@
  </navigation-rule>
  <navigation-rule>
   <navigation-case>
+   <from-outcome>muestraEdicionRepresentante</from-outcome>
+   <to-view-id>/actRepresentante.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
    <from-outcome>muestraValidacionPoder</from-outcome>
    <to-view-id>/valPoder.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
+ 
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>muestraLogueo</from-outcome>
+   <to-view-id>/logueo.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>muestraPrincipal</from-outcome>
+   <to-view-id>/principal.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
  <application>
   <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
  </application>

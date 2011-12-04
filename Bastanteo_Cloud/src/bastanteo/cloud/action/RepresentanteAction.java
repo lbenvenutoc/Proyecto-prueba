@@ -38,7 +38,7 @@ public class RepresentanteAction implements Serializable {
 	private int codTipDocIdentidad;
 	private String codEmpresa;
 	private int codGrupoBastanteo;
-	
+
 	public int getCodGrupoBastanteo() {
 		return codGrupoBastanteo;
 	}
@@ -50,25 +50,9 @@ public class RepresentanteAction implements Serializable {
 	private List<TipoDocId> lstTipDocId = new ArrayList();
 
 	private List<Empresa> lstEmpresa = new ArrayList();
-	
+
 	private List<GrupoBastanteo> lstGrupoBastanteo = new ArrayList();
 
-	
-	
-	//private List<SelectItem> listaGrupoBastanteo= new ArrayList();
-	
-	/*
-	
-	public List<SelectItem> getListaGrupoBastanteo() {
-		return listaGrupoBastanteo;
-	}
-*/
-	
-	/*
-	public void setListaGrupoBastanteo(List<SelectItem> listaGrupoBastanteo) {
-		this.listaGrupoBastanteo = listaGrupoBastanteo;
-	}
-*/
 	public int getCodTipDocIdentidad() {
 		return codTipDocIdentidad;
 	}
@@ -116,8 +100,14 @@ public class RepresentanteAction implements Serializable {
 	}
 
 	public String muestraEdicionRepresentante() {
+		RepresentanteId objRepId = new RepresentanteId(codEmpresa,
+				codRepresentante);
+		Representante objRepObt = new Representante();
+		objRepObt.setId(objRepId);
+		objRepresentante = servicioRepresentante
+				.obtenerRepresentantes(objRepObt);
 
-		return "muestraEdicionEmpresa";
+		return "muestraEdicionRepresentante";
 	}
 
 	public String listaRepresentante() {
@@ -126,44 +116,48 @@ public class RepresentanteAction implements Serializable {
 
 		return "listaRepresentante";
 	}
-	
-	public void cargaGrupoBastanteo(ValueChangeEvent evento){
-		
+
+	public void cargaGrupoBastanteo(ValueChangeEvent evento) {
+
+		listaTipDocIdentidad = new ArrayList<SelectItem>();
+		listaGrupoBastanteo = new ArrayList<SelectItem>();
+
 		lstTipDocId = servicioTipoDocId.listar();
 		for (TipoDocId objTipDocId : lstTipDocId) {
 			listaTipDocIdentidad.add(new SelectItem(
 					objTipDocId.getCTipoDocId(), objTipDocId.getNombre()));
-			
+
 		}
-		
-		System.out.println("ENTRA COMBO");
-		
-		codEmpresa=(String)evento.getNewValue();
-		System.out.println("CODIGO  EMPRESA----->"+codEmpresa);
-		Empresa objEmpresa= new Empresa();
+
+		codEmpresa = (String) evento.getNewValue();
+
+		Empresa objEmpresa = new Empresa();
 		objEmpresa.setCEmpresa(codEmpresa);
-		//objEmpresa.setCEmpresa("1");
-		lstGrupoBastanteo = servicioGrupoBastanteo.lstGrupoBastanteoxEmpresa(objEmpresa);
-		if(lstGrupoBastanteo.size()>0){
-			System.out.println("LA LISTA ES MAYOR");
+
+		lstGrupoBastanteo = servicioGrupoBastanteo
+				.lstGrupoBastanteoxEmpresa(objEmpresa);
+		if (lstGrupoBastanteo.size() > 0) {
+
 			for (GrupoBastanteo objGrupoBastanteo : lstGrupoBastanteo) {
-				listaGrupoBastanteo.add(new SelectItem(
-						objGrupoBastanteo.getId().getCGrupoBastanteo(),	objGrupoBastanteo.getDescripcion()));
+
+				listaGrupoBastanteo.add(new SelectItem(objGrupoBastanteo
+						.getId().getCGrupoBastanteo(), objGrupoBastanteo
+						.getDescripcion()));
+
+				System.out.println("CARGA CODIGOS COMBO GRUPO "
+						+ objGrupoBastanteo.getId().getCGrupoBastanteo());
+
 			}
-			
-			//codGrupoBastanteo=lstGrupoBastanteo.get(0).getId().getCGrupoBastanteo();
-			
-			
-		}else{
-			listaGrupoBastanteo.add(new SelectItem(
-					-1,	"--No hay grupos--"));
+
+		} else {
+
+			codEmpresa = null;
 		}
-		
-		
+
 	}
 
 	public String registraRepresentante() {
-		System.out.println("ENTRA REGISTRA REPRESENTANTE");
+
 		String retorno = "";
 
 		// SETEO LA EMPRESA AL REPRESENTANTE
@@ -179,24 +173,24 @@ public class RepresentanteAction implements Serializable {
 
 		// SETEO TIPO DE DOCUMENTO DE IDENTIDAD AL REPRESENTANTE
 		TipoDocId objTipDocId = new TipoDocId();
+
 		objTipDocId.setCTipoDocId(codTipDocIdentidad);
 		TipoDocId objTipDocIdObt = servicioTipoDocId
 				.obtenerTipoDocId(objTipDocId);
 		objRepresentante.setTipoDocId(objTipDocIdObt);
-		
-		//System.out.println("CODIGO TIPO DOCUMENTO "+objTipDocIdObt.getCTipoDocId());
-		System.out.println("CODIGO TIPO DOCUMENTO "+codTipDocIdentidad);
 
 		// SETEO GRUPO BASTANTEO EN BRUTO
-		
+
 		GrupoBastanteo objGrupoBastanteo = new GrupoBastanteo();
+
 		GrupoBastanteoId idGrupoBastanteo = new GrupoBastanteoId(
 				objEmpresaObt.getCEmpresa(), codGrupoBastanteo);
+
 		objGrupoBastanteo.setId(idGrupoBastanteo);
 		GrupoBastanteo objGrupoBastanteoObt = servicioGrupoBastanteo
 				.obtenerGrupoBastanteo(objGrupoBastanteo);
-				
-		
+
+		objRepresentante.setGrupoBastanteo(objGrupoBastanteoObt);
 
 		if (servicioRepresentante
 				.perteneceEmpresaRepresentante(objRepresentante) == true) {
@@ -214,19 +208,12 @@ public class RepresentanteAction implements Serializable {
 		return retorno;
 	}
 
-	/*
-	 * public String actualizaRepresentante() {
-	 * 
-	 * 
-	 * TipoEmpresa objTipEmpObt = servicioTipoEmpresa
-	 * .obtenerTipoEmpresa(codTipoEmpresa);
-	 * objEmpresa.setTipoEmpresa(objTipEmpObt);
-	 * servicioEmpresa.modificarEmpresa(objEmpresa); lstEmpresa =
-	 * servicioEmpresa.listar();
-	 * 
-	 * 
-	 * return "listaEmpresa"; }
-	 */
+	public String actualizaRepresentante() {
+		servicioRepresentante.modificarRepresentantes(objRepresentante);
+
+		return "listaRepresentante";
+
+	}
 
 	public List<SelectItem> getLstEmpresa() {
 		List<SelectItem> listaEmpresa = new ArrayList();
@@ -238,24 +225,27 @@ public class RepresentanteAction implements Serializable {
 
 		return listaEmpresa;
 	}
+
 	List<SelectItem> listaTipDocIdentidad = new ArrayList();
+
 	public List<SelectItem> getLstTipDocIdentidad() {
-		
+
+		listaTipDocIdentidad = new ArrayList<SelectItem>();
+
 		lstTipDocId = servicioTipoDocId.listar();
 		for (TipoDocId objTipDocId : lstTipDocId) {
 			listaTipDocIdentidad.add(new SelectItem(
 					objTipDocId.getCTipoDocId(), objTipDocId.getNombre()));
 		}
-		
+
 		return listaTipDocIdentidad;
 	}
-	
-	List<SelectItem> listaGrupoBastanteo= new ArrayList();
-	public List<SelectItem> getlstGrupoBastanteo(){
-		
-	
-		
+
+	List<SelectItem> listaGrupoBastanteo = new ArrayList();
+
+	public List<SelectItem> getlstGrupoBastanteo() {
+
 		return listaGrupoBastanteo;
 	}
-	
+
 }

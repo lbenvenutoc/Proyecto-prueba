@@ -2,6 +2,6 @@
 <html>
 <head></head>
 	<body>
-		<jsp:forward page="/menu.jsf" />
+		<jsp:forward page="/logueo.jsf" />
 	</body>
 </html>

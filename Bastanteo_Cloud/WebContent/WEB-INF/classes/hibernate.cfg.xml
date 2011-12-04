@@ -30,5 +30,6 @@
 		<mapping class="bastanteo.cloud.bean.TipoDocId" />
 		<mapping class="bastanteo.cloud.bean.Perfil" />
 		<mapping class="bastanteo.cloud.bean.Usuario" />
+		<mapping class="bastanteo.cloud.bean.Acceso" />
 	</session-factory>
 </hibernate-configuration>

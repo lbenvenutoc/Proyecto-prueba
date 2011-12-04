@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:rich="http://richfaces.org/rich">
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 
@@ -25,7 +27,8 @@
    						</rich:panel>
 
 
-					</ui:insert></td>
+					</ui:insert>
+				</td>
 			</tr>
 
 
@@ -35,17 +38,39 @@
 
 						<rich:panel>
 
+
+
+							<h:form>
+
+							
+							<rich:dataTable var="menu"
+								value="#{usuarioAction.objUsuario.perfil.accesosList}" rows="1"
+								id="testpList1">
+								<rich:column>
+									<f:facet name="header">
+										<h:outputText value="Item"></h:outputText>
+									</f:facet>
+									<a4j:commandButton action=""  value="#{menu.nombre}" ></a4j:commandButton>
+								</rich:column>
+
+							</rich:dataTable>
+							
+
+							</h:form>
+
 						</rich:panel>
 
 
-					</ui:insert></td>
+					</ui:insert>
+				</td>
 			</tr>
 
 			<tr>
 
 				<td><ui:insert name="content">
-					
-					</ui:insert></td>
+
+					</ui:insert>
+				</td>
 			</tr>
 
 			<tr>
@@ -59,8 +84,9 @@
 						<rich:panel>
       						Copyright  2011, Grupo de desarrollo CLOUD
    						</rich:panel>
-						
-					</ui:insert></td>
+
+					</ui:insert>
+				</td>
 			</tr>
 
 		</table>

@@ -20,47 +20,14 @@
 
 					<rich:panel id="panelIngreso">
 						<f:facet name="header">
-							<h:outputText value="Registrar Representante" />
+							<h:outputText value="Actualizar Representante" />
 						</f:facet>
 						<table>
-							<tr>
-								<td>Empresa:</td>
-								<td>
-										<h:selectOneMenu value="#{representanteAction.codEmpresa}"
-											onchange="submit()"
-											valueChangeListener="#{representanteAction.cargaGrupoBastanteo}">
-											<f:selectItems />
-											<f:selectItems value="#{representanteAction.lstEmpresa}" />
-
-
-										</h:selectOneMenu>
-									</td>
-							</tr>
-
-							<tr>
-								<td>Grupo Bastanteo:</td>
-								<td>
 							
-								<h:selectOneMenu
-										value="#{representanteAction.codGrupoBastanteo}"
-										rendered="#{representanteAction.codEmpresa!=null}">
-										<f:selectItems
-											value="#{representanteAction.lstGrupoBastanteo}"/>
-
-										
-									</h:selectOneMenu></td>
-							</tr>
-
-							<tr>
-								<td>Codigo:</td>
-								<td><h:inputText
-										value="#{representanteAction.codRepresentante}"
-										required="true" requiredMessage="Debe ingresar RUC">
-
-									</h:inputText></td>
-
-							</tr>
-
+							<h:inputHidden value="#{representanteAction.objRepresentante.id.CEmpresa}" />
+							<h:inputHidden value="#{representanteAction.objRepresentante.id.CRepresentante}" />
+							
+						
 							<tr>
 								<td>Apellido Paterno:</td>
 								<td><h:inputText
@@ -151,8 +118,8 @@
 
 							<tr>
 								<td colspan="3"><a4j:commandButton
-										value="Registra Representante"
-										action="#{representanteAction.registraRepresentante}" />
+										value="Actualizar Representante"
+										action="#{representanteAction.actualizaRepresentante}" />
 								</td>
 
 

@@ -67,11 +67,40 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules::7" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules::7" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="muestraEdicionRepresentante::#actRepresentante.xhtml"
+    NAME="output" PATH="/actRepresentante.xhtml"
+    TARGET="rules:#actRepresentante.xhtml"
+    TITLE="muestraEdicionRepresentante" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#regRepresentante.xhtml"
+  PATH="/regRepresentante.xhtml" SHAPE="240,1041,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::8" SHAPE="32,913,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::8" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="muestraValidacionPoder::#valPoder.xhtml"
     NAME="output" PATH="/valPoder.xhtml" TARGET="rules:#valPoder.xhtml"
     TITLE="muestraValidacionPoder" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#regRepresentante.xhtml"
-  PATH="/regRepresentante.xhtml" SHAPE="240,1041,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#actRepresentante.xhtml"
+  PATH="/actRepresentante.xhtml" SHAPE="240,1153,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::9" SHAPE="32,1137,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::9" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="muestraLogueo::#logueo.xhtml" NAME="output"
+    PATH="/logueo.xhtml" TARGET="rules:#logueo.xhtml"
+    TITLE="muestraLogueo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#logueo.xhtml" PATH="/logueo.xhtml"
+  SHAPE="240,1265,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::10" SHAPE="32,1249,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::10" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="muestraPrincipal::#principal.xhtml"
+    NAME="output" PATH="/principal.xhtml"
+    TARGET="rules:#principal.xhtml" TITLE="muestraPrincipal" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#principal.xhtml" PATH="/principal.xhtml"
+  SHAPE="240,1377,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

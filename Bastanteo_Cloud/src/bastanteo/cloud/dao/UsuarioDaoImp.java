@@ -93,5 +93,24 @@ public class UsuarioDaoImp  implements UsuarioDao{
 		
 		return objUsuarioObt;
 	}
+
+	@Override
+	public Usuario obtenerUsuarioxLogueo(Usuario objUsuario) {
+		Session session = HibernateUtil.getSessionFactory();
+		Query q=null;
+		Usuario objUsuarioObt=null;
+		try{
+			q=session.createQuery("select u from Usuario u join fetch u.perfil p join fetch p.accesos where u.login=:login and u.clave=:clave");
+			q.setParameter("login", objUsuario.getLogin());
+			q.setParameter("clave", objUsuario.getClave());
+			objUsuarioObt=(Usuario)q.uniqueResult();
+		}catch (Exception ex) {
+			System.out.println(ex);
+		}finally{
+			session.close();
+		}
+		
+		return objUsuarioObt;
+	}
 	
 }

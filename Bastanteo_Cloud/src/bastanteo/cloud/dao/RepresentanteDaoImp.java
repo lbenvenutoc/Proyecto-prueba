@@ -26,6 +26,7 @@ public class RepresentanteDaoImp implements RepresentanteDao{
 			tx.commit();
 			resultado=1;
 		} catch (Exception ex) {
+			System.out.println(ex);
 			tx.rollback();
 			resultado=0;
 		} finally {
