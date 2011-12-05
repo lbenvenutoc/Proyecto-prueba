@@ -58,6 +58,16 @@
 							</f:facet>
 							<h:outputText value="#{objUsuario.perfil.nombre}" id="nombreperfil"></h:outputText>
 						</rich:column>
+						
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="ESTADO"></h:outputText>
+							</f:facet>
+							<h:outputText value="ACTIVO" id="flagActivo" rendered="#{objUsuario.flagActivo=='A'}"></h:outputText>
+							<h:outputText value="MAESTRO" id="flagMaestro" rendered="#{objUsuario.flagActivo=='M'}"></h:outputText>
+							<h:outputText value="INACTIVO" id="flagInactivo" rendered="#{objUsuario.flagActivo=='I'}"></h:outputText>
+						</rich:column>
+						
 						<rich:column>
 							 <h:commandButton id="openlink" value="Editar"
                                              action="#{usuarioAction.muestraEdicion}">

@@ -37,6 +37,17 @@ public class UsuarioAction {
 	private String usuario;
 	private String clave;
 	private String dni;
+	private boolean esActivo;
+	
+	
+
+	public boolean isEsActivo() {
+		return esActivo;
+	}
+
+	public void setEsActivo(boolean esActivo) {
+		this.esActivo = esActivo;
+	}
 
 	public String getDni() {
 		return dni;
@@ -155,6 +166,13 @@ public class UsuarioAction {
 		apeMat = objUsuarioEditar.getMaterno();
 		nombre = objUsuarioEditar.getNombre();
 		dni = objUsuarioEditar.getDni();
+		
+		if(objUsuarioEditar.getFlagActivo()=='A'){
+			esActivo=true;
+		}else{
+			esActivo=false;
+		}
+		
 		codPerfil = objUsuarioEditar.getPerfil().getCPerfil();
 
 		return "muestraEdicion";
@@ -183,6 +201,8 @@ public class UsuarioAction {
 		objUsuarioNuevo.setPaterno(apePat);
 		objUsuarioNuevo.setMaterno(apeMat);
 		objUsuarioNuevo.setNombre(nombre);
+		
+		
 
 		// SE SETEA PERFIL
 		Perfil objPerfil = new Perfil();
@@ -206,16 +226,23 @@ public class UsuarioAction {
 		objUsuarioNuevo.setClaveconfirm(clave);
 		objUsuarioNuevo.setCUsuario(codUsuario);
 		objUsuarioNuevo.setDni(dni);
-		if (codPerfil == 4) {
-			objUsuarioNuevo.setFlagActivo('M');
-		} else {
-			objUsuarioNuevo.setFlagActivo('A');
-		}
+		
 		usuario = apePat + nombre.charAt(0);
 		objUsuarioNuevo.setLogin(usuario);
 		objUsuarioNuevo.setPaterno(apePat);
 		objUsuarioNuevo.setMaterno(apeMat);
 		objUsuarioNuevo.setNombre(nombre);
+		
+		if(esActivo==true){
+			if(codPerfil==4){
+				objUsuarioNuevo.setFlagActivo('M');
+			}else{
+				objUsuarioNuevo.setFlagActivo('A');
+			}
+			
+		}else{
+			objUsuarioNuevo.setFlagActivo('I');
+		}
 
 		// SE SETEA PERFIL
 		Perfil objPerfil = new Perfil();

@@ -122,7 +122,7 @@ public class UsuarioDaoImp  implements UsuarioDao{
 		Query q=null;
 		List lstUsuario=null;
 		try{
-			q=session.createQuery("select u from Usuario u join fetch u.perfil where u.flagActivo='A'");
+			q=session.createQuery("select u from Usuario u join fetch u.perfil where u.flagActivo<>'M'");
 			
 			lstUsuario=(List)q.list();
 		}catch (Exception ex) {
