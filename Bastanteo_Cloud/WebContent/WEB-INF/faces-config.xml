@@ -150,6 +150,13 @@
    <to-view-id>/regUsuario.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
+ 
+  <navigation-rule>
+  <navigation-case>
+   <from-outcome>muestraEdicion</from-outcome>
+   <to-view-id>/actUsuario.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
 
  <application>
   <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>

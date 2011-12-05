@@ -121,4 +121,13 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#regUsuario.xhtml" PATH="/regUsuario.xhtml"
   SHAPE="240,1601,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::13" SHAPE="32,1697,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::13" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="muestraEdicion::#actUsuario.xhtml"
+    NAME="output" PATH="/actUsuario.xhtml"
+    TARGET="rules:#actUsuario.xhtml" TITLE="muestraEdicion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#actUsuario.xhtml" PATH="/actUsuario.xhtml"
+  SHAPE="240,1713,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
