@@ -38,8 +38,6 @@ public class UsuarioAction {
 	private String clave;
 	private String dni;
 	private boolean esActivo;
-	
-	
 
 	public boolean isEsActivo() {
 		return esActivo;
@@ -135,8 +133,18 @@ public class UsuarioAction {
 		objUsuario = servicioUsuario.obtenerUsuarioxLogueo(objUsuario);
 
 		if (objUsuario != null) {
-			retorno = "muestraPrincipal";
+			if(objUsuario.getFlagActivo()=='I'){
+				retorno = "muestraLogueo";
+				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+						"Usuario inactivo", null);
+				FacesContext.getCurrentInstance().addMessage(null, msg);
+				objUsuario = new Usuario();
+			}else{
+				retorno = "muestraPrincipal";
+			}
+			
 		} else {
+
 			retorno = "muestraLogueo";
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Usuario o clave incorrectos", null);
@@ -166,13 +174,13 @@ public class UsuarioAction {
 		apeMat = objUsuarioEditar.getMaterno();
 		nombre = objUsuarioEditar.getNombre();
 		dni = objUsuarioEditar.getDni();
-		
-		if(objUsuarioEditar.getFlagActivo()=='A'){
-			esActivo=true;
-		}else{
-			esActivo=false;
+
+		if (objUsuarioEditar.getFlagActivo() == 'A') {
+			esActivo = true;
+		} else {
+			esActivo = false;
 		}
-		
+
 		codPerfil = objUsuarioEditar.getPerfil().getCPerfil();
 
 		return "muestraEdicion";
@@ -201,8 +209,6 @@ public class UsuarioAction {
 		objUsuarioNuevo.setPaterno(apePat);
 		objUsuarioNuevo.setMaterno(apeMat);
 		objUsuarioNuevo.setNombre(nombre);
-		
-		
 
 		// SE SETEA PERFIL
 		Perfil objPerfil = new Perfil();
@@ -226,21 +232,21 @@ public class UsuarioAction {
 		objUsuarioNuevo.setClaveconfirm(clave);
 		objUsuarioNuevo.setCUsuario(codUsuario);
 		objUsuarioNuevo.setDni(dni);
-		
+
 		usuario = apePat + nombre.charAt(0);
 		objUsuarioNuevo.setLogin(usuario);
 		objUsuarioNuevo.setPaterno(apePat);
 		objUsuarioNuevo.setMaterno(apeMat);
 		objUsuarioNuevo.setNombre(nombre);
-		
-		if(esActivo==true){
-			if(codPerfil==4){
+
+		if (esActivo == true) {
+			if (codPerfil == 4) {
 				objUsuarioNuevo.setFlagActivo('M');
-			}else{
+			} else {
 				objUsuarioNuevo.setFlagActivo('A');
 			}
-			
-		}else{
+
+		} else {
 			objUsuarioNuevo.setFlagActivo('I');
 		}
 
