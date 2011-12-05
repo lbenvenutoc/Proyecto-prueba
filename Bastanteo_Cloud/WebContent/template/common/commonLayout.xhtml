@@ -69,7 +69,7 @@
 
 								<rich:dropDownMenu value="MODULO REPRESENTANTES"
 									direction="bottom-right"
-									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==1}">
+									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==2}">
 
 									<rich:menuItem submitMode="ajax" value="LISTA REPRESENTANTES"
 										action="#{representanteAction.listaRepresentante}" />
@@ -79,7 +79,7 @@
 
 								<rich:dropDownMenu value="MODULO EMPRESAS"
 									direction="bottom-right"
-									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==2}">
+									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==3}">
 
 									<rich:menuItem submitMode="ajax" value="LISTA EMPRESAS"
 										action="#{empresaAction.listaEmpresa}" />
@@ -106,6 +106,17 @@
 
 
 								</rich:dropDownMenu>
+								
+								<rich:dropDownMenu value="MODULO VERIFICACION PODERES"
+									direction="bottom-right"
+									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==5}">
+
+									<rich:menuItem submitMode="ajax" value="VERIFICA PODER"
+										action="#{poderAction.validaPoder}" />
+
+
+								</rich:dropDownMenu>
+								
 
 
 							</h:form>

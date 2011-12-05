@@ -204,7 +204,7 @@ public class UsuarioAction {
 		} else {
 			objUsuarioNuevo.setFlagActivo('A');
 		}
-		usuario = apePat + nombre.charAt(0);
+		usuario = nombre.charAt(0)+apePat;
 		objUsuarioNuevo.setLogin(usuario);
 		objUsuarioNuevo.setPaterno(apePat);
 		objUsuarioNuevo.setMaterno(apeMat);
@@ -233,7 +233,7 @@ public class UsuarioAction {
 		objUsuarioNuevo.setCUsuario(codUsuario);
 		objUsuarioNuevo.setDni(dni);
 
-		usuario = apePat + nombre.charAt(0);
+		usuario =nombre.charAt(0)+apePat;
 		objUsuarioNuevo.setLogin(usuario);
 		objUsuarioNuevo.setPaterno(apePat);
 		objUsuarioNuevo.setMaterno(apeMat);
