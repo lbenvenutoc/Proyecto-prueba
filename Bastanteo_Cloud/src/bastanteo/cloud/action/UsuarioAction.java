@@ -72,7 +72,7 @@ public class UsuarioAction {
 	}
 	
 	public String muestraUsuario(){
-		objUsuario= new Usuario(); 
+		
 		return "muestraUsuario";
 	}
 
