@@ -1,5 +1,7 @@
 package bastanteo.cloud.dao;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -111,6 +113,24 @@ public class UsuarioDaoImp  implements UsuarioDao{
 		}
 		
 		return objUsuarioObt;
+	}
+
+	@Override
+	public List lista() {
+		Session session = HibernateUtil.getSessionFactory();
+		Query q=null;
+		List lstUsuario=null;
+		try{
+			q=session.createQuery("select u from Usuario u join fetch u.perfil where u.flagActivo='A'");
+			
+			lstUsuario=(List)q.list();
+		}catch (Exception ex) {
+			System.out.println(ex);
+		}finally{
+			session.close();
+		}
+		
+		return lstUsuario;
 	}
 	
 }

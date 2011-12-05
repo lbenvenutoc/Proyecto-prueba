@@ -4,7 +4,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 
 
@@ -20,57 +21,110 @@
 
 			<tr>
 
-				<td><ui:insert name="header">
+				<td><rich:panel>
+						<ui:insert name="header">
 
-						<rich:panel>
+					
       						SISTEMA DE GESTION DE BASTANTEO
-   						</rich:panel>
+   						
 
 
 					</ui:insert>
+					</rich:panel></td>
+			</tr>
+
+
+
+			<tr>
+
+				<td><rich:panel>
+						<ui:insert name="usuario">
+
+							<table>
+								<tr>
+									<td><h:outputText
+											value="Bienvenido Sr(a) #{usuarioAction.objUsuario.paterno} #{usuarioAction.objUsuario.materno} #{usuarioAction.objUsuario.nombre}        Perfil: #{usuarioAction.objUsuario.perfil.nombre}" />
+									</td>
+								</tr>
+							</table>
+
+						</ui:insert>
+					</rich:panel>
 				</td>
 			</tr>
 
 
 			<tr>
 
-				<td><ui:insert name="menu">
+				<td><rich:panel>
+						<ui:insert name="menu">
 
-						<rich:panel>
+
 
 
 
 							<h:form>
 
-							
-							<rich:dataTable var="menu"
-								value="#{usuarioAction.objUsuario.perfil.accesosList}" rows="1"
-								id="testpList1">
-								<rich:column>
-									<f:facet name="header">
-										<h:outputText value="Item"></h:outputText>
-									</f:facet>
-									<a4j:commandButton action=""  value="#{menu.nombre}" ></a4j:commandButton>
-								</rich:column>
 
-							</rich:dataTable>
-							
+
+								<rich:dropDownMenu value="MODULO REPRESENTANTES"
+									direction="bottom-right"
+									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==1}">
+
+									<rich:menuItem submitMode="ajax" value="LISTA REPRESENTANTES"
+										action="#{representanteAction.listaRepresentante}" />
+
+
+								</rich:dropDownMenu>
+
+								<rich:dropDownMenu value="MODULO EMPRESAS"
+									direction="bottom-right"
+									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==2}">
+
+									<rich:menuItem submitMode="ajax" value="LISTA EMPRESAS"
+										action="#{empresaAction.listaEmpresa}" />
+
+
+								</rich:dropDownMenu>
+
+								<rich:dropDownMenu value="MODULO PODERES"
+									direction="bottom-right"
+									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==3}">
+
+									<rich:menuItem submitMode="ajax" value="LISTA PODERES"
+										action="#{poderAction.muestraListado}" />
+
+
+								</rich:dropDownMenu>
+								
+									<rich:dropDownMenu value="MODULO USUARIOS"
+									direction="bottom-right"
+									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==4}">
+
+									<rich:menuItem submitMode="ajax" value="LISTA USUARIOS"
+										action="#{usuarioAction.listaUsuario}" />
+
+
+								</rich:dropDownMenu>
+
 
 							</h:form>
 
-						</rich:panel>
 
 
-					</ui:insert>
-				</td>
+
+						</ui:insert>
+					</rich:panel></td>
 			</tr>
+
 
 			<tr>
 
-				<td><ui:insert name="content">
+				<td><rich:panel>
+						<ui:insert name="content">
 
-					</ui:insert>
-				</td>
+						</ui:insert>
+					</rich:panel></td>
 			</tr>
 
 			<tr>
@@ -82,11 +136,11 @@
 
 				<td><ui:insert name="footer">
 						<rich:panel>
+					
       						Copyright  2011, Grupo de desarrollo CLOUD
-   						</rich:panel>
-
-					</ui:insert>
-				</td>
+   					
+					</rich:panel>
+					</ui:insert></td>
 			</tr>
 
 		</table>

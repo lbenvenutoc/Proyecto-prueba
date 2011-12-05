@@ -1,5 +1,7 @@
 package bastanteo.cloud.service;
 
+import java.util.List;
+
 import bastanteo.cloud.bean.Usuario;
 import bastanteo.cloud.dao.UsuarioDao;
 import bastanteo.cloud.dao.UsuarioDaoImp;
@@ -26,6 +28,9 @@ public class UsuarioService {
 	}
 	public Usuario obtenerUsuarioxLogueo(Usuario objUsuario) {
 		return dao.obtenerUsuarioxLogueo(objUsuario);
+	}
+	public List lista() {
+		return dao.lista();
 	}
 	
 }

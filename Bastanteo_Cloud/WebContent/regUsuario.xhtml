@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<ui:composition template="/template/common/commonLayout.xhtml">
+
+	<ui:define name="content">
+
+
+
+		<f:view>
+			<center>
+
+				<h:form id="ajaxValidatorForm">
+
+					<rich:panel id="panelIngreso">
+						<f:facet name="header">
+							<h:outputText value="Usuario" />
+						</f:facet>
+						<table>
+							<tr>
+								<td>Codigo:</td>
+								<td><h:inputText value="#{objUsuario.CUsuario}"
+										required="true" id="CUsuario"
+										requiredMessage=" Debe ingresar el codigo" maxlength="11">
+
+										<f:validateLength minimum="1" maximum="11" />
+
+									</h:inputText>
+								</td>
+
+
+
+
+
+
+
+
+							</tr>
+							<tr>
+								<td>Clave:</td>
+								<td><h:inputText value="#{objUsuario.clave}"
+										required="true" id="clave"
+										requiredMessage=" Debe ingresar la clave" /></td>
+
+							</tr>
+
+							<tr>
+								<td>Apellido paterno:</td>
+								<td><h:inputText value="#{objUsuario.paterno}"
+										required="true" id="paterno"
+										requiredMessage=" Debe ingresar el apellido paterno" /></td>
+
+
+
+							</tr>
+							<tr>
+								<td>Apellido materno:</td>
+								<td><h:inputText value="#{objUsuario.materno}"
+										required="true" id="materno"
+										requiredMessage=" Debe ingresar el apellido materno" /></td>
+
+
+
+							</tr>
+							
+							<tr>
+								<td>Nombres:</td>
+								<td><h:inputText value="#{objUsuario.nombre}"
+										required="true" id="nombre"
+										requiredMessage=" Debe ingresar el nombre" /></td>
+
+
+
+							</tr>
+							
+							<tr>
+								<td>DNI:</td>
+								<td><h:inputText value="#{objUsuario.dni}"
+										required="true" id="dni"
+										requiredMessage=" Debe ingresar el DNI" /></td>
+
+
+
+							</tr>
+							
+							<tr>
+								<td>Perfil:</td>
+
+
+								<td><h:selectOneMenu
+										value="#{usuarioAction.codPerfil}">
+										<f:selectItems value="#{usuarioAction.lstUsuario}" />
+
+
+									</h:selectOneMenu>
+								</td>
+
+
+							</tr>
+							
+							<tr>
+								<td colspan="3"><a4j:commandButton value="Registra Usuario"
+										action="#{usuarioAction.registraUsuario}" /></td>
+
+
+							</tr>
+
+
+						</table>
+
+						<table align="center">
+							<tr>
+								<td align="left"><rich:messages layout="list">
+										<f:facet name="errorMarker">
+											<h:graphicImage value="/images/error.gif" />
+										</f:facet>
+
+										<f:facet name="infoMarker">
+											<h:graphicImage value="/images/info.jpeg" />
+										</f:facet>
+									</rich:messages>
+								</td>
+							</tr>
+						</table>
+
+
+					</rich:panel>
+
+
+
+
+				</h:form>
+			
+			</center>
+
+
+
+
+
+		</f:view>
+
+	</ui:define>
+
+</ui:composition>
+
+
+
+</html>
+

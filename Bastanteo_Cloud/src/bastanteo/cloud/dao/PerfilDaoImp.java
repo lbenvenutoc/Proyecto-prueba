@@ -1,5 +1,7 @@
 package bastanteo.cloud.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import bastanteo.cloud.bean.Perfil;
@@ -24,6 +26,24 @@ public class PerfilDaoImp implements PerfilDao {
 		
 		
 		return objPerfilObt;
+	}
+
+	
+	public List listar() {
+		List listaPerfil=null;
+		Session session=HibernateUtil.getSessionFactory();
+		
+		try{
+			session.beginTransaction();
+			
+			
+			listaPerfil=session.createQuery("select p from Perfil p").list();
+				return listaPerfil;
+		
+			
+		}finally{
+			session.close();
+		}
 	}
 
 }

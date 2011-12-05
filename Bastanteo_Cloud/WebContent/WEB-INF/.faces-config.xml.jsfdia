@@ -103,4 +103,22 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#principal.xhtml" PATH="/principal.xhtml"
   SHAPE="240,1377,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::11" SHAPE="32,1473,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::11" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listaUsuario::#listaUsuario.xhtml"
+    NAME="output" PATH="/listaUsuario.xhtml"
+    TARGET="rules:#listaUsuario.xhtml" TITLE="listaUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listaUsuario.xhtml"
+  PATH="/listaUsuario.xhtml" SHAPE="240,1489,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::12" SHAPE="32,1585,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::12" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="muestraUsuario::#regUsuario.xhtml"
+    NAME="output" PATH="/regUsuario.xhtml"
+    TARGET="rules:#regUsuario.xhtml" TITLE="muestraUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#regUsuario.xhtml" PATH="/regUsuario.xhtml"
+  SHAPE="240,1601,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
