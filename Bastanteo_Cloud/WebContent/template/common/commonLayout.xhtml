@@ -30,7 +30,8 @@
 
 
 					</ui:insert>
-					</rich:panel></td>
+					</rich:panel>
+				</td>
 			</tr>
 
 
@@ -49,8 +50,7 @@
 							</table>
 
 						</ui:insert>
-					</rich:panel>
-				</td>
+					</rich:panel></td>
 			</tr>
 
 
@@ -66,57 +66,59 @@
 							<h:form>
 
 
+								<table>
 
-								<rich:dropDownMenu value="MODULO REPRESENTANTES"
-									direction="bottom-right"
-									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==2}">
+									<tr>
 
-									<rich:menuItem submitMode="ajax" value="LISTA REPRESENTANTES"
-										action="#{representanteAction.listaRepresentante}" />
+										<td><rich:dropDownMenu value="MODULO REPRESENTANTES"
+												direction="bottom-right"
+												rendered="#{usuarioAction.objUsuario.perfil.CPerfil==2}">
 
-
-								</rich:dropDownMenu>
-
-								<rich:dropDownMenu value="MODULO EMPRESAS"
-									direction="bottom-right"
-									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==3}">
-
-									<rich:menuItem submitMode="ajax" value="LISTA EMPRESAS"
-										action="#{empresaAction.listaEmpresa}" />
+												<rich:menuItem submitMode="ajax"
+													value="LISTA REPRESENTANTES"
+													action="#{representanteAction.listaRepresentante}" />
 
 
-								</rich:dropDownMenu>
+											</rich:dropDownMenu></td>
+										<td><rich:dropDownMenu value="MODULO EMPRESAS"
+												direction="bottom-right"
+												rendered="#{usuarioAction.objUsuario.perfil.CPerfil==3}">
 
-								<rich:dropDownMenu value="MODULO PODERES"
-									direction="bottom-right"
-									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==3}">
-
-									<rich:menuItem submitMode="ajax" value="LISTA PODERES"
-										action="#{poderAction.muestraListado}" />
-
-
-								</rich:dropDownMenu>
-								
-									<rich:dropDownMenu value="MODULO USUARIOS"
-									direction="bottom-right"
-									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==4}">
-
-									<rich:menuItem submitMode="ajax" value="LISTA USUARIOS"
-										action="#{usuarioAction.listaUsuario}" />
+												<rich:menuItem submitMode="ajax" value="LISTA EMPRESAS"
+													action="#{empresaAction.listaEmpresa}" />
 
 
-								</rich:dropDownMenu>
-								
-								<rich:dropDownMenu value="MODULO VERIFICACION PODERES"
-									direction="bottom-right"
-									rendered="#{usuarioAction.objUsuario.perfil.CPerfil==5}">
+											</rich:dropDownMenu></td>
+										<td><rich:dropDownMenu value="MODULO PODERES"
+												direction="bottom-right"
+												rendered="#{usuarioAction.objUsuario.perfil.CPerfil==3}">
 
-									<rich:menuItem submitMode="ajax" value="VERIFICA PODER"
-										action="#{poderAction.validaPoder}" />
+												<rich:menuItem submitMode="ajax" value="LISTA PODERES"
+													action="#{poderAction.muestraListado}" />
 
 
-								</rich:dropDownMenu>
-								
+											</rich:dropDownMenu></td>
+
+										<td><rich:dropDownMenu value="MODULO USUARIOS"
+												direction="bottom-right"
+												rendered="#{usuarioAction.objUsuario.perfil.CPerfil==4}">
+
+												<rich:menuItem submitMode="ajax" value="LISTA USUARIOS"
+													action="#{usuarioAction.listaUsuario}" />
+
+
+											</rich:dropDownMenu></td>
+										<td><rich:dropDownMenu
+												value="MODULO VERIFICACION PODERES" direction="bottom-right"
+												rendered="#{usuarioAction.objUsuario.perfil.CPerfil==5}">
+
+												<rich:menuItem submitMode="ajax" value="VERIFICA PODER"
+													action="#{poderAction.validaPoder}" />
+
+
+											</rich:dropDownMenu></td>
+									</tr>
+								</table>
 
 
 							</h:form>
@@ -125,7 +127,8 @@
 
 
 						</ui:insert>
-					</rich:panel></td>
+					</rich:panel>
+				</td>
 			</tr>
 
 
@@ -135,7 +138,8 @@
 						<ui:insert name="content">
 
 						</ui:insert>
-					</rich:panel></td>
+					</rich:panel>
+				</td>
 			</tr>
 
 			<tr>
@@ -151,7 +155,8 @@
       						Copyright  2011, Grupo de desarrollo CLOUD
    					
 					</rich:panel>
-					</ui:insert></td>
+					</ui:insert>
+				</td>
 			</tr>
 
 		</table>
