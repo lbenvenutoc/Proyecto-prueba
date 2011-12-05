@@ -26,6 +26,7 @@ public class UsuarioDaoImp  implements UsuarioDao{
 			retorno = 1;
 		} catch (Exception ex) {
 			tx.rollback();
+			System.out.println(ex);
 			retorno = 0;
 		} finally {
 			session.close();

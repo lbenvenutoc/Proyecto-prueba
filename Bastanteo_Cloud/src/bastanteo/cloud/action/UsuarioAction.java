@@ -29,6 +29,70 @@ public class UsuarioAction {
 	private int codPerfil;
 	
 	
+	//DATOS A INGRESAR DE USUARIO
+	private int codUsuario;
+	private String apePat;
+	private String apeMat;
+	private String nombre;
+	private String usuario;
+	private String clave;
+	private String dni;
+	
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public int getCodUsuario() {
+		return codUsuario;
+	}
+
+	public void setCodUsuario(int codUsuario) {
+		this.codUsuario = codUsuario;
+	}
+
+	public String getApePat() {
+		return apePat;
+	}
+
+	public void setApePat(String apePat) {
+		this.apePat = apePat;
+	}
+
+	public String getApeMat() {
+		return apeMat;
+	}
+
+	public void setApeMat(String apeMat) {
+		this.apeMat = apeMat;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
 
 	public int getCodPerfil() {
 		return codPerfil;
@@ -66,6 +130,7 @@ public class UsuarioAction {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Usuario o clave incorrectos", null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
+			objUsuario = new Usuario();
 		}
 
 		return retorno;
@@ -82,7 +147,35 @@ public class UsuarioAction {
 	}
 
 	public String registraUsuario() {
-		return "";
+		Usuario objUsuarioNuevo= new Usuario();
+		
+		//SE SETEAN LOS DATOS A ACTUALIZAR
+		objUsuarioNuevo.setClave(clave);
+		objUsuarioNuevo.setClaveconfirm(clave);
+		objUsuarioNuevo.setCUsuario(codUsuario);
+		objUsuarioNuevo.setDni(dni);
+		if(codPerfil==4){
+			objUsuarioNuevo.setFlagActivo('M');
+		}else{
+			objUsuarioNuevo.setFlagActivo('A');
+		}
+		usuario=apePat+nombre.charAt(0);
+		objUsuarioNuevo.setLogin(usuario);
+		objUsuarioNuevo.setPaterno(apePat);
+		objUsuarioNuevo.setMaterno(apeMat);
+		objUsuarioNuevo.setNombre(nombre);
+		
+		//SE SETEA PERFIL
+		Perfil objPerfil = new Perfil();
+		objPerfil.setCPerfil(codPerfil);
+		
+		Perfil objPerfilObt= new Perfil();
+		objPerfilObt=servicioPerfil.obtenerPerfil(objPerfil);
+		objUsuarioNuevo.setPerfil(objPerfilObt);
+		
+		servicioUsuario.ControlarUsuario(objUsuarioNuevo);
+		lstUsuario=servicioUsuario.lista();
+		return "listaUsuario";
 	}
 
 	public String modificaUsuario() {
