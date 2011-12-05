@@ -4,7 +4,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 
 <ui:composition template="/template/common/commonLayout.xhtml">
@@ -21,22 +22,20 @@
 
 				<rich:panel id="panelIngreso">
 					<h:form>
-						<a4j:region>
 
-							<f:facet name="header">
-								<h:outputText value="Consulta Poder" />
-							</f:facet>
-							<table>
-								<tr>
-									<td>RUC:</td>
-									<td><h:inputText value="#{bastanteoAction.ruc}"
-											required="true" id="ruc"
-											requiredMessage=" Debe ingresar ruc a consultar"
-											maxlength="11">
 
-											<f:validateLength minimum="11" maximum="11" />
+						<f:facet name="header">
+							<h:outputText value="Consulta Poder" />
+						</f:facet>
+						<table>
+							<tr>
+								<td>RUC:</td>
+								<td><h:inputText value="#{bastanteoAction.ruc}" id="ruc"
+										maxlength="11">
 
-										</h:inputText></td>
+										<f:validateLength minimum="11" maximum="11" />
+
+									</h:inputText></td>
 
 
 
@@ -45,77 +44,78 @@
 
 
 
-								</tr>
-								<tr>
-									<td>Codigo representante:</td>
-									<td><h:inputText value="#{bastanteoAction.codRepresentante}"
-											required="true" id="codRepresentante"
-											>
+							</tr>
+							<tr>
+								<td>Codigo representante:</td>
+								<td><h:inputText
+										value="#{bastanteoAction.codRepresentante}"
+										id="codRepresentante">
 
-										</h:inputText>
-									</td>
+									</h:inputText>
+								</td>
 
-								</tr>
+							</tr>
 
-								<tr>
-									<td>Tipo:</td>
-									<td><h:inputText value="#{poderAction.codigoPoder}"
-											required="true" id="codigoPoder"
-											requiredMessage=" Debe ingresar el cogigo del poder">
-											<f:validateLength minimum="4" maximum="4" />
-										</h:inputText></td>
+							<tr>
+								<td>Codigo grupo bastanteo:</td>
+								<td><h:inputText
+										value="#{bastanteoAction.codGrupoBastanteo}"
+										id="codGrupoBastanteo">
 
-
-
-								</tr>
-
-								<tr>
-									<td>Importe:</td>
-									<td><h:inputText value="#{poderAction.importe}"
-											required="true" id="importe"
-											requiredMessage=" Debe ingresar el importe">
-
-										</h:inputText></td>
+									</h:inputText></td>
 
 
 
-								</tr>
+							</tr>
 
-								<tr>
-									<td colspan="3"><a4j:commandButton value="Valida Poder"
-											id="botonValidaPoder"
-											actionListener="#{poderAction.validaPoder}"
-											reRender="botonValidaPoder,mensajeValidacion" />
-									</td>
-								</tr>
+							<tr>
+								<td>Codigo tipo intervencion:</td>
+								<td><h:inputText
+										value="#{bastanteoAction.codTipIntervencion}"
+										id="codTipIntervencion">
 
-
-							</table>
-
-
-							<table align="center">
-								<tr>
-									<td align="left"><rich:messages layout="list">
-											<f:facet name="errorMarker">
-												<h:graphicImage value="/images/error.gif" />
-											</f:facet>
-
-											<f:facet name="infoMarker">
-												<h:graphicImage value="/images/info.jpeg" />
-											</f:facet>
-										</rich:messages></td>
-								</tr>
-							</table>
-
-
-							<h:outputText value="#{poderAction.mensajeValidacion}"
-								id="mensajeValidacion" />
+									</h:inputText></td>
 
 
 
+							</tr>
+
+							<tr>
+								<td colspan="3"><a4j:commandButton value="Consulta"
+										action="#{bastanteoAction.consultaBastanteo}" /></td>
+							</tr>
 
 
-						</a4j:region>
+						</table>
+
+
+						<table align="center">
+							<tr>
+								<td align="left"><rich:messages layout="list">
+										<f:facet name="errorMarker">
+											<h:graphicImage value="/images/error.gif" />
+										</f:facet>
+
+										<f:facet name="infoMarker">
+											<h:graphicImage value="/images/info.jpeg" />
+										</f:facet>
+									</rich:messages></td>
+							</tr>
+						</table>
+
+
+						<rich:dataTable var="item" rendered="#{bastanteoAction.lstBastanteo!=null}"
+							value="#{bastanteoAction.lstBastanteo}" rows="4" id="testpList">
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="RAZON SOCIAL"></h:outputText>
+								</f:facet>
+								<h:outputText value="#{item.RAZSOC}" id="RAZSOC"></h:outputText>
+							</rich:column>
+						</rich:dataTable>
+
+
+
 					</h:form>
 
 
@@ -123,6 +123,9 @@
 						<a4j:commandButton value="Volver"
 							action="#{poderAction.muestraListado}" />
 					</h:form>
+
+
+
 				</rich:panel>
 
 

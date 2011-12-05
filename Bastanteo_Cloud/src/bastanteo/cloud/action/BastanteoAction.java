@@ -1,6 +1,10 @@
 package bastanteo.cloud.action;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.collections.map.HashedMap;
 
 import bastanteo.cloud.bean.Bastanteo;
 import bastanteo.cloud.bean.Empresa;
@@ -18,16 +22,6 @@ public class BastanteoAction {
 	private int codRepresentante;
 	private int codGrupoBastanteo;
 	private int codTipIntervencion;
-
-	private List lstBastanteo;
-
-	public List getLstBastanteo() {
-		return lstBastanteo;
-	}
-
-	public void setLstBastanteo(List lstBastanteo) {
-		this.lstBastanteo = lstBastanteo;
-	}
 
 	public String getRuc() {
 		return ruc;
@@ -66,6 +60,16 @@ public class BastanteoAction {
 		return "muestraConsultaBastanteo";
 	}
 
+	private List lstBastanteo;
+
+	public List getLstBastanteo() {
+		return lstBastanteo;
+	}
+
+	public void setLstBastanteo(List lstBastanteo) {
+		this.lstBastanteo = lstBastanteo;
+	}
+
 	public String consultaBastanteo() {
 
 		Empresa objEmpresa = new Empresa();
@@ -84,6 +88,19 @@ public class BastanteoAction {
 		lstBastanteo = servicioBastanteo.obtenerBastanteosxCriterios(ruc,
 				objRepId, objGrupBasId, codTipIntervencion);
 
+		/*
+		 * 
+		 * for (int i = 0; i < lista.size(); i++) { Map objResultado =
+		 * (Map)lista.get(i);
+		 * 
+		 * lstBastanteo.put("RAZSOC", objResultado.get("RAZSOC").toString());
+		 * 
+		 * 
+		 * 
+		 * }
+		 */
+
+		System.out.println("NUMERO DE FILAS " + lstBastanteo.size());
 		return "muestraConsultaBastanteo";
 	}
 
