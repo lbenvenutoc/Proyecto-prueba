@@ -4,20 +4,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 import org.apache.commons.collections.map.HashedMap;
 
 import bastanteo.cloud.bean.Bastanteo;
 import bastanteo.cloud.bean.Empresa;
 import bastanteo.cloud.bean.GrupoBastanteoId;
+import bastanteo.cloud.bean.Representante;
 import bastanteo.cloud.bean.RepresentanteId;
 import bastanteo.cloud.service.BastanteoService;
 import bastanteo.cloud.service.EmpresaService;
+import bastanteo.cloud.service.RepresentanteService;
 
 public class BastanteoAction {
 
 	BastanteoService servicioBastanteo = new BastanteoService();
 	EmpresaService sevicioEmpresa = new EmpresaService();
-
+	RepresentanteService servicioRepresentante = new RepresentanteService();
+	
 	private String ruc;
 	private int codRepresentante;
 	private int codGrupoBastanteo;
@@ -71,15 +77,27 @@ public class BastanteoAction {
 	}
 
 	public String consultaBastanteo() {
-
-		Empresa objEmpresa = new Empresa();
-		objEmpresa.setRuc(ruc);
+		
 		Empresa objEmpresaObt = new Empresa();
-		objEmpresaObt = sevicioEmpresa.obtenerEmpresaxRuc(objEmpresa);
-
 		RepresentanteId objRepId = new RepresentanteId();
-		objRepId.setCRepresentante(codRepresentante);
-		objRepId.setCEmpresa(objEmpresaObt.getCEmpresa());
+		
+		if(ruc!=null){
+			Empresa objEmpresa = new Empresa();
+			objEmpresa.setRuc(ruc);
+			objEmpresaObt = sevicioEmpresa.obtenerEmpresaxRuc(objEmpresa);
+		}else if(codRepresentante!=0){
+			/*Representante objRepresentante = new Representante();
+			objRepresentante.set
+			objRepId=servicioRepresentante.obtenerRepresentantes(objRepresentante);
+			objRepId.setCRepresentante(codRepresentante);
+			objRepId.setCEmpresa(objEmpresaObt.getCEmpresa());*/
+		}
+		
+		
+		
+		
+
+		
 
 		GrupoBastanteoId objGrupBasId = new GrupoBastanteoId();
 		objGrupBasId.setCEmpresa(objEmpresaObt.getCEmpresa());
@@ -88,17 +106,11 @@ public class BastanteoAction {
 		lstBastanteo = servicioBastanteo.obtenerBastanteosxCriterios(ruc,
 				objRepId, objGrupBasId, codTipIntervencion);
 
-		/*
-		 * 
-		 * for (int i = 0; i < lista.size(); i++) { Map objResultado =
-		 * (Map)lista.get(i);
-		 * 
-		 * lstBastanteo.put("RAZSOC", objResultado.get("RAZSOC").toString());
-		 * 
-		 * 
-		 * 
-		 * }
-		 */
+		if(lstBastanteo.size()<=0){
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"No hay resultados en la consulta", null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
 
 		System.out.println("NUMERO DE FILAS " + lstBastanteo.size());
 		return "muestraConsultaBastanteo";
