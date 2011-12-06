@@ -139,4 +139,13 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#consPoder.xhtml" PATH="/consPoder.xhtml"
   SHAPE="240,1825,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::15" SHAPE="32,1921,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::15" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="muestraBastanteo::#regBastanteo.xhtml"
+    NAME="output" PATH="/regBastanteo.xhtml"
+    TARGET="rules:#regBastanteo.xhtml" TITLE="muestraBastanteo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#regBastanteo.xhtml"
+  PATH="/regBastanteo.xhtml" SHAPE="240,1937,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

@@ -38,6 +38,17 @@ public class RepresentanteAction implements Serializable {
 	private int codTipDocIdentidad;
 	private String codEmpresa;
 	private int codGrupoBastanteo;
+	private boolean muestraCombo=false;
+	
+	
+
+	public boolean isMuestraCombo() {
+		return muestraCombo;
+	}
+
+	public void setMuestraCombo(boolean muestraCombo) {
+		this.muestraCombo = muestraCombo;
+	}
 
 	public int getCodGrupoBastanteo() {
 		return codGrupoBastanteo;
@@ -148,12 +159,12 @@ public class RepresentanteAction implements Serializable {
 						+ objGrupoBastanteo.getId().getCGrupoBastanteo());
 
 			}
-
-		} else {
+			muestraCombo=true;
+		} /*else {
 
 			codEmpresa = null;
 		}
-
+		*/
 	}
 
 	public String registraRepresentante() {
