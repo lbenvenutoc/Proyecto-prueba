@@ -14,6 +14,9 @@
 
 
 		<f:view>
+		
+		<a4j:keepAlive beanName="representanteAction" />
+		
 			<center>
 
 				<h:form id="ajaxValidatorForm">
@@ -24,8 +27,8 @@
 						</f:facet>
 						<table>
 							
-							<h:inputHidden value="#{representanteAction.objRepresentante.id.CEmpresa}" />
-							<h:inputHidden value="#{representanteAction.objRepresentante.id.CRepresentante}" />
+							<h:inputHidden value="#{representanteAction.codEmpresa}" />
+							<h:inputHidden value="#{representanteAction.codRepresentante}" />
 							
 						
 							<tr>

@@ -38,9 +38,7 @@ public class RepresentanteAction implements Serializable {
 	private int codTipDocIdentidad;
 	private String codEmpresa;
 	private int codGrupoBastanteo;
-	private boolean muestraCombo=false;
-	
-	
+	private boolean muestraCombo = false;
 
 	public boolean isMuestraCombo() {
 		return muestraCombo;
@@ -106,7 +104,7 @@ public class RepresentanteAction implements Serializable {
 
 	public String muestraRepresentante() {
 		objRepresentante = new Representante();
-		
+
 		return "muestraRepresentante";
 	}
 
@@ -159,12 +157,12 @@ public class RepresentanteAction implements Serializable {
 						+ objGrupoBastanteo.getId().getCGrupoBastanteo());
 
 			}
-			muestraCombo=true;
-		} /*else {
-
-			codEmpresa = null;
-		}
-		*/
+			muestraCombo = true;
+		} /*
+		 * else {
+		 * 
+		 * codEmpresa = null; }
+		 */
 	}
 
 	public String registraRepresentante() {
@@ -220,6 +218,24 @@ public class RepresentanteAction implements Serializable {
 	}
 
 	public String actualizaRepresentante() {
+		System.out.println("EMPRESA "+codEmpresa);
+		System.out.println("REP "+codRepresentante);
+		
+		RepresentanteId id = new RepresentanteId(codEmpresa, codRepresentante);
+		objRepresentante.setId(id);
+		TipoDocId tipoDocId = new TipoDocId();
+		TipoDocId objTipoDocId = new TipoDocId();
+		objTipoDocId.setCTipoDocId(codTipDocIdentidad);
+		tipoDocId = servicioTipoDocId.obtenerTipoDocId(objTipoDocId);
+		objRepresentante.setTipoDocId(tipoDocId);
+		System.out.println("GRUPO BASTANTEO "+codGrupoBastanteo);
+		GrupoBastanteoId idGrup = new GrupoBastanteoId(codEmpresa,
+				codGrupoBastanteo);
+		GrupoBastanteo objGrup = new GrupoBastanteo();
+		GrupoBastanteo param= new GrupoBastanteo();
+		param.setId(idGrup);
+		objGrup=servicioGrupoBastanteo.obtenerGrupoBastanteo(param);
+		objRepresentante.setGrupoBastanteo(objGrup);
 		servicioRepresentante.modificarRepresentantes(objRepresentante);
 
 		return "listaRepresentante";

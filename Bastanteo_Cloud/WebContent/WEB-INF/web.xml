@@ -8,7 +8,9 @@
  </context-param>
   <context-param>
         <param-name>org.richfaces.SKIN</param-name>
-        <param-value>ruby</param-value>
+        <!-- <param-value>ruby</param-value> -->
+        <param-value>blueSky</param-value>
+        
     </context-param>
  <context-param>
   <param-name>com.sun.faces.verifyObjects</param-name>

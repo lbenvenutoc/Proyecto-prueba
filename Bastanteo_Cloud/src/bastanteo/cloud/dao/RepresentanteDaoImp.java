@@ -49,6 +49,7 @@ public class RepresentanteDaoImp implements RepresentanteDao{
 			indicador=1;
 		} catch (Exception ex) {
 			tx.rollback();
+			System.out.println(ex);
 			indicador=0;
 		} finally {
 			session.close();
