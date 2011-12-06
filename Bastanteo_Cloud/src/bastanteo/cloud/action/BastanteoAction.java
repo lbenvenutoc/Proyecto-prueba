@@ -13,6 +13,7 @@ import javax.faces.model.SelectItem;
 import org.apache.commons.collections.map.HashedMap;
 
 import bastanteo.cloud.bean.Bastanteo;
+import bastanteo.cloud.bean.BastanteoId;
 import bastanteo.cloud.bean.Empresa;
 import bastanteo.cloud.bean.GrupoBastanteo;
 import bastanteo.cloud.bean.GrupoBastanteoId;
@@ -42,9 +43,7 @@ public class BastanteoAction {
 	private int codRepresentante;
 	private int codGrupoBastanteo;
 	private int codTipIntervencion;
-	private boolean muestraCombo=false;
-	
-	
+	private boolean muestraCombo = false;
 
 	public boolean isMuestraCombo() {
 		return muestraCombo;
@@ -184,8 +183,25 @@ public class BastanteoAction {
 	}
 
 	public String registraBastanteo() {
+		System.out.println("llave bastanteo "+codEmpresa+"---"+codGrupoBastanteo+"---"+codPoder);
+		BastanteoId id = new BastanteoId(codEmpresa, codGrupoBastanteo,
+				codPoder);
+		objBastanteo.setId(id);
+		TipoIntervencion objTip = new TipoIntervencion();
+		objTip.setCTipoIntervencion(codTipIntervencion);
 
+		TipoIntervencion objTipIntObt = new TipoIntervencion();
+		objTipIntObt = servicioTipoIntervencion.obtenerTipoIntervencion(objTip);
+		objBastanteo.setTipoIntervencion(objTipIntObt);
+
+		int i = servicioBastanteo.insertarBastanteo(objBastanteo);
+		if (i > 0) {
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"Datos ingresados correctamente", null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
 		return "muestraBastanteo";
+
 	}
 
 	List<SelectItem> listaGrupoBastanteo = new ArrayList();
@@ -198,7 +214,7 @@ public class BastanteoAction {
 	public void cargaGrupoBastanteo(ValueChangeEvent evento) {
 
 		listaGrupoBastanteo = new ArrayList<SelectItem>();
-		
+
 		codEmpresa = (String) evento.getNewValue();
 
 		Empresa objEmpresa = new Empresa();
@@ -206,7 +222,7 @@ public class BastanteoAction {
 
 		lstGrupoBastanteo = servicioGrupoBastanteo
 				.lstGrupoBastanteoxEmpresa(objEmpresa);
-		
+
 		if (lstGrupoBastanteo.size() > 0) {
 
 			for (GrupoBastanteo objGrupoBastanteo : lstGrupoBastanteo) {
@@ -219,13 +235,12 @@ public class BastanteoAction {
 						+ objGrupoBastanteo.getId().getCGrupoBastanteo());
 
 			}
-				
-			muestraCombo=true;
-			
-		}//else {
 
-			
-		//}
+			muestraCombo = true;
+
+		}// else {
+
+		// }
 
 	}
 

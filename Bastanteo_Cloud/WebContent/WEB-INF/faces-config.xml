@@ -74,12 +74,12 @@
  <managed-bean>
   <managed-bean-name>objBastanteo</managed-bean-name>
   <managed-bean-class>bastanteo.cloud.bean.Bastanteo</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
+  <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>bastanteoAction</managed-bean-name>
   <managed-bean-class>bastanteo.cloud.action.BastanteoAction</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
+  <managed-bean-scope>session</managed-bean-scope>
   <managed-property>
    <property-name>objBastanteo</property-name>
    <value>#{objBastanteo}</value>

@@ -43,7 +43,7 @@
 							
 								<h:selectOneMenu
 										value="#{representanteAction.codGrupoBastanteo}"
-										rendered="#{representanteAction.muestraCombo!=false}">
+										rendered="#{representanteAction.muestraCombo!=false}" required="true" requiredMessage="Debe existir el grupo bastanteo">
 										<f:selectItems
 											value="#{representanteAction.lstGrupoBastanteo}"/>
 
