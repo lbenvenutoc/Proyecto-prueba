@@ -106,7 +106,7 @@ public class RepresentanteAction implements Serializable {
 
 	public String muestraRepresentante() {
 		objRepresentante = new Representante();
-
+		
 		return "muestraRepresentante";
 	}
 
