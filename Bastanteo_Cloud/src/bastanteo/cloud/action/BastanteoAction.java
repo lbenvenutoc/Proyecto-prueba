@@ -208,7 +208,8 @@ public class BastanteoAction {
 	}
 
 	public String muestraBastanteo() {
-
+		objBastanteo= new Bastanteo();
+		
 		return "muestraBastanteo";
 	}
 
