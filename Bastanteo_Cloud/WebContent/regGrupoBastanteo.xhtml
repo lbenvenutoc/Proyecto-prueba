@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<ui:composition template="/template/common/commonLayout.xhtml">
+
+	<ui:define name="content">
+
+
+
+		<f:view>
+			<center>
+
+				<h:form id="ajaxValidatorForm">
+
+					<rich:panel id="panelIngreso">
+						<f:facet name="header">
+							<h:outputText value="Registra Grupo" />
+						</f:facet>
+						<table>
+							<tr>
+								<td>Empresa:</td>
+								<td><h:selectOneMenu value="#{bastanteoAction.codEmpresa}"
+										>
+										<f:selectItems />
+										<f:selectItems value="#{bastanteoAction.lstEmpresa}" />
+
+
+									</h:selectOneMenu></td>
+							</tr>
+							<tr>
+								<td>Codigo Grupo Bastanteo:</td>
+								<td><h:inputText value="#{bastanteoAction.codGrupoBastanteo}"
+										required="true" id="CGrupoBastanteo"
+										requiredMessage=" Debe ingresar el codigo de bastanteo" /></td>
+
+							</tr>
+							
+							<tr>
+								<td>Descripcion:</td>
+								<td><h:inputText value="#{bastanteoAction.objGrupoBastanteo.descripcion}"
+										required="true" id="descripcion"
+										requiredMessage=" Debe ingresar la descripcion" /></td>
+
+							</tr>
+							
+							<tr>
+								<td>Abreviatura:</td>
+								<td><h:inputText value="#{bastanteoAction.objGrupoBastanteo.abreviatura}"
+										required="true" id="abreviatura"
+										requiredMessage=" Debe ingresar la abreviatura" /></td>
+
+							</tr>
+
+							
+							<tr>
+								<td colspan="3"><a4j:commandButton value="Registra Grupo Bastanteo"
+										action="#{bastanteoAction.registraGrupoBastanteo}" /></td>
+
+
+							</tr>
+
+
+						</table>
+
+						<table align="center">
+							<tr>
+								<td align="left"><rich:messages layout="list">
+										<f:facet name="errorMarker">
+											<h:graphicImage value="/images/error.gif" />
+										</f:facet>
+
+										<f:facet name="infoMarker">
+											<h:graphicImage value="/images/info.jpeg" />
+										</f:facet>
+									</rich:messages>
+								</td>
+							</tr>
+						</table>
+
+
+					</rich:panel>
+
+
+
+
+				</h:form>
+			
+			</center>
+
+
+
+
+
+		</f:view>
+
+	</ui:define>
+
+</ui:composition>
+
+
+
+</html>
+

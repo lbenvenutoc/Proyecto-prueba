@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import bastanteo.cloud.bean.Empresa;
 import bastanteo.cloud.bean.GrupoBastanteo;
@@ -44,6 +45,26 @@ public class GrupoBastanteoDaoImp implements GrupoBastanteoDao {
 		} finally {
 			session.close();
 		}
+	}
+
+	@Override
+	public int registraGrupoBastanteo(GrupoBastanteo objGrupoBastanteo) {
+		int indicador=0;
+		Session session = HibernateUtil.getSessionFactory();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			session.save(objGrupoBastanteo);
+			tx.commit();
+			indicador=1;
+		} catch (Exception ex) {
+			System.out.println(ex);
+			tx.rollback();
+			indicador=0;
+		} finally {
+			session.close();
+		}
+		return indicador;
 	}
 
 }

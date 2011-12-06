@@ -30,8 +30,7 @@
 
 
 					</ui:insert>
-					</rich:panel>
-				</td>
+					</rich:panel></td>
 			</tr>
 
 
@@ -50,7 +49,8 @@
 							</table>
 
 						</ui:insert>
-					</rich:panel></td>
+					</rich:panel>
+				</td>
 			</tr>
 
 
@@ -79,19 +79,20 @@
 													action="#{representanteAction.listaRepresentante}" />
 
 
-											</rich:dropDownMenu></td>
-											
-											<td><rich:dropDownMenu value="MODULO BASTANTEO"
+											</rich:dropDownMenu>
+										</td>
+
+										<td><rich:dropDownMenu value="MODULO BASTANTEO"
 												direction="bottom-right"
 												rendered="#{usuarioAction.objUsuario.perfil.CPerfil==2}">
 
-												<rich:menuItem submitMode="ajax"
-													value="REGISTRA BASTANTEO"
+												<rich:menuItem submitMode="ajax" value="REGISTRA BASTANTEO"
 													action="#{bastanteoAction.muestraBastanteo}" />
 
 
-											</rich:dropDownMenu></td>
-											
+											</rich:dropDownMenu>
+										</td>
+
 										<td><rich:dropDownMenu value="MODULO EMPRESAS"
 												direction="bottom-right"
 												rendered="#{usuarioAction.objUsuario.perfil.CPerfil==3}">
@@ -100,7 +101,8 @@
 													action="#{empresaAction.listaEmpresa}" />
 
 
-											</rich:dropDownMenu></td>
+											</rich:dropDownMenu>
+										</td>
 										<td><rich:dropDownMenu value="MODULO PODERES"
 												direction="bottom-right"
 												rendered="#{usuarioAction.objUsuario.perfil.CPerfil==3}">
@@ -109,7 +111,8 @@
 													action="#{poderAction.muestraListado}" />
 
 
-											</rich:dropDownMenu></td>
+											</rich:dropDownMenu>
+										</td>
 
 										<td><rich:dropDownMenu value="MODULO USUARIOS"
 												direction="bottom-right"
@@ -119,7 +122,8 @@
 													action="#{usuarioAction.listaUsuario}" />
 
 
-											</rich:dropDownMenu></td>
+											</rich:dropDownMenu>
+										</td>
 										<td><rich:dropDownMenu
 												value="MODULO VERIFICACION PODERES" direction="bottom-right"
 												rendered="#{usuarioAction.objUsuario.perfil.CPerfil==5}">
@@ -128,8 +132,15 @@
 													action="#{poderAction.validaPoder}" />
 
 
-											</rich:dropDownMenu></td>
+											</rich:dropDownMenu>
+										</td>
+										<td><h:commandLink value="Salir"
+												action="#{usuarioAction.cerrarSesion}" />
+										</td>
+
 									</tr>
+
+
 								</table>
 
 
@@ -139,8 +150,7 @@
 
 
 						</ui:insert>
-					</rich:panel>
-				</td>
+					</rich:panel></td>
 			</tr>
 
 
@@ -150,8 +160,7 @@
 						<ui:insert name="content">
 
 						</ui:insert>
-					</rich:panel>
-				</td>
+					</rich:panel></td>
 			</tr>
 
 			<tr>
@@ -167,8 +176,7 @@
       						Copyright  2011, Grupo de desarrollo CLOUD
    					
 					</rich:panel>
-					</ui:insert>
-				</td>
+					</ui:insert></td>
 			</tr>
 
 		</table>

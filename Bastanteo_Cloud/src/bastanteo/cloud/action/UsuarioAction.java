@@ -13,6 +13,7 @@ import bastanteo.cloud.bean.TipoEmpresa;
 import bastanteo.cloud.bean.Usuario;
 import bastanteo.cloud.service.PerfilService;
 import bastanteo.cloud.service.UsuarioService;
+import bastanteo.cloud.util.HttpJSFUtil;
 
 public class UsuarioAction {
 
@@ -276,4 +277,10 @@ public class UsuarioAction {
 		return listaPerfil;
 
 	}
+	
+    public Object cerrarSesion() {
+        HttpJSFUtil.getSession().invalidate();
+
+        return "logout";
+    }
 }

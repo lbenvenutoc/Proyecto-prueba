@@ -44,6 +44,18 @@ public class BastanteoAction {
 	private int codGrupoBastanteo;
 	private int codTipIntervencion;
 	private boolean muestraCombo = false;
+	
+	private GrupoBastanteo objGrupoBastanteo;
+	
+	
+
+	public GrupoBastanteo getObjGrupoBastanteo() {
+		return objGrupoBastanteo;
+	}
+
+	public void setObjGrupoBastanteo(GrupoBastanteo objGrupoBastanteo) {
+		this.objGrupoBastanteo = objGrupoBastanteo;
+	}
 
 	public boolean isMuestraCombo() {
 		return muestraCombo;
@@ -56,6 +68,7 @@ public class BastanteoAction {
 	private Bastanteo objBastanteo;
 	private String codEmpresa;
 	private String codPoder;
+	
 
 	private List<Empresa> lstEmpresa = new ArrayList();
 	private List<Poder> lstPoder = new ArrayList();
@@ -132,6 +145,23 @@ public class BastanteoAction {
 	public void setLstBastanteo(List lstBastanteo) {
 		this.lstBastanteo = lstBastanteo;
 	}
+	
+	public String muestraRegistroGrupo(){
+		
+		return "muestraRegistroGrupo";
+		
+	}
+	
+	public String registraGrupoBastanteo(){
+		
+		GrupoBastanteoId id= new GrupoBastanteoId(codEmpresa, codGrupoBastanteo);
+		objGrupoBastanteo.setId(id);
+		
+		servicioGrupoBastanteo.registraGrupoBastanteo(objGrupoBastanteo);
+		
+		return "muestraBastanteo";
+		
+	}
 
 	public String consultaBastanteo() {
 
@@ -183,7 +213,7 @@ public class BastanteoAction {
 	}
 
 	public String registraBastanteo() {
-		System.out.println("llave bastanteo "+codEmpresa+"---"+codGrupoBastanteo+"---"+codPoder);
+		//System.out.println("llave bastanteo "+codEmpresa+"---"+codGrupoBastanteo+"---"+codPoder);
 		BastanteoId id = new BastanteoId(codEmpresa, codGrupoBastanteo,
 				codPoder);
 		objBastanteo.setId(id);

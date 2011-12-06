@@ -9,5 +9,6 @@ public interface GrupoBastanteoDao {
 	
 	public GrupoBastanteo obtenerGrupoBastanteo(GrupoBastanteo objGrupoBastanteo);
 	public List lstGrupoBastanteoxEmpresa(Empresa objEmpresa);
+	public int registraGrupoBastanteo(GrupoBastanteo objGrupoBastanteo);
 	
 }

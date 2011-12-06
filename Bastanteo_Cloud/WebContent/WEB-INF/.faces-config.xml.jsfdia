@@ -148,4 +148,20 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#regBastanteo.xhtml"
   PATH="/regBastanteo.xhtml" SHAPE="240,1937,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::16" SHAPE="32,2033,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::16" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="muestraRegistroGrupo::#regGrupoBastanteo.xhtml" NAME="output"
+    PATH="/regGrupoBastanteo.xhtml"
+    TARGET="rules:#regGrupoBastanteo.xhtml" TITLE="muestraRegistroGrupo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#regGrupoBastanteo.xhtml"
+  PATH="/regGrupoBastanteo.xhtml" SHAPE="240,2049,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::17" SHAPE="32,2145,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::17" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="logout::#logueo.xhtml" NAME="output"
+    PATH="/logueo.xhtml" TARGET="rules:#logueo.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

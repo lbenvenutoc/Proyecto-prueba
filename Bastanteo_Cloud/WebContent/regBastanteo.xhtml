@@ -33,7 +33,8 @@
 										<f:selectItems value="#{bastanteoAction.lstEmpresa}" />
 
 
-									</h:selectOneMenu></td>
+									</h:selectOneMenu>
+								</td>
 							</tr>
 
 							<tr>
@@ -44,8 +45,7 @@
 										<f:selectItems value="#{bastanteoAction.lstGrupoBastanteo}" />
 
 
-									</h:selectOneMenu>
-								</td>
+									</h:selectOneMenu></td>
 							</tr>
 
 							<tr>
@@ -54,113 +54,116 @@
 										<f:selectItems value="#{bastanteoAction.lstPoder}" />
 
 
-									</h:selectOneMenu>
-								</td>
+									</h:selectOneMenu></td>
 							</tr>
-							
+
 							<tr>
 								<td>Tipo Intervencion:</td>
-								<td><h:selectOneMenu value="#{bastanteoAction.codTipIntervencion}">
+								<td><h:selectOneMenu
+										value="#{bastanteoAction.codTipIntervencion}">
 										<f:selectItems value="#{bastanteoAction.lstTipoIntervencion}" />
 
 
-									</h:selectOneMenu>
-								</td>
+									</h:selectOneMenu></td>
 							</tr>
-							
+
 							<tr>
 								<td>Importe Min:</td>
 								<td><h:inputText
 										value="#{bastanteoAction.objBastanteo.importeMin}"
-										required="true" requiredMessage="Debe ingresar el importe mínimo">
+										required="true"
+										requiredMessage="Debe ingresar el importe mínimo">
 
-									</h:inputText></td>
+									</h:inputText>
+								</td>
 
 
 
 							</tr>
-							
+
 							<tr>
 								<td>Importe Max:</td>
 								<td><h:inputText
 										value="#{bastanteoAction.objBastanteo.importeMax}"
-										required="true" requiredMessage="Debe ingresar el importe máximo">
+										required="true"
+										requiredMessage="Debe ingresar el importe máximo">
 
-									</h:inputText></td>
+									</h:inputText>
+								</td>
 
 
 
 							</tr>
-							
+
 							<tr>
 								<td>Fecha Ini:</td>
-								<td>
-									<rich:calendar value="#{bastanteoAction.objBastanteo.fechaIni}"
-									locale="en/US"
-									datePattern="yyyy-M-dd"
-									cellWidth="24px"
-									cellHeight="22px" style="width:200px">
-									
-									</rich:calendar>
-								</td>
+								<td><rich:calendar
+										value="#{bastanteoAction.objBastanteo.fechaIni}"
+										locale="en/US" datePattern="yyyy-M-dd" cellWidth="24px"
+										cellHeight="22px" style="width:200px">
 
-								
+									</rich:calendar></td>
+
+
 
 							</tr>
-							
+
 							<tr>
 								<td>Fecha Fin:</td>
-								<td>
-									<rich:calendar value="#{bastanteoAction.objBastanteo.fechaFin}"
-									locale="en/US"
-									datePattern="yyyy-M-dd"
-									cellWidth="24px"
-									cellHeight="22px" style="width:200px">
-									
-									</rich:calendar>
-								</td>
+								<td><rich:calendar
+										value="#{bastanteoAction.objBastanteo.fechaFin}"
+										locale="en/US" datePattern="yyyy-M-dd" cellWidth="24px"
+										cellHeight="22px" style="width:200px">
 
-								
+									</rich:calendar></td>
+
+
 
 							</tr>
-							
-							
 
 
 
 							<tr>
 								<td colspan="3"><a4j:commandButton
 										value="Registra Bastanteo"
-										action="#{bastanteoAction.registraBastanteo}" /></td>
+										action="#{bastanteoAction.registraBastanteo}" />
+								</td>
 
 
 							</tr>
 
 
 						</table>
-
-						<table align="center">
-							<tr>
-								<td align="left"><rich:messages layout="list">
-										<f:facet name="errorMarker">
-											<h:graphicImage value="/images/error.gif" />
-										</f:facet>
-
-										<f:facet name="infoMarker">
-											<h:graphicImage value="/images/info.jpeg" />
-										</f:facet>
-									</rich:messages></td>
-							</tr>
-						</table>
+				
 
 
 
-					</rich:panel>
-
-
-
-
+				</rich:panel>
 				</h:form>
+				
+				<h:form>
+					<a4j:commandButton
+										value="Si gusta, registre un grupo nuevo"
+										action="#{bastanteoAction.muestraRegistroGrupo}" />
+				</h:form>
+		
+				<table align="center">
+					<tr>
+						<td align="left"><rich:messages layout="list">
+								<f:facet name="errorMarker">
+									<h:graphicImage value="/images/error.gif" />
+								</f:facet>
+
+								<f:facet name="infoMarker">
+									<h:graphicImage value="/images/info.jpeg" />
+								</f:facet>
+							</rich:messages>
+						</td>
+					</tr>
+				</table>
+		
+
+
 
 			</center>
 

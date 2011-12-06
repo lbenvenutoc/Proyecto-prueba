@@ -19,5 +19,8 @@ public class GrupoBastanteoService {
 	public List lstGrupoBastanteoxEmpresa(Empresa objEmpresa) {
 		return dao.lstGrupoBastanteoxEmpresa(objEmpresa);
 	}
-
+	
+	public int registraGrupoBastanteo(GrupoBastanteo objGrupoBastanteo) {
+		return dao.registraGrupoBastanteo(objGrupoBastanteo);
+	}
 }
