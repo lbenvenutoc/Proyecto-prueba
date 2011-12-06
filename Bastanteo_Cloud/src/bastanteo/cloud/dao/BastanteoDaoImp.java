@@ -121,7 +121,7 @@ public class BastanteoDaoImp implements BastanteoDao {
 
 			tx = session.beginTransaction();
 			select = "select "
-					+ "e.razon_social as RAZSOC,gb.descripcion as DESCRIPT_BASTANTEO,ti.nombre AS C_TIPO_INTERVENCION,b.importe_min as IMPORTE_MIN,"
+					+ "e.razon_social as RAZSOC,CONCAT(re.APE_PATERNO, CONCAT(' ',re.APE_MATERNO),CONCAT(' ',re.NOMBRE)) AS REPRESENTANTE,gb.descripcion as DESCRIPT_BASTANTEO,ti.nombre AS C_TIPO_INTERVENCION,b.importe_min as IMPORTE_MIN,"
 					+ "b.importe_max AS IMPORTE_MAX, b.fecha_ini AS FECINI, b.fecha_fin AS FECFIN,p.nombre AS NOMBRE_PODER "
 					+ "from empresa e "
 					+ "inner join grupo_bastanteo gb "
@@ -164,6 +164,7 @@ public class BastanteoDaoImp implements BastanteoDao {
 			query = session
 					.createSQLQuery(select)
 					.addScalar("RAZSOC")
+					.addScalar("REPRESENTANTE")
 					.addScalar("DESCRIPT_BASTANTEO")
 					.addScalar("C_TIPO_INTERVENCION")
 					.addScalar("IMPORTE_MIN")
