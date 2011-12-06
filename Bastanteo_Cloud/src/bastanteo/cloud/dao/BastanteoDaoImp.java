@@ -132,8 +132,8 @@ public class BastanteoDaoImp implements BastanteoDao {
 					+ "inner join bastanteo b "
 					+ "on b.c_empresa=gb.c_empresa and b.c_grupo_bastanteo=gb.c_grupo_bastanteo "
 					+ "inner join poder p on b.c_poder=p.c_poder "
-					+ "inner join tipo_intervencion ti on ti.c_tipo_intervencion=b.c_tipo_intervencion";
-
+					+ "inner join tipo_intervencion ti on ti.c_tipo_intervencion=b.c_tipo_intervencion "
+/*
 			if (ruc != null) {
 				select += " where e.ruc=:ruc";
 			} else {
@@ -150,7 +150,17 @@ public class BastanteoDaoImp implements BastanteoDao {
 					}
 				}
 			}
+*/
+					+"where e.ruc=:ruc and re.c_empresa=:idRep1 and re.c_representante=:idRep2";
+					if (idGrupoBastanteo != null) {
+						select += " and  b.c_grupo_bastanteo=:idGrupoBas";
+					} else {
+						if (idTipoIntervencion != 0) {
+							select += " and b.c_tipo_intervencion=:tipInt";
+						}
 
+					}
+			
 			query = session
 					.createSQLQuery(select)
 					.addScalar("RAZSOC")
@@ -165,13 +175,24 @@ public class BastanteoDaoImp implements BastanteoDao {
 					.setResultTransformer(
 							AliasToEntityMapResultTransformer.INSTANCE);
 
-			if (ruc != null) {
+			//if (ruc != null) {
 				query.setString("ruc", ruc);
-			} else {
+				query.setString("idRep1", idRepresentante.getCEmpresa());
+				query.setInteger("idRep2",idRepresentante.getCRepresentante());
+				if (idGrupoBastanteo != null) {
+					query.setInteger("idGrupoBas",
+							idGrupoBastanteo.getCGrupoBastanteo());
+				} else {
+					if (idTipoIntervencion != 0) {
+						query.setInteger("tipInt", idTipoIntervencion);
+					}
+
+				}
+				
+			//} else {
+				/*
 				if (idRepresentante != null) {
-					query.setString("idRep1", idRepresentante.getCEmpresa());
-					query.setInteger("idRep2",
-							idRepresentante.getCRepresentante());
+				
 				} else {
 					if (idGrupoBastanteo != null) {
 						query.setInteger("idGrupoBas",
@@ -183,7 +204,8 @@ public class BastanteoDaoImp implements BastanteoDao {
 
 					}
 				}
-			}
+				*/
+			//}
 
 			lstResultado = query.list();
 

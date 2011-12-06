@@ -31,7 +31,7 @@
 							<tr>
 								<td>RUC:</td>
 								<td><h:inputText value="#{bastanteoAction.ruc}" id="ruc"
-										maxlength="11" validatorMessage="El ruc debe tener 11 digitos">
+										maxlength="11" validatorMessage="El ruc debe tener 11 digitos" required="true" requiredMessage="Debe ingresar el RUC">
 
 										<f:validateLength minimum="11" maximum="11" />
 
@@ -48,9 +48,9 @@
 							<tr>
 								<td>Codigo representante:</td>
 								<td><h:inputText
-										value="#{bastanteoAction.codRepresentante}"
+										value="#{bastanteoAction.codRepresentante}" required="true" requiredMessage="Debe ingresar el código de representante"
 										id="codRepresentante">
-
+										
 									</h:inputText>
 								</td>
 
@@ -61,7 +61,7 @@
 								<td><h:inputText
 										value="#{bastanteoAction.codGrupoBastanteo}"
 										id="codGrupoBastanteo">
-
+									
 									</h:inputText></td>
 
 
@@ -73,7 +73,7 @@
 								<td><h:inputText
 										value="#{bastanteoAction.codTipIntervencion}"
 										id="codTipIntervencion">
-
+										
 									</h:inputText></td>
 
 
@@ -165,7 +165,9 @@
 						<a4j:commandButton value="Volver"
 							action="#{poderAction.muestraListado}" />
 					</h:form>
-
+					
+					
+				
 
 
 				</rich:panel>

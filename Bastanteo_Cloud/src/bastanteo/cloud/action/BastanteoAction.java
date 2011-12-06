@@ -81,27 +81,33 @@ public class BastanteoAction {
 		Empresa objEmpresaObt = new Empresa();
 		RepresentanteId objRepId = new RepresentanteId();
 		
-		if(ruc!=null){
-			Empresa objEmpresa = new Empresa();
-			objEmpresa.setRuc(ruc);
-			objEmpresaObt = sevicioEmpresa.obtenerEmpresaxRuc(objEmpresa);
-		}else if(codRepresentante!=0){
-			/*Representante objRepresentante = new Representante();
-			objRepresentante.set
-			objRepId=servicioRepresentante.obtenerRepresentantes(objRepresentante);
-			objRepId.setCRepresentante(codRepresentante);
-			objRepId.setCEmpresa(objEmpresaObt.getCEmpresa());*/
+		Empresa objEmpresa = new Empresa();
+		objEmpresa.setRuc(ruc);
+		objEmpresaObt = sevicioEmpresa.obtenerEmpresaxRuc(objEmpresa);
+		
+		
+		
+		objRepId.setCRepresentante(codRepresentante);
+		objRepId.setCEmpresa(objEmpresaObt.getCEmpresa());
+		
+		GrupoBastanteoId objGrupBasId = new GrupoBastanteoId();
+	
+		if(codGrupoBastanteo==0 && codTipIntervencion==0){
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Debe ingresar el codigo de grupo de bastanteo o el tipo de intervencion", null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}else{
+			
+			if(codGrupoBastanteo!=0){
+			
+				objGrupBasId.setCEmpresa(objEmpresaObt.getCEmpresa());
+				objGrupBasId.setCGrupoBastanteo(codGrupoBastanteo);
+				
+			}
+			
 		}
 		
-		
-		
-		
-
-		
-
-		GrupoBastanteoId objGrupBasId = new GrupoBastanteoId();
-		objGrupBasId.setCEmpresa(objEmpresaObt.getCEmpresa());
-		objGrupBasId.setCGrupoBastanteo(codGrupoBastanteo);
+	
 
 		lstBastanteo = servicioBastanteo.obtenerBastanteosxCriterios(ruc,
 				objRepId, objGrupBasId, codTipIntervencion);
