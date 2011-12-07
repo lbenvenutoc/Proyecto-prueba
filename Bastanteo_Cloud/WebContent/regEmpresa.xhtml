@@ -26,7 +26,7 @@
 							<tr>
 								<td>Codigo:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.CEmpresa}" required="true" requiredMessage="Debe ingresar codigo" validatorMessage="El código debe tener 8 caracteres">
+										value="#{empresaAction.objEmpresa.CEmpresa}" required="true" requiredMessage="Debe ingresar codigo" validatorMessage="El código debe tener entre 1 y 8 caracteres">
 										<f:validateLength minimum="1" maximum="8" />
 										</h:inputText>
 								</td>

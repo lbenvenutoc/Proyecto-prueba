@@ -95,8 +95,9 @@
 								<td><h:inputText
 										value="#{representanteAction.objRepresentante.numDocId}"
 										required="true"
-										requiredMessage="Debe ingresar el número de documento">
-
+										validatorMessage="El numero de documento de identidad debe tener entre 8 y 15 caracteres"
+										requiredMessage="Debe ingresar el número de documento de identidad" maxlength="15">
+										<f:validateLength minimum="8" maximum="15" />
 									</h:inputText></td>
 
 
