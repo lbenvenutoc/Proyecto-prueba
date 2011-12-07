@@ -115,7 +115,7 @@ public class RepresentanteAction implements Serializable {
 		objRepObt.setId(objRepId);
 		objRepresentante = servicioRepresentante
 				.obtenerRepresentantes(objRepObt);
-
+		codGrupoBastanteo=objRepresentante.getGrupoBastanteo().getId().getCGrupoBastanteo();
 		return "muestraEdicionRepresentante";
 	}
 
