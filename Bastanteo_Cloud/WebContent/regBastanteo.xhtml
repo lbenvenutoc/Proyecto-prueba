@@ -30,7 +30,7 @@
 								<td><h:selectOneMenu value="#{bastanteoAction.codEmpresa}"
 										onchange="submit()"
 										valueChangeListener="#{bastanteoAction.cargaGrupoBastanteo}">
-										<f:selectItems />
+										
 										<f:selectItems value="#{bastanteoAction.lstEmpresa}" />
 
 
@@ -42,7 +42,7 @@
 								<td>Grupo Bastanteo:</td>
 								<td>
 								
-								<h:selectOneMenu
+								<h:selectOneMenu 
 										value="#{bastanteoAction.codGrupoBastanteo}" 
 										>
 										<f:selectItems value="#{bastanteoAction.lstGrupoBastanteo}" />
