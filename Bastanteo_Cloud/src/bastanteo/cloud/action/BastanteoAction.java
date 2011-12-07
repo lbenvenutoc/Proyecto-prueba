@@ -248,22 +248,22 @@ public class BastanteoAction {
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 						
 		}else if(objBastanteo.getImporteMin()>objBastanteo.getImporteMax()){
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"El importe mínimo no puede ser mayor al máximo", null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}else if(objBastanteo.getImporteMin()==0 || objBastanteo.getImporteMax()==0){
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Ingrese valores mayores que cero", null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}
 		
-		/*else if(objBastanteo.getFechaIni().compareTo(objBastanteo.getFechaFin())>0){
+		else if(objBastanteo.getFechaIni().compareTo(objBastanteo.getFechaFin())>0){
 			
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"La fecha de inicio no puede ser mayor que la fecha de fin", null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 			
-		}*/
+		}
 		else{
 			servicioBastanteo.insertarBastanteo(objBastanteo);
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
