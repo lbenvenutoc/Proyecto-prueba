@@ -71,10 +71,10 @@
 							<tr>
 								<td>Importe Min:</td>
 								<td><h:inputText
-										value="#{bastanteoAction.objBastanteo.importeMin}"
-										required="true"
+										value="#{bastanteoAction.objBastanteo.importeMin}" converter="#{Integer}"
+										required="true" converterMessage="Debe ingresar valor entero"
 										requiredMessage="Debe ingresar el importe mínimo">
-
+									
 									</h:inputText>
 								</td>
 
@@ -86,7 +86,7 @@
 								<td>Importe Max:</td>
 								<td><h:inputText
 										value="#{bastanteoAction.objBastanteo.importeMax}"
-										required="true"
+										required="true" converter="#{Integer}" converterMessage="Debe ingresar valor entero"
 										requiredMessage="Debe ingresar el importe máximo">
 
 									</h:inputText>
@@ -101,7 +101,7 @@
 								<td><rich:calendar
 										value="#{bastanteoAction.objBastanteo.fechaIni}"
 										locale="en/US" datePattern="yyyy-M-dd" cellWidth="24px"
-										cellHeight="22px" style="width:200px">
+										cellHeight="22px" style="width:200px" required="true" requiredMessage="Ingrese una fecha de inicio">
 
 									</rich:calendar></td>
 
@@ -114,7 +114,7 @@
 								<td><rich:calendar
 										value="#{bastanteoAction.objBastanteo.fechaFin}"
 										locale="en/US" datePattern="yyyy-M-dd" cellWidth="24px"
-										cellHeight="22px" style="width:200px">
+										cellHeight="22px" style="width:200px" required="true" requiredMessage="Ingrese una fecha de final">
 
 									</rich:calendar></td>
 
