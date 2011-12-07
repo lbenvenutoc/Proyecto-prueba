@@ -40,8 +40,10 @@
 
 							<tr>
 								<td>Grupo Bastanteo:</td>
-								<td><h:selectOneMenu
-										value="#{bastanteoAction.codGrupoBastanteo}"
+								<td>
+								
+								<h:selectOneMenu
+										value="#{bastanteoAction.codGrupoBastanteo}" 
 										rendered="#{bastanteoAction.muestraCombo!=false}">
 										<f:selectItems value="#{bastanteoAction.lstGrupoBastanteo}" />
 

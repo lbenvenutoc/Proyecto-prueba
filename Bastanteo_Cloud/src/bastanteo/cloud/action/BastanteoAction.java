@@ -222,23 +222,45 @@ public class BastanteoAction {
 
 	public String muestraBastanteo() {
 		objBastanteo= new Bastanteo();
-		
+		codGrupoBastanteo=0;
 		return "muestraBastanteo";
 	}
 
 	public String registraBastanteo() {
-		//System.out.println("llave bastanteo "+codEmpresa+"---"+codGrupoBastanteo+"---"+codPoder);
-		BastanteoId id = new BastanteoId(codEmpresa, codGrupoBastanteo,
-				codPoder);
-		objBastanteo.setId(id);
-		TipoIntervencion objTip = new TipoIntervencion();
-		objTip.setCTipoIntervencion(codTipIntervencion);
-
-		TipoIntervencion objTipIntObt = new TipoIntervencion();
-		objTipIntObt = servicioTipoIntervencion.obtenerTipoIntervencion(objTip);
-		objBastanteo.setTipoIntervencion(objTipIntObt);
+		System.out.println("llave bastanteo "+codEmpresa+"---"+codGrupoBastanteo+"---"+codPoder);
 		
-		int retorno=servicioBastanteo.verificarBastanteo(objBastanteo);
+		if(codGrupoBastanteo!=0){
+			BastanteoId id = new BastanteoId(codEmpresa, codGrupoBastanteo,
+					codPoder);
+			objBastanteo.setId(id);
+		}else{
+			FacesMessage msg = new FacesMessage(
+					FacesMessage.SEVERITY_ERROR,
+					"Se debe escoger el grupo de bastanteo",
+					null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
+		if(codTipIntervencion!=0){
+			TipoIntervencion objTip = new TipoIntervencion();
+			objTip.setCTipoIntervencion(codTipIntervencion);
+			
+			TipoIntervencion objTipIntObt = new TipoIntervencion();
+			objTipIntObt = servicioTipoIntervencion.obtenerTipoIntervencion(objTip);
+			objBastanteo.setTipoIntervencion(objTipIntObt);
+		}else{
+			FacesMessage msg = new FacesMessage(
+					FacesMessage.SEVERITY_ERROR,
+					"Se debe escoger el tipo de intervencion",
+					null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
+		
+		int retorno=-1;
+		
+		if(codEmpresa!=null && codGrupoBastanteo!=0 && codPoder!=null && codTipIntervencion!=0){
+			 retorno=servicioBastanteo.verificarBastanteo(objBastanteo);
+		}
+	
 		
 		if (retorno != 0) {
 			FacesMessage msg = new FacesMessage(
@@ -247,17 +269,17 @@ public class BastanteoAction {
 					null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 						
-		}else if(objBastanteo.getImporteMin()>objBastanteo.getImporteMax()){
+		}if(objBastanteo.getImporteMin()>objBastanteo.getImporteMax()){
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"El importe mínimo no puede ser mayor al máximo", null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
-		}else if(objBastanteo.getImporteMin()==0 || objBastanteo.getImporteMax()==0){
+		}if(objBastanteo.getImporteMin()==0 || objBastanteo.getImporteMax()==0){
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Ingrese valores mayores que cero", null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}
 		
-		else if(objBastanteo.getFechaIni().compareTo(objBastanteo.getFechaFin())>0){
+		if(objBastanteo.getFechaIni().compareTo(objBastanteo.getFechaFin())>0){
 			
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"La fecha de inicio no puede ser mayor que la fecha de fin", null);
@@ -313,6 +335,7 @@ public class BastanteoAction {
 
 		} else {
 			muestraCombo = false;
+			
 		}
 
 	}
