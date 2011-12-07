@@ -157,8 +157,21 @@ public class BastanteoAction {
 		GrupoBastanteoId id= new GrupoBastanteoId(codEmpresa, codGrupoBastanteo);
 		objGrupoBastanteo.setId(id);
 		
-		servicioGrupoBastanteo.registraGrupoBastanteo(objGrupoBastanteo);
+		/*
+		int retorno=servicioBastanteo.verificarBastanteo(objBastanteo);
 		
+		if (retorno != 0) {
+			FacesMessage msg = new FacesMessage(
+					FacesMessage.SEVERITY_ERROR,
+					"Ya se anotó el mismo poder para el mismo grupo de bastanteo, en el mismo cliente, considerando el mismo tipo de intervención y combinación",
+					null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+						
+		}else{
+			servicioGrupoBastanteo.registraGrupoBastanteo(objGrupoBastanteo);
+		}
+		*/
+		servicioGrupoBastanteo.registraGrupoBastanteo(objGrupoBastanteo);
 		return "muestraBastanteo";
 		
 	}
@@ -224,13 +237,25 @@ public class BastanteoAction {
 		TipoIntervencion objTipIntObt = new TipoIntervencion();
 		objTipIntObt = servicioTipoIntervencion.obtenerTipoIntervencion(objTip);
 		objBastanteo.setTipoIntervencion(objTipIntObt);
-
-		int i = servicioBastanteo.insertarBastanteo(objBastanteo);
-		if (i > 0) {
+		
+		int retorno=servicioBastanteo.verificarBastanteo(objBastanteo);
+		
+		if (retorno != 0) {
+			FacesMessage msg = new FacesMessage(
+					FacesMessage.SEVERITY_ERROR,
+					"Ya se anotó el mismo poder para el mismo grupo de bastanteo, en el mismo cliente, considerando el mismo tipo de intervención y combinación",
+					null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+						
+		}else{
+			servicioBastanteo.insertarBastanteo(objBastanteo);
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
 					"Datos ingresados correctamente", null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}
+
+		
+		
 		return "muestraBastanteo";
 
 	}
@@ -266,12 +291,12 @@ public class BastanteoAction {
 						+ objGrupoBastanteo.getId().getCGrupoBastanteo());
 
 			}
-
+			
 			muestraCombo = true;
 
-		}// else {
-
-		// }
+		} else {
+			muestraCombo = false;
+		}
 
 	}
 

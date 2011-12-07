@@ -115,7 +115,8 @@ public class RepresentanteAction implements Serializable {
 		objRepObt.setId(objRepId);
 		objRepresentante = servicioRepresentante
 				.obtenerRepresentantes(objRepObt);
-		codGrupoBastanteo=objRepresentante.getGrupoBastanteo().getId().getCGrupoBastanteo();
+		codGrupoBastanteo = objRepresentante.getGrupoBastanteo().getId()
+				.getCGrupoBastanteo();
 		return "muestraEdicionRepresentante";
 	}
 
@@ -158,11 +159,11 @@ public class RepresentanteAction implements Serializable {
 
 			}
 			muestraCombo = true;
-		} /*
-		 * else {
-		 * 
-		 * codEmpresa = null; }
-		 */
+		} else {
+
+			muestraCombo = false;
+		}
+
 	}
 
 	public String registraRepresentante() {
@@ -200,13 +201,20 @@ public class RepresentanteAction implements Serializable {
 				.obtenerGrupoBastanteo(objGrupoBastanteo);
 
 		objRepresentante.setGrupoBastanteo(objGrupoBastanteoObt);
+		System.out.println("GRUPO ------->"+codGrupoBastanteo);
+		if(codGrupoBastanteo==0){
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Necesita estar asignado a un grupo", null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			return "muestraRepresentante";
+		}
 
 		if (servicioRepresentante
 				.perteneceEmpresaRepresentante(objRepresentante) == true) {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Este representante pertenece a dicha empresa", null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
-			retorno = "muestraEmpresa";
+			retorno = "muestraRepresentante";
 
 		} else {
 			servicioRepresentante.inscribirRepresentante(objRepresentante);
@@ -218,7 +226,7 @@ public class RepresentanteAction implements Serializable {
 	}
 
 	public String actualizaRepresentante() {
-	
+
 		RepresentanteId id = new RepresentanteId(codEmpresa, codRepresentante);
 		objRepresentante.setId(id);
 		TipoDocId tipoDocId = new TipoDocId();
@@ -226,13 +234,13 @@ public class RepresentanteAction implements Serializable {
 		objTipoDocId.setCTipoDocId(codTipDocIdentidad);
 		tipoDocId = servicioTipoDocId.obtenerTipoDocId(objTipoDocId);
 		objRepresentante.setTipoDocId(tipoDocId);
-		
+
 		GrupoBastanteoId idGrup = new GrupoBastanteoId(codEmpresa,
 				codGrupoBastanteo);
 		GrupoBastanteo objGrup = new GrupoBastanteo();
-		GrupoBastanteo param= new GrupoBastanteo();
+		GrupoBastanteo param = new GrupoBastanteo();
 		param.setId(idGrup);
-		objGrup=servicioGrupoBastanteo.obtenerGrupoBastanteo(param);
+		objGrup = servicioGrupoBastanteo.obtenerGrupoBastanteo(param);
 		objRepresentante.setGrupoBastanteo(objGrup);
 		servicioRepresentante.modificarRepresentantes(objRepresentante);
 

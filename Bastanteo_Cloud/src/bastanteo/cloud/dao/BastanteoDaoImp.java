@@ -17,7 +17,7 @@ import bastanteo.cloud.util.HibernateUtil;
 
 public class BastanteoDaoImp implements BastanteoDao {
 
-	private int verificarBastanteo(Bastanteo objBastanteo) {
+	public int verificarBastanteo(Bastanteo objBastanteo) {
 		int retorno = 0;
 
 		Session session = HibernateUtil.getSessionFactory();
@@ -74,14 +74,14 @@ public class BastanteoDaoImp implements BastanteoDao {
 	public int insertarBastanteo(Bastanteo objBastanteo) {
 
 		int retorno;
-
+/*
 		retorno = verificarBastanteo(objBastanteo);
 		System.out.println(retorno);
 		if (retorno != 0) {
 			System.out.println("Ya se anotó el mismo poder para el mismo grupo de bastanteo, en el mismo cliente, considerando el mismo tipo de intervención y combinación");
 			return retorno;
 		}
-
+*/
 		Session session = HibernateUtil.getSessionFactory();
 		Transaction tx = null;
 

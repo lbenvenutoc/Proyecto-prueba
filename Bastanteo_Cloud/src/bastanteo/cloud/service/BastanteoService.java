@@ -23,4 +23,9 @@ public class BastanteoService {
 		return dao.obtenerBastanteosxCriterios(ruc, idRepresentante, idGrupoBastanteo, idTipoIntervencion);
 	}
 	
+	public int verificarBastanteo(Bastanteo objBastanteo) {
+		return dao.verificarBastanteo(objBastanteo);
+	}
+	
+	
 }

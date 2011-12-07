@@ -14,6 +14,6 @@ public interface BastanteoDao {
 	public int insertarBastanteo(Bastanteo objBastanteo);
 	public Bastanteo obtenerBastanteo(BastanteoId objBastanteoId);
 	public List obtenerBastanteosxCriterios(String ruc,RepresentanteId idRepresentante,GrupoBastanteoId idGrupoBastanteo,int idTipoIntervencion);
-
+	public int verificarBastanteo(Bastanteo objBastanteo);
 	
 }
