@@ -218,9 +218,7 @@ public class RepresentanteAction implements Serializable {
 	}
 
 	public String actualizaRepresentante() {
-		System.out.println("EMPRESA "+codEmpresa);
-		System.out.println("REP "+codRepresentante);
-		
+	
 		RepresentanteId id = new RepresentanteId(codEmpresa, codRepresentante);
 		objRepresentante.setId(id);
 		TipoDocId tipoDocId = new TipoDocId();
@@ -228,7 +226,7 @@ public class RepresentanteAction implements Serializable {
 		objTipoDocId.setCTipoDocId(codTipDocIdentidad);
 		tipoDocId = servicioTipoDocId.obtenerTipoDocId(objTipoDocId);
 		objRepresentante.setTipoDocId(tipoDocId);
-		System.out.println("GRUPO BASTANTEO "+codGrupoBastanteo);
+		
 		GrupoBastanteoId idGrup = new GrupoBastanteoId(codEmpresa,
 				codGrupoBastanteo);
 		GrupoBastanteo objGrup = new GrupoBastanteo();
