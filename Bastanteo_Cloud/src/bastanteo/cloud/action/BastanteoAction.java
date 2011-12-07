@@ -221,13 +221,14 @@ public class BastanteoAction {
 	}
 
 	public String muestraBastanteo() {
-		objBastanteo= new Bastanteo();
-		codGrupoBastanteo=0;
+		 objBastanteo= new Bastanteo();
+		 listaGrupoBastanteo.add(new SelectItem(0, "No hay grupos"));
 		return "muestraBastanteo";
 	}
 
 	public String registraBastanteo() {
 		System.out.println("llave bastanteo "+codEmpresa+"---"+codGrupoBastanteo+"---"+codPoder);
+	   
 		
 		if(codGrupoBastanteo!=0){
 			BastanteoId id = new BastanteoId(codEmpresa, codGrupoBastanteo,
@@ -328,13 +329,18 @@ public class BastanteoAction {
 
 				System.out.println("CARGA CODIGOS COMBO GRUPO "
 						+ objGrupoBastanteo.getId().getCGrupoBastanteo());
+				
+				
 
 			}
 			
-			muestraCombo = true;
+			//muestraCombo = true;
+			
+			
 
 		} else {
-			muestraCombo = false;
+			 listaGrupoBastanteo.add(new SelectItem(0, "No hay grupos"));
+			//muestraCombo = false;
 			
 		}
 
