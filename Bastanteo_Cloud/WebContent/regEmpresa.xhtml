@@ -27,7 +27,7 @@
 								<td>Codigo:</td>
 								<td><h:inputText
 										value="#{empresaAction.objEmpresa.CEmpresa}" required="true" requiredMessage="Debe ingresar codigo" validatorMessage="El código debe tener 8 caracteres">
-										<f:validateLength minimum="8" maximum="8" />
+										<f:validateLength minimum="1" maximum="8" />
 										</h:inputText>
 								</td>
 
@@ -41,8 +41,9 @@
 							</tr>
 							<tr>
 								<td>RUC:</td>
-								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}" required="true" requiredMessage="Debe ingresar RUC" validatorMessage="El RUC debe tener 11 numeros">
+								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}"  maxlength="11"  required="true" requiredMessage="Debe ingresar RUC" validatorMessage="El RUC debe tene como longitud 11">
 								<f:validateLength minimum="11" maximum="11" />
+								
 								</h:inputText>
 								</td>
 
@@ -95,7 +96,7 @@
 							<tr>
 								<td>Cantidad Empleados:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.cantEmpleado}" converter="#{Integer}" converterMessage="Debe ingresar un valor entero">
+										value="#{empresaAction.objEmpresa.cantEmpleado}" converter="#{Integer}" converterMessage="Debe ingresar un valor entero para cantidad de empleados">
 										
 										</h:inputText></td>
 

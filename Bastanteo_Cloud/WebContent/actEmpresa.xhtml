@@ -26,8 +26,9 @@
 							<h:inputHidden value="#{empresaAction.objEmpresa.CEmpresa}" />
 								<tr>
 								<td>RUC:</td>
-								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}" required="true" requiredMessage="Debe ingresar RUC" validatorMessage="El RUC debe tener 11 numeros">
+								<td><h:inputText value="#{empresaAction.objEmpresa.ruc}" required="true" requiredMessage="Debe ingresar RUC" converterMessage="Debe registrar solo numeros" validatorMessage="El RUC debe tener 11 numeros">
 								<f:validateLength minimum="11" maximum="11" />
+								<f:convertNumber />
 								</h:inputText>
 								</td>
 
@@ -80,8 +81,8 @@
 							<tr>
 								<td>Cantidad Empleados:</td>
 								<td><h:inputText
-										value="#{empresaAction.objEmpresa.cantEmpleado}" converter="#{Integer}" converterMessage="Debe ingresar un valor entero">
-										
+										value="#{empresaAction.objEmpresa.cantEmpleado}" converter="#{Integer}"  converterMessage="Debe ingresar un valor entero">
+											
 										</h:inputText></td>
 
 
