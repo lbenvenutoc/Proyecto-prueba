@@ -10,6 +10,7 @@
  <managed-bean>
   <managed-bean-name>poderAction</managed-bean-name>
   <managed-bean-class>bastanteo.cloud.action.PoderAction</managed-bean-class>
+  
   <managed-bean-scope>request</managed-bean-scope>
   <managed-property>
    <property-name>objPoder</property-name>
@@ -195,8 +196,7 @@
    <to-view-id>/regGrupoBastanteo.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
- 
-  <navigation-rule>
+ <navigation-rule>
   <navigation-case>
    <from-outcome>logout</from-outcome>
    <to-view-id>/logueo.xhtml</to-view-id>
