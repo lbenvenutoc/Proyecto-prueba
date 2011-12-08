@@ -3,6 +3,9 @@ package bastanteo.cloud.action;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 
 import bastanteo.cloud.bean.Poder;
 import bastanteo.cloud.service.PoderService;
@@ -47,11 +50,21 @@ public class PoderAction implements  Serializable{
 	
 	public String registraPoder(){
 		System.out.println("DESCRIPCION DE PRODUCTO ENVIADO ");
-		servicioPoder.registrarPoder(objPoder);
+		
+		if(servicioPoder.obtenerPoder(objPoder)!=null){
+			FacesMessage msg = new FacesMessage(
+					FacesMessage.SEVERITY_ERROR,
+					"No puede registrar poder con el mismo codigo",
+					null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}else{
+			servicioPoder.registrarPoder(objPoder);
+		}
+		
 		
 		lstPoder=servicioPoder.listar();
 		
-		return "listaPoder";
+		return "muestraPoder";
 	}
 	
 	private String ruc;
