@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 public final class HttpJSFUtil {
     private HttpJSFUtil() {
     }
+    
 
     public static HttpSession getSession() {
         return (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
