@@ -219,6 +219,25 @@ public class UsuarioAction {
 		objPerfilObt = servicioPerfil.obtenerPerfil(objPerfil);
 		objUsuarioNuevo.setPerfil(objPerfilObt);
 
+		Usuario objUsuarioObt=servicioUsuario.obtenerUsuario(objUsuarioNuevo);
+		
+		if(objUsuarioObt!=null){
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Error al ingresar usuario, ya que el codigo ya existe",
+					null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			return "muestraUsuario";
+			
+		}
+
+		else if(servicioUsuario.obtenerUsuarioxDni(objUsuarioNuevo)!=null){
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Error al ingresar usuario, ya que el DNI ya existe",
+					null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			return "muestraUsuario";
+		}
+		
 		servicioUsuario.ControlarUsuario(objUsuarioNuevo);
 		lstUsuario = servicioUsuario.lista();
 		return "listaUsuario";
