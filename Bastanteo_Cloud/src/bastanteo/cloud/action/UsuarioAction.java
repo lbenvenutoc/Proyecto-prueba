@@ -299,7 +299,7 @@ public class UsuarioAction {
 	
     public Object cerrarSesion() {
         HttpJSFUtil.getSession().invalidate();
-
+        	
         return "logout";
     }
 }
