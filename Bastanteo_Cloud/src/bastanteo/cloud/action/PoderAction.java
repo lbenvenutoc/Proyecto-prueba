@@ -10,7 +10,7 @@ import javax.faces.context.FacesContext;
 import bastanteo.cloud.bean.Poder;
 import bastanteo.cloud.service.PoderService;
 
-
+/*Clase elaborada por Luis Benvenuto*/
 
 public class PoderAction implements  Serializable{
 	
