@@ -12,6 +12,8 @@ import bastanteo.cloud.service.PoderService;
 
 /*Clase elaborada por Luis Benvenuto*/
 
+
+
 public class PoderAction implements  Serializable{
 	
 	
